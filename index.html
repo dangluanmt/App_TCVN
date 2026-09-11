@@ -1,3 +1,9 @@
+<!-- Cấu hình PWA cho Safari & iOS -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tra Cứu TCVN">
+<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135768.png">
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -605,3 +611,11 @@
 
 </body>
 </html>
+// Đăng ký Service Worker để kích hoạt chế độ Offline
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((reg) => console.log('Service Worker đã sẵn sàng!', reg))
+      .catch((err) => console.error('Lỗi Service Worker:', err));
+  });
+}
