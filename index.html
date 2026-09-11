@@ -61,7 +61,7 @@
       z-index: 1000; padding: 20px;
     }
     .modal-content {
-      background: white; width: 100%; max-width: 940px; max-height: 88vh;
+      background: white; width: 100%; max-width: 960px; max-height: 88vh;
       border-radius: 12px; overflow-y: auto; padding: 28px; position: relative;
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
@@ -100,11 +100,13 @@
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: chợ thực phẩm, 11856, mầm non, tiểu học, trung học, làn xe, mật độ, thoát nạn, pccc)..." autofocus>
+    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: nhà thi đấu, 4529, sân bóng, 4205, chợ, mầm non, tiểu học, trung học, pccc)..." autofocus>
   </div>
 
   <div class="tag-container">
     <span style="font-size: 13px; align-self: center; font-weight: bold;">Lọc nhanh:</span>
+    <button class="tag" onclick="quickSearch('4529')">Nhà thể thao (4529)</button>
+    <button class="tag" onclick="quickSearch('4205')">Sân thể thao (4205)</button>
     <button class="tag" onclick="quickSearch('11856')">Chợ thực phẩm (11856)</button>
     <button class="tag" onclick="quickSearch('9211')">Thiết kế Chợ (9211)</button>
     <button class="tag" onclick="quickSearch('3907')">Mầm non (3907)</button>
@@ -140,7 +142,124 @@
 
 <script>
   const tcvnDatabase = [
-    // --- 1. TCVN 11856:2017 ---
+    // --- 1. TCVN 4529:2012 (NHÀ THỂ THAO) ---
+    {
+      code: "TCVN 4529:2012",
+      title: "Công trình thể thao – Nhà thể thao – Tiêu chuẩn thiết kế",
+      category: "Thể dục thể thao",
+      keywords: "nha the thao nha tap luyen nha thi dau da nang bong ro bong chuyen cau long bong ban khan dai tinh khong am thanh chieu sang tcvn 4529 4529 2012",
+      summary: "Mật độ XD ≤ 30%, cây xanh ≥ 30%, kích thước sân đa năng/bóng rổ/chuyền/cầu lông/bóng bàn, chiều cao tĩnh không H, quy cách khán đài, độ rọi và âm học.",
+      pdfUrl: "pdf/TCVN_4529_2012.pdf",
+      details: `
+        <h4>1. Bảng chỉ tiêu và thông số kỹ thuật cốt lõi</h4>
+        <table class="specs-table">
+          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
+          <tr><td><strong>Phân cấp công trình</strong></td><td>Phân cấp theo quy mô và độ bền vững</td><td><strong>4 cấp</strong> (Cấp I, II, III, IV)</td></tr>
+          <tr><td><strong>Mật độ xây dựng & Cây xanh</strong></td><td>Tỷ lệ diện tích xây dựng và diện tích cây xanh trên lô đất</td><td>Mật độ XD: <strong>≤ 30%</strong>; Tỷ lệ cây xanh, mặt nước: <strong>≥ 30%</strong></td></tr>
+          <tr><td><strong>Quảng trường tập kết</strong></td><td>Diện tích quảng trường trước lối vào chính khán giả</td><td><strong>Tối thiểu 0,5 m² / khán giả</strong></td></tr>
+          <tr><td><strong>Bãi đỗ xe</strong></td><td>Diện tích tính toán theo từng loại phương tiện</td><td>Ô tô: <strong>25 m²/xe</strong>; Mô tô/xe máy: <strong>3,0 m²/xe</strong>; Xe đạp: <strong>0,9 m²/xe</strong></td></tr>
+          <tr><td><strong>Thoát nạn sự cố</strong></td><td>Chiều rộng lối đi/cửa thoát hiểm tính theo số lượng người</td><td><strong>1,0 m cho 500 người</strong>; Chiều rộng thông thủy cửa tối thiểu <strong>1,2 m</strong></td></tr>
+          <tr><td><strong>Kho thiết bị thể thao</strong></td><td>Diện tích kho chứa dụng cụ trực tiếp thông với sàn tập/thi đấu</td><td><strong>Tối thiểu 10% đến 15%</strong> diện tích mặt sàn thi đấu</td></tr>
+        </table>
+
+        <h4>2. Thông số kích thước phòng tập và sân thi đấu trong nhà</h4>
+        <p>Kích thước mặt bằng và chiều cao thông thủy tĩnh (<em>H</em>) tính từ mặt sàn đến điểm thấp nhất của kết cấu mái hoặc thiết bị treo:</p>
+        <ul>
+          <li><strong>Nhà tập tổng hợp / Sân đa năng:</strong>
+            <ul>
+              <li>Kích thước chuẩn: <strong>30 m × 18 m</strong> (<em>H</em> ≥ 7,0 m) hoặc <strong>36 m × 18 m</strong>.</li>
+              <li>Cấp quốc tế / thi đấu đỉnh cao: <strong>48 m × 24 m</strong> (<em>H</em> ≥ 12,5 m).</li>
+            </ul>
+          </li>
+          <li><strong>Sân bóng rổ trong nhà:</strong>
+            <ul>
+              <li>Sân thi đấu: <strong>28 m × 15 m</strong>; Kích thước xây dựng (gồm biên an toàn): <strong>32 m × 19 m</strong>.</li>
+              <li>Chiều cao thông thủy: Luyện tập <em>H</em> ≥ <strong>7,0 m</strong>; Thi đấu <em>H</em> ≥ <strong>9,0 m</strong> (quốc tế ≥ <strong>12,5 m</strong>).</li>
+            </ul>
+          </li>
+          <li><strong>Sân bóng chuyền trong nhà:</strong>
+            <ul>
+              <li>Sân thi đấu: <strong>18 m × 9 m</strong>; Kích thước xây dựng (gồm vùng tự do): <strong>24 m × 15 m</strong> đến <strong>34 m × 19 m</strong>.</li>
+              <li>Chiều cao thông thủy: Luyện tập <em>H</em> ≥ <strong>7,0 m</strong>; Thi đấu cấp cao <em>H</em> ≥ <strong>12,5 m</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>Sân cầu lông trong nhà:</strong>
+            <ul>
+              <li>Mặt bằng sân đôi: <strong>13,4 m × 6,1 m</strong>; Kích thước xây dựng trọn ô: <strong>15,4 m × 7,1 m</strong>.</li>
+              <li>Chiều cao thông thủy: Tối thiểu <em>H</em> ≥ <strong>7,5 m</strong> (cấp cao / quốc tế <em>H</em> ≥ <strong>9,0 m đến 12,0 m</strong>).</li>
+            </ul>
+          </li>
+          <li><strong>Sân bóng bàn trong nhà:</strong>
+            <ul>
+              <li>Kích thước bàn chuẩn: <strong>2,74 m × 1,525 m × 0,76 m</strong>.</li>
+              <li>Không gian đặt 1 bàn thi đấu: Tối thiểu <strong>14 m × 7 m</strong>; Chiều cao thông thủy <em>H</em> ≥ <strong>4,0 m</strong> (thi đấu ≥ <strong>5,0 m</strong>).</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>3. Thông số kỹ thuật khán đài và môi trường tiện nghi</h4>
+        <ul>
+          <li><strong>Khán đài trong nhà:</strong>
+            <ul>
+              <li>Chiều rộng chỗ ngồi: <strong>≥ 0,45 m / ghế</strong> (ghế có tay vịn lấy <strong>≥ 0,50 m</strong>).</li>
+              <li>Chiều sâu bậc khán đài: Bậc gắn ghế có lưng tựa: <strong>0,80 m – 0,90 m</strong>; Bậc ngồi không lưng tựa: <strong>0,75 m</strong>.</li>
+              <li>Khoảng cách giữa 2 lối đi phân cách dọc: Tối đa <strong>26 ghế</strong> (lối vào 2 phía) hoặc <strong>12 ghế</strong> (lối vào cụt 1 phía).</li>
+            </ul>
+          </li>
+          <li><strong>Chiếu sáng nhân tạo (Độ rọi mặt sàn thi đấu):</strong>
+            <ul>
+              <li>Luyện tập thông thường: <strong>150 – 300 Lux</strong>.</li>
+              <li>Thi đấu phong trào / quốc gia: <strong>500 – 750 Lux</strong>.</li>
+              <li>Thi đấu quốc tế truyền hình trực tiếp: <strong>1000 – 1500+ Lux</strong> (hệ số chói lóa <em>GR</em> ≤ 30).</li>
+            </ul>
+          </li>
+          <li><strong>Vi khí hậu & Âm học:</strong>
+            <ul>
+              <li>Nhiệt độ phòng tập mùa hè không quá <strong>28 °C</strong>, mùa đông không dưới <strong>16 °C</strong>.</li>
+              <li>Vận tốc gió khu vực thi đấu cầu lông/bóng bàn: <strong>≤ 0,2 m/s</strong>.</li>
+              <li>Thời gian âm vang tối ưu cho nhà thi đấu có khán giả: <strong>1,2 s – 1,8 s</strong> (tùy theo thể tích không gian).</li>
+            </ul>
+          </li>
+        </ul>
+      `
+    },
+
+    // --- 2. TCVN 4205:2012 (SÂN THỂ THAO) ---
+    {
+      code: "TCVN 4205:2012",
+      title: "Công trình thể thao – Sân thể thao – Tiêu chuẩn thiết kế",
+      category: "Thể dục thể thao",
+      keywords: "san the thao san bong da dien kinh bong ro bong chuyen tennis quan vot khan dai do doc thoat nuoc chieu sang tcvn 4205 4205 2012",
+      summary: "Trục sân Bắc - Nam (lệch ≤ 15°-20°), tỷ lệ cây xanh ≥ 30%, sân bóng đá 105x68m, đường chạy 400m, kích thước sân bóng rổ/chuyền/tennis, khán đài và độ dốc mặt sân.",
+      pdfUrl: "pdf/TCVN_4205_2012.pdf",
+      details: `
+        <h4>1. Bảng chỉ tiêu và thông số kỹ thuật cốt lõi</h4>
+        <table class="specs-table">
+          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
+          <tr><td><strong>Phân cấp công trình</strong></td><td>Phân cấp sân theo chất lượng sử dụng và độ bền vững</td><td><strong>4 cấp</strong> (Cấp I, II, III, IV)</td></tr>
+          <tr><td><strong>Hướng sân</strong></td><td>Trục dọc chính của sân</td><td><strong>Hướng Bắc – Nam</strong> (độ lệch cho phép không quá 15° đến 20°)</td></tr>
+          <tr><td><strong>Mật độ cây xanh</strong></td><td>Tỷ lệ diện tích cây xanh, thảm cỏ chắn gió bụi trên tổng khu đất</td><td><strong>Tối thiểu 30%</strong> diện tích khu đất</td></tr>
+          <tr><td><strong>Dải cây xanh cách ly</strong></td><td>Chiều rộng dải cây ngăn gió, bụi / cách ly hai sân gần nhau</td><td>Giáp đường thường: <strong>≥ 5 m</strong>; Giáp đường lớn: <strong>≥ 10 m</strong>; Giữa 2 sân gần nhau: <strong>≥ 3 m</strong></td></tr>
+          <tr><td><strong>Quảng trường lối vào</strong></td><td>Diện tích quảng trường trước lối vào chính tập kết khán giả</td><td><strong>Tối thiểu 0,5 m² / người</strong></td></tr>
+          <tr><td><strong>Cổng và lối thoát người</strong></td><td>Chiều rộng thoát hiểm; lùi ranh giới lô đất</td><td>Thoát người sự cố: <strong>1 m cho 500 người</strong>; Hàng rào/cổng lùi sâu <strong>≥ 4 m</strong></td></tr>
+          <tr><td><strong>Bãi đỗ xe</strong></td><td>Tiêu chuẩn diện tích tính toán cho các loại phương tiện</td><td>Ô tô: <strong>25 m²/xe</strong>; Mô tô/xe máy: <strong>3,0 m²/xe</strong>; Xe đạp: <strong>0,9 m²/xe</strong></td></tr>
+          <tr><td><strong>Dự trữ cỏ tự nhiên</strong></td><td>Diện tích ươm trồng cỏ dự phòng mặt sân</td><td>Bằng <strong>15%</strong> diện tích phủ cỏ (nhiều sân lấy <strong>10%</strong>)</td></tr>
+        </table>
+        <h4>2. Kích thước sân thể thao lộ thiên</h4>
+        <ul>
+          <li>Điền kinh: Đường chạy vòng <strong>400 m</strong> (6–8 làn, mỗi làn rộng 1,22 m ± 0,01 m); đường chạy thẳng 100–110 m (dài 130–140 m).</li>
+          <li>Bóng đá 11 người: Chuẩn quốc tế <strong>105 m × 68 m</strong> (biên dọc an toàn ≥ 2 m, biên ngang ≥ 3 m).</li>
+          <li>Bóng rổ: <strong>28 m × 15 m</strong> (xây dựng: 32 m × 19 m); Bóng chuyền: <strong>18 m × 9 m</strong> (vùng tự do ≥ 3 m); Tennis: đơn 23,77 × 8,23 m, đôi 23,77 × 10,97 m (xây dựng: 36 × 18 m).</li>
+        </ul>
+        <h4>3. Khán đài và độ dốc mặt sân</h4>
+        <ul>
+          <li>Độ dốc khán đài không quá <strong>1 : 1,5</strong>; sâu bậc 0,75–0,80 m; rộng chỗ ngồi ≥ 0,45 m. Bậc thấp nhất cách sân ≥ 5 m, cao hơn sân 0,9–1,15 m.</li>
+          <li>Độ dốc thoát nước sân cỏ/điền kinh: <strong>0,4% – 0,8%</strong> (dốc mu rùa từ tâm ra biên).</li>
+        </ul>
+      `
+    },
+
+    // --- 3. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
     {
       code: "TCVN 11856:2017",
       title: "Chợ kinh doanh thực phẩm – Yêu cầu kỹ thuật và phương pháp đánh giá",
@@ -162,18 +281,13 @@
         </table>
         <h4>2. Quy hoạch & Bố trí mặt bằng</h4>
         <ul>
-          <li>Phân khu riêng biệt giữa khu thực phẩm và khu phi thực phẩm; tách bạch khu thực phẩm tươi sống, thực phẩm chín (ăn uống), thực phẩm bao gói sẵn để ngăn ngừa nhiễm chéo.</li>
-          <li>Nền chợ phải cao ráo, không đọng nước, lát vật liệu bền, phẳng, chống trơn trượt và có độ dốc thoát nước tốt.</li>
-        </ul>
-        <h4>3. Cấp, thoát nước & Xử lý chất thải</h4>
-        <ul>
-          <li>Có nguồn nước sạch đạt chuẩn kỹ thuật quốc gia về nước ăn uống/sinh hoạt. Cung cấp vòi cấp nước sạch và đường thoát riêng đến từng quầy thịt, thủy hải sản, ăn uống.</li>
-          <li>Rãnh thoát nước phải có nắp đậy ngăn mùi, lưới chắn rác và độ dốc đạt chuẩn. Thu gom rác tối thiểu 1 lần/ngày.</li>
+          <li>Phân khu riêng biệt thực phẩm và phi thực phẩm; tách bạch tươi sống, đồ chín và bao gói sẵn tránh nhiễm chéo. Nền cao ráo, chống trượt, thoát nước tốt.</li>
+          <li>Cấp nước sạch và thoát nước riêng từng quầy tươi sống/ăn uống. Rãnh thoát có nắp ngăn mùi, lưới chắn rác. Rác thu gom ≥ 1 lần/ngày.</li>
         </ul>
       `
     },
 
-    // --- 2. TCVN 9211:2012 ---
+    // --- 4. TCVN 9211:2012 (CHỢ) ---
     {
       code: "TCVN 9211:2012",
       title: "Chợ – Tiêu chuẩn thiết kế",
@@ -199,7 +313,7 @@
       `
     },
 
-    // --- 3. TCVN 3907:2011 ---
+    // --- 5. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
     {
       code: "TCVN 3907:2011",
       title: "Trường mầm non – Yêu cầu thiết kế",
@@ -220,7 +334,7 @@
       `
     },
 
-    // --- 4. TCVN 8793:2011 ---
+    // --- 6. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
     {
       code: "TCVN 8793:2011",
       title: "Trường tiểu học – Yêu cầu thiết kế",
@@ -239,7 +353,7 @@
       `
     },
 
-    // --- 5. TCVN 8794:2011 ---
+    // --- 7. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC) ---
     {
       code: "TCVN 8794:2011",
       title: "Trường trung học (THCS & THPT) – Yêu cầu thiết kế",
@@ -256,7 +370,7 @@
       `
     },
 
-    // --- 6. QCVN 07-4:2016/BXD ---
+    // --- 8. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
     {
       code: "QCVN 07-4:2016/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Công trình giao thông đô thị",
@@ -274,7 +388,7 @@
       `
     },
 
-    // --- 7. QCVN 01:2021/BXD ---
+    // --- 9. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
     {
       code: "QCVN 01:2021/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Quy hoạch xây dựng",
@@ -292,7 +406,7 @@
       `
     },
 
-    // --- 8. QCVN 06:2022/BXD ---
+    // --- 10. QCVN 06:2022/BXD (PCCC & AN TOÀN CHÁY) ---
     {
       code: "QCVN 06:2022/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về An toàn cháy cho nhà và công trình",
