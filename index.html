@@ -1,15 +1,17 @@
-<!-- Cấu hình PWA cho Safari & iOS -->
-<link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tra Cứu TCVN">
-<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135768.png">
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cẩm Nang Tra Cứu TCVN & QCVN Thiết Kế Kiến Trúc</title>
+
+  <!-- Cấu hình PWA cho iOS / Safari & Android -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tra Cứu TCVN">
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135768.png">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background-color: #f4f6f8; color: #333; padding: 20px; }
@@ -94,15 +96,15 @@
 <div class="container">
   <header>
     <h1>Cẩm Nang Tra Cứu TCVN & QCVN Thiết Kế Kiến Trúc</h1>
-    <p>Tổng hợp chuẩn hóa thông số cốt lõi và tích hợp liên kết mở file PDF đầy đủ</p>
+    <p>Hỗ trợ tra cứu nhanh thông số kỹ thuật và lưu Offline xem toàn màn hình trên điện thoại</p>
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: chợ, mầm non, tiểu học, trung học, làn xe, mật độ, khoảng lùi, thoát nạn, pccc)..." autofocus>
+    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: chợ thực phẩm, 11856, mầm non, tiểu học, trung học, làn xe, mật độ, thoát nạn, pccc)..." autofocus>
   </div>
 
   <div class="tag-container">
-    <span style="font-size: 13px; align-self: center; font-weight: bold;">Lọc nhanh theo tiêu chuẩn:</span>
+    <span style="font-size: 13px; align-self: center; font-weight: bold;">Lọc nhanh:</span>
     <button class="tag" onclick="quickSearch('11856')">Chợ thực phẩm (11856)</button>
     <button class="tag" onclick="quickSearch('9211')">Thiết kế Chợ (9211)</button>
     <button class="tag" onclick="quickSearch('3907')">Mầm non (3907)</button>
@@ -118,7 +120,7 @@
   <div class="card-list" id="cardList"></div>
 </div>
 
-<!-- Modal xem chi tiết -->
+<!-- Modal Popup Chi Tiết -->
 <div class="modal-overlay" id="detailModal" onclick="closeModal(event)">
   <div class="modal-content" onclick="event.stopPropagation()">
     <button class="close-btn" onclick="closeModalDirect()">&times;</button>
@@ -138,69 +140,7 @@
 
 <script>
   const tcvnDatabase = [
-    // --- 1. TCVN 9211:2012 (CHỢ) ---
-    {
-      code: "TCVN 9211:2012",
-      title: "Chợ – Tiêu chuẩn thiết kế",
-      category: "Thương mại",
-      keywords: "cho phan hang cho quy mo phuc vu chi tieu dat bai do xe hanh lang chieu cao thoat nan pccc 9211",
-      summary: "Phân hạng chợ 1-2-3, chỉ tiêu 12-16 m² đất/ĐKD, tỷ lệ diện tích các khu, chiều cao thông thủy, luồng giao thông và lối thoát nạn.",
-      pdfUrl: "pdf/TCVN_9211_2012.pdf",
-      details: `
-        <h4>1. Phân hạng và quy mô phục vụ</h4>
-        <table class="specs-table">
-          <tr><th>Hạng chợ</th><th>Quy mô (Số điểm kinh doanh - ĐKD)</th><th>Bán kính phục vụ</th><th>Quy mô dân số phục vụ</th></tr>
-          <tr><td><strong>Hạng 1</strong></td><td>Trên 400 ĐKD</td><td>Không quy định bán kính</td><td>Khu vực đô thị / liên vùng</td></tr>
-          <tr><td><strong>Hạng 2</strong></td><td>Từ 200 đến 400 ĐKD</td><td>Đến 3.000 m</td><td>90.000 – 120.000 dân</td></tr>
-          <tr><td><strong>Hạng 3</strong></td><td>Dưới 200 ĐKD</td><td>Đến 1.000 m</td><td>15.000 – 20.000 dân</td></tr>
-        </table>
-        <p><em>(Đất xây dựng chợ nông thôn, xã thường có diện tích từ 2.000 m² đến 3.000 m²).</em></p>
-
-        <h4>2. Cơ cấu sử dụng đất và mặt bằng tổng thể</h4>
-        <ul>
-          <li>Điểm kinh doanh đơn vị quy chuẩn (ĐKD): Diện tích tối thiểu là <strong>≥ 3 m²/điểm</strong>.</li>
-          <li>Chỉ tiêu đất quy hoạch: Từ <strong>12 m² đến 16 m² đất / ĐKD</strong> (tùy thuộc vào tổng quy mô ĐKD).</li>
-          <li><strong>Cơ cấu tỷ lệ diện tích khu đất (Bảng 3):</strong>
-            <ul>
-              <li>Diện tích xây dựng nhà chợ chính (và công trình có mái): <strong>&lt; 40%</strong>.</li>
-              <li>Diện tích khu mua bán ngoài trời: <strong>&gt; 25%</strong>.</li>
-              <li>Sân bãi đậu xe và đường giao thông nội bộ: <strong>&gt; 25%</strong>.</li>
-              <li>Sân vườn, cây xanh cảnh quan: <strong>≥ 10%</strong>.</li>
-            </ul>
-          </li>
-        </ul>
-
-        <h4>3. Kích thước hình học và không gian nhà chợ chính</h4>
-        <ul>
-          <li><strong>Chiều cao thông thủy:</strong> Nhà 1 tầng: <strong>4,5 m – 6,0 m</strong>; Nhà từ 2 tầng trở lên: mỗi tầng tối thiểu <strong>4,5 m</strong>.</li>
-          <li><strong>Hành lang và luồng giao thông mua hàng:</strong>
-            <ul>
-              <li>Diện tích giao thông phục vụ khách mua hàng: Chiếm <strong>≥ 50%</strong> tổng diện tích khu vực kinh doanh.</li>
-              <li>Tuyến hành lang giao thông chính: Chiều rộng <strong>≥ 3,6 m</strong>.</li>
-              <li>Tuyến hành lang phụ / nhánh: Chiều rộng <strong>≥ 2,4 m</strong>.</li>
-              <li>Lối đi giữa 2 dãy quầy bán hàng có chiều dài &lt; 5 m: Chiều rộng <strong>≥ 1,2 m</strong>; dài &gt; 5 m: Chiều rộng <strong>≥ 1,8 m</strong>.</li>
-            </ul>
-          </li>
-        </ul>
-
-        <h4>4. Bãi đỗ xe và giao thông tiếp cận</h4>
-        <ul>
-          <li>Khoảng cách tối thiểu giữa 2 cổng chợ trên cùng mặt đường: <strong>≥ 30 m</strong>.</li>
-          <li>Số lượng phương tiện của hộ kinh doanh tính bình quân: <strong>1 xe / hộ</strong>.</li>
-          <li><strong>Chỉ tiêu diện tích một chỗ đỗ xe:</strong> Xe đạp: <strong>≥ 0,9 m²/xe</strong> (20% – 35% tổng số xe); Xe máy: <strong>2,5 – 3,0 m²/xe</strong> (60% – 70% tổng số xe); Xe ô tô con: <strong>≥ 25 m²/xe</strong> (&gt; 5% tổng số xe).</li>
-        </ul>
-
-        <h4>5. Quy chuẩn an toàn thoát nạn và PCCC</h4>
-        <ul>
-          <li>Định mức tính toán người mua hàng: <strong>2,4 m² – 2,8 m² sàn kinh doanh / người</strong>.</li>
-          <li>Mỗi khu vực kinh doanh phải có tối thiểu <strong>02 lối thoát nạn</strong> bố trí phân tán, mở ra ngoài.</li>
-          <li>Định mức chiều rộng thoát nạn: Tầng 2 (1 m/25 người); Từ tầng 3 trở lên (1 m/100 người).</li>
-          <li>Thang thoát nạn ngoài nhà: Chiều rộng vế thang <strong>≥ 0,7 m</strong>, độ dốc <strong>≤ 45°</strong>, tay vịn cao <strong>≥ 0,9 m</strong>.</li>
-        </ul>
-      `
-    },
-
-    // --- 2. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
+    // --- 1. TCVN 11856:2017 ---
     {
       code: "TCVN 11856:2017",
       title: "Chợ kinh doanh thực phẩm – Yêu cầu kỹ thuật và phương pháp đánh giá",
@@ -220,35 +160,46 @@
           <tr><td><strong>PCCC</strong></td><td>Bậc chịu lửa công trình theo TCVN 6161</td><td><strong>Bậc I, II</strong> (chợ kiên cố) và <strong>bậc III</strong> (bán kiên cố)</td></tr>
           <tr><td><strong>Công trình phụ</strong></td><td>Tỷ lệ phòng vệ sinh trên số lượng hộ kinh doanh</td><td><strong>1 nhà vệ sinh / 25 hộ kinh doanh</strong></td></tr>
         </table>
-
         <h4>2. Quy hoạch & Bố trí mặt bằng</h4>
         <ul>
           <li>Phân khu riêng biệt giữa khu thực phẩm và khu phi thực phẩm; tách bạch khu thực phẩm tươi sống, thực phẩm chín (ăn uống), thực phẩm bao gói sẵn để ngăn ngừa nhiễm chéo.</li>
           <li>Nền chợ phải cao ráo, không đọng nước, lát vật liệu bền, phẳng, chống trơn trượt và có độ dốc thoát nước tốt.</li>
         </ul>
-
         <h4>3. Cấp, thoát nước & Xử lý chất thải</h4>
         <ul>
-          <li>Có nguồn nước sạch đạt chuẩn kỹ thuật quốc gia về nước ăn uống/sinh hoạt.</li>
-          <li>Cung cấp vòi cấp nước sạch và đường thoát nước riêng đến từng quầy kinh doanh thủy hải sản, thịt tươi sống, dịch vụ ăn uống.</li>
-          <li>Toàn bộ hệ thống rãnh thoát nước phải có nắp đậy ngăn mùi, lưới chắn rác và độ dốc đạt chuẩn. Thu gom rác tối thiểu 1 lần/ngày.</li>
-        </ul>
-
-        <h4>4. Bảo quản & Dụng cụ bày bán</h4>
-        <ul>
-          <li>Bàn, kệ, giá bày bán thực phẩm phải làm từ vật liệu bền, nhẵn, không gỉ, dễ làm sạch (khuyến khích inox hoặc đá granite), đặt cách mặt đất tối thiểu theo quy định để tránh bắn bẩn.</li>
-          <li>Quầy bán thịt, thủy sản phải trang bị thiết bị giữ lạnh hoặc đá lạnh bảo quản. Thực phẩm chín phải có tủ kính che chắn bụi và côn trùng.</li>
-        </ul>
-
-        <h4>5. Truy xuất nguồn gốc & Con người</h4>
-        <ul>
-          <li>100% hàng hóa kinh doanh phải có chứng từ, nhãn mác hoặc khả năng truy xuất nguồn gốc xuất xứ.</li>
-          <li>Người kinh doanh thực phẩm phải được khám sức khỏe định kỳ và có xác nhận tập huấn kiến thức an toàn thực phẩm.</li>
+          <li>Có nguồn nước sạch đạt chuẩn kỹ thuật quốc gia về nước ăn uống/sinh hoạt. Cung cấp vòi cấp nước sạch và đường thoát riêng đến từng quầy thịt, thủy hải sản, ăn uống.</li>
+          <li>Rãnh thoát nước phải có nắp đậy ngăn mùi, lưới chắn rác và độ dốc đạt chuẩn. Thu gom rác tối thiểu 1 lần/ngày.</li>
         </ul>
       `
     },
 
-    // --- 3. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
+    // --- 2. TCVN 9211:2012 ---
+    {
+      code: "TCVN 9211:2012",
+      title: "Chợ – Tiêu chuẩn thiết kế",
+      category: "Thương mại",
+      keywords: "cho phan hang cho quy mo phuc vu chi tieu dat bai do xe hanh lang chieu cao thoat nan pccc 9211",
+      summary: "Quy chuẩn phân hạng chợ 1-2-3, chỉ tiêu 12-16 m² đất/ĐKD, tỷ lệ diện tích các khu, chiều cao thông thủy, luồng giao thông và lối thoát nạn.",
+      pdfUrl: "pdf/TCVN_9211_2012.pdf",
+      details: `
+        <h4>1. Phân hạng và quy mô phục vụ</h4>
+        <table class="specs-table">
+          <tr><th>Hạng chợ</th><th>Quy mô (Số ĐKD)</th><th>Bán kính phục vụ</th><th>Quy mô dân số phục vụ</th></tr>
+          <tr><td><strong>Hạng 1</strong></td><td>Trên 400 ĐKD</td><td>Không quy định</td><td>Khu vực đô thị / liên vùng</td></tr>
+          <tr><td><strong>Hạng 2</strong></td><td>Từ 200 đến 400 ĐKD</td><td>Đến 3.000 m</td><td>90.000 – 120.000 dân</td></tr>
+          <tr><td><strong>Hạng 3</strong></td><td>Dưới 200 ĐKD</td><td>Đến 1.000 m</td><td>15.000 – 20.000 dân</td></tr>
+        </table>
+        <h4>2. Cơ cấu sử dụng đất & Giao thông</h4>
+        <ul>
+          <li>Điểm kinh doanh đơn vị (ĐKD): ≥ 3 m²/điểm; Chỉ tiêu đất: 12 – 16 m² đất / ĐKD.</li>
+          <li>Nhà chợ chính: &lt; 40%; Mua bán ngoài trời: &gt; 25%; Sân bãi đậu xe & giao thông: &gt; 25%; Cây xanh: ≥ 10%.</li>
+          <li>Chiều cao: Nhà 1 tầng cao 4,5 – 6,0 m; nhà ≥ 2 tầng cao ≥ 4,5 m/tầng. Hành lang chính rộng ≥ 3,6 m; tuyến phụ rộng ≥ 2,4 m.</li>
+          <li>Bãi xe: Xe máy (2,5 – 3,0 m²/xe); Xe đạp (≥ 0,9 m²/xe); Ô tô con (≥ 25 m²/xe).</li>
+        </ul>
+      `
+    },
+
+    // --- 3. TCVN 3907:2011 ---
     {
       code: "TCVN 3907:2011",
       title: "Trường mầm non – Yêu cầu thiết kế",
@@ -259,47 +210,17 @@
       details: `
         <h4>1. Quy hoạch khu đất và mật độ xây dựng</h4>
         <ul>
-          <li><strong>Chỉ tiêu diện tích đất:</strong> Thành phố, thị xã: Tối thiểu <strong>8 m² / trẻ</strong>; Nông thôn, miền núi: Tối thiểu <strong>12 m² / trẻ</strong>.</li>
-          <li><strong>Bán kính phục vụ:</strong> Đô thị, đồng bằng, KCN: <strong>≤ 1,0 km</strong>; Miền núi, vùng sâu: <strong>≤ 2,0 km</strong>.</li>
-          <li><strong>Cơ cấu sử dụng đất:</strong> Diện tích xây dựng: <strong>≤ 40%</strong>; Sân vườn, cây xanh: <strong>≥ 40%</strong>; Giao thông nội bộ: <strong>≥ 20%</strong>.</li>
-          <li><strong>Tầng cao:</strong> Tối đa <strong>không quá 3 tầng</strong>; nhóm nhà trẻ (dưới 3 tuổi) bắt buộc bố trí ở <strong>tầng 1</strong>.</li>
+          <li>Đất: Thành phố, thị xã ≥ 8 m² / trẻ; Nông thôn, miền núi ≥ 12 m² / trẻ.</li>
+          <li>Cơ cấu: Xây dựng ≤ 40%; Cây xanh sân vườn ≥ 40%; Giao thông ≥ 20%. Nhóm dưới 3 tuổi bắt buộc học tầng 1.</li>
         </ul>
-
         <h4>2. Chỉ tiêu diện tích các phòng chức năng</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục phòng</th><th>Chỉ tiêu định mức</th><th>Giới hạn tối thiểu</th></tr>
-          <tr><td>Phòng sinh hoạt chung</td><td><strong>1,50 – 1,80 m² / trẻ</strong></td><td>≥ 24 m² (nhóm trẻ); ≥ 36 m² (lớp mẫu giáo)</td></tr>
-          <tr><td>Phòng ngủ</td><td><strong>1,20 – 1,50 m² / trẻ</strong></td><td>≥ 18 m² (nhóm trẻ); ≥ 30 m² (lớp mẫu giáo)</td></tr>
-          <tr><td>Phòng vệ sinh nhóm/lớp</td><td><strong>0,40 – 0,60 m² / trẻ</strong></td><td>≥ 12 m² / phòng</td></tr>
-          <tr><td>Hiên chơi</td><td><strong>0,50 – 0,70 m² / trẻ</strong></td><td>Chiều rộng thông thủy ≥ 2,1 m</td></tr>
-          <tr><td>Phòng thể chất / nghệ thuật</td><td><strong>1,50 – 1,80 m² / trẻ</strong></td><td>≥ 60 m² / phòng</td></tr>
-          <tr><td>Bếp ăn</td><td><strong>0,30 – 0,35 m² / trẻ</strong></td><td>Dây chuyền một chiều khép kín</td></tr>
-        </table>
-
-        <h4>3. Chiều cao thông thủy các không gian</h4>
-        <ul>
-          <li>Phòng sinh hoạt chung, phòng ngủ: Từ <strong>3,30 m đến 3,60 m</strong>.</li>
-          <li>Phòng giáo dục thể chất, nghệ thuật: Từ <strong>3,60 m đến 3,90 m</strong>.</li>
-          <li>Hành lang, hiên chơi, phòng phụ trợ: Tối thiểu <strong>2,70 m</strong>.</li>
-        </ul>
-
-        <h4>4. Cầu thang, lan can và lối thoát hiểm</h4>
-        <ul>
-          <li>Độ dốc cầu thang: Không vượt quá <strong>24° đến 26°</strong>.</li>
-          <li>Kích thước bậc thang: Chiều cao bậc <strong>≤ 120 mm</strong>; Chiều rộng mặt bậc <strong>≥ 250 mm đến 280 mm</strong>.</li>
-          <li>Tay vịn cầu thang (hai tầng): Cho trẻ em cao <strong>0,50 m – 0,60 m</strong>; cho người lớn cao <strong>0,85 m – 0,90 m</strong>.</li>
-          <li>Lan can bảo vệ: Cao <strong>≥ 900 mm</strong> dạng thanh đứng, khoảng cách giữa các nan <strong>≤ 100 mm</strong>, cấm bố trí thanh ngang.</li>
-        </ul>
-
-        <h4>5. Hành lang, cửa đi và thiết bị vệ sinh</h4>
-        <ul>
-          <li>Hành lang chính: <strong>≥ 2,1 m</strong>; Hành lang phụ: <strong>≥ 1,2 m</strong>. Cửa lớp học rộng <strong>≥ 1,2 m</strong>; Cửa WC <strong>≥ 0,8 m</strong> (không làm ngưỡng cửa).</li>
-          <li>Định mức vệ sinh: <strong>1 bệ xí / 10 – 15 trẻ</strong>; <strong>1 chậu rửa / 8 – 10 trẻ</strong>. Chiều cao chậu rửa: nhà trẻ 0,40 – 0,45 m; mẫu giáo 0,50 – 0,55 m.</li>
-        </ul>
+        <p>Sinh hoạt chung: <strong>1,50 – 1,80 m² / trẻ</strong>; Phòng ngủ: <strong>1,20 – 1,50 m² / trẻ</strong>; Vệ sinh: <strong>0,40 – 0,60 m² / trẻ</strong>; Hiên chơi: <strong>0,50 – 0,70 m² / trẻ</strong> (rộng ≥ 2,1 m).</p>
+        <h4>3. Cầu thang và thiết bị vệ sinh</h4>
+        <p>Thang dốc 24° – 26°, bậc cao ≤ 120 mm, rộng ≥ 250 – 280 mm. Tay vịn trẻ cao 0,5 – 0,6 m; người lớn cao 0,85 – 0,9 m. Lan can cao ≥ 900 mm nan đứng hở ≤ 100 mm. WC: 1 bệ xí/10–15 trẻ; 1 chậu rửa/8–10 trẻ.</p>
       `
     },
 
-    // --- 4. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
+    // --- 4. TCVN 8793:2011 ---
     {
       code: "TCVN 8793:2011",
       title: "Trường tiểu học – Yêu cầu thiết kế",
@@ -308,51 +229,17 @@
       summary: "Quy mô ≤ 30 lớp (≤ 35 HS/lớp), chỉ tiêu đất 6 - 10 m²/HS, phòng học 1,25 m²/HS, hành lang ≥ 2,1 m, thang dốc 22°-24° (bậc ≤ 150mm), dốc người khuyết tật và chỉ tiêu WC.",
       pdfUrl: "pdf/TCVN_8793_2011.pdf",
       details: `
-        <h4>1. Quy mô, khu đất và mật độ xây dựng</h4>
+        <h4>1. Quy mô, khu đất và cơ cấu đất</h4>
         <ul>
-          <li><strong>Quy mô trường lớp:</strong> Tối đa <strong>không quá 30 lớp</strong>, sĩ số <strong>≤ 35 học sinh / lớp</strong>.</li>
-          <li><strong>Bán kính phục vụ:</strong> Đô thị, thị xã, KCN: <strong>≤ 0,5 km</strong>; Nông thôn: <strong>≤ 1,0 km</strong>; Vùng khó khăn: <strong>≤ 2,0 km</strong>.</li>
-          <li><strong>Chỉ tiêu diện tích đất:</strong> Đô thị, thị xã: ≥ <strong>6 m² / HS</strong> (học 2 buổi: <strong>7,5 m² / HS</strong>); Nông thôn, miền núi: ≥ <strong>10 m² / HS</strong> (học 2 buổi: <strong>12,5 m² / HS</strong>).</li>
-          <li><strong>Cơ cấu đất:</strong> Xây dựng <strong>≤ 40%</strong>; Sân vườn bãi tập <strong>≥ 40%</strong>; Giao thông <strong>≥ 20%</strong>. Tầng cao: không quá <strong>3 tầng</strong> (cấm bố trí phòng lớp 1 ở tầng trên cùng). Hàng rào cao ≥ 1,5 m.</li>
+          <li>Quy mô: Tối đa 30 lớp, sĩ số ≤ 35 HS / lớp. Đất: Đô thị ≥ 6 m² / HS; Nông thôn ≥ 10 m² / HS. Xây dựng ≤ 40%; Cây xanh ≥ 40%; Giao thông ≥ 20%. Không bố trí phòng lớp 1 ở tầng trên cùng.</li>
         </ul>
-
-        <h4>2. Chỉ tiêu diện tích các không gian chức năng</h4>
-        <table class="specs-table">
-          <tr><th>Không gian chức năng</th><th>Chỉ tiêu định mức</th><th>Ghi chú</th></tr>
-          <tr><td>Phòng học lý thuyết</td><td><strong>1,25 m² / học sinh</strong></td><td>Tính theo sĩ số tối đa 35 HS</td></tr>
-          <tr><td>Phòng giáo dục nghệ thuật</td><td><strong>1,50 m² / học sinh</strong></td><td>Phục vụ âm nhạc, mỹ thuật</td></tr>
-          <tr><td>Phòng rèn luyện thể chất</td><td><strong>1,80 m² / học sinh</strong></td><td>Có thể thay bằng nhà đa năng</td></tr>
-          <tr><td>Nhà đa năng</td><td><strong>0,60 m² / chỗ</strong> (30–50% HS)</td><td>Sàn 12x24 m hoặc 18x30 m; cao &gt; 7,0 m</td></tr>
-          <tr><td>Thư viện</td><td><strong>≥ 0,60 m² / học sinh</strong></td><td>Tổng diện tích ≥ 54 m²</td></tr>
-          <tr><td>Phòng thiết bị, đồ dùng</td><td>—</td><td>Diện tích ≥ 48 m²</td></tr>
-          <tr><td>Phòng hoạt động Đội</td><td><strong>0,03 m² / học sinh</strong></td><td>Kết hợp truyền thống ≥ 54 m²</td></tr>
-          <tr><td>Nhà ăn (học 2 buổi)</td><td><strong>0,65 – 0,75 m² / chỗ</strong></td><td>Bếp nấu: 0,30 – 0,35 m² / học sinh</td></tr>
-        </table>
-
-        <h4>3. Chiều cao thông thủy các phòng</h4>
-        <ul>
-          <li>Khối phòng học, hành chính, sinh hoạt: <strong>3,30 m đến 3,60 m</strong>.</li>
-          <li>Khối phục vụ học tập (thể chất, nghệ thuật, bộ môn): <strong>3,60 m đến 3,90 m</strong>.</li>
-          <li>Khu vệ sinh, nhà kho: Tối thiểu <strong>2,70 m</strong>; Hành lang, nhà cầu kết nối: Tối thiểu <strong>2,40 m</strong>.</li>
-        </ul>
-
-        <h4>4. Cầu thang, hành lang và giao thông thoát nạn</h4>
-        <ul>
-          <li>Hành lang: Chiều rộng thông thủy <strong>≥ 2,10 m</strong>. Lan can cao <strong>≥ 1.000 mm</strong> (hoặc <strong>≥ 1.100 mm</strong>), nan đứng có khe hở ≤ 100 mm, không làm mặt trên rộng.</li>
-          <li>Cầu thang: Độ dốc <strong>22° đến 24°</strong>; Chiều cao bậc <strong>≤ 150 mm</strong>; Chiều rộng mặt bậc <strong>≥ 300 mm</strong> (không dùng bậc hở). Thang chính rộng <strong>≥ 1,80 m</strong> (đến 200 HS) và <strong>≥ 2,10 m</strong> (&gt; 200 HS); Thang phụ <strong>≥ 1,20 m</strong>.</li>
-          <li>Đường dốc người khuyết tật: Độ dốc <strong>1/14 đến 1/22</strong>, rộng lọt lòng <strong>≥ 1.200 mm</strong>, mỗi đoạn dốc 3 – 5 m có chiếu nghỉ.</li>
-        </ul>
-
-        <h4>5. Thiết bị vệ sinh, bảng học và bãi xe</h4>
-        <ul>
-          <li>Bảng lớp học: Mép dưới bảng cách sàn hoàn thiện từ <strong>0,65 m đến 0,80 m</strong> (học sinh khuyết tật tối thiểu 0,40 m).</li>
-          <li>Thiết bị vệ sinh: Chỉ tiêu <strong>0,06 m² / HS</strong> (bắt buộc có phòng đệm). Nam: 1 xí + 1 tiểu + 1 rửa / 20–30 HS; Nữ: 1 xí + 1 rửa / 20 HS. Bệ xí cao 400 – 500 mm; chậu rửa cao 450 – 700 mm.</li>
-          <li>Bãi xe: Xe đạp <strong>0,90 m²/xe</strong>; Xe máy <strong>2,50 m²/xe</strong>; Xe ô tô con <strong>25 m²/xe</strong>. Sân thể thao cách cửa sổ phòng học tối thiểu <strong>15 m</strong>.</li>
-        </ul>
+        <h4>2. Diện tích các phòng & Cầu thang</h4>
+        <p>Phòng học lý thuyết: <strong>1,25 m² / HS</strong>; Nghệ thuật: <strong>1,50 m² / HS</strong>; Thể chất: <strong>1,80 m² / HS</strong>; Nhà đa năng: <strong>0,60 m² / chỗ</strong>; Thư viện: ≥ 0,60 m² / HS.</p>
+        <p>Hành lang rộng ≥ 2,10 m. Thang dốc 22° – 24°, bậc cao ≤ 150 mm, rộng ≥ 300 mm. Thang chính rộng ≥ 1,80 m (đến 200 HS) và ≥ 2,10 m (&gt; 200 HS). Bảng lớp cách sàn 0,65 – 0,80 m.</p>
       `
     },
 
-    // --- 5. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC) ---
+    // --- 5. TCVN 8794:2011 ---
     {
       code: "TCVN 8794:2011",
       title: "Trường trung học (THCS & THPT) – Yêu cầu thiết kế",
@@ -361,49 +248,15 @@
       summary: "Quy mô ≤ 45 lớp (≤ 45 HS/lớp), chỉ tiêu đất 6 - 10 m²/HS, phòng học 1,25 - 1,50 m²/HS (rộng ≥ 7,2m), phòng bộ môn, thang dốc 22°-24°, thiết bị WC và bãi đỗ xe.",
       pdfUrl: "pdf/TCVN_8794_2011.pdf",
       details: `
-        <h4>1. Quy mô, khu đất và cơ cấu sử dụng</h4>
-        <ul>
-          <li><strong>Quy mô trường lớp:</strong> Tối đa <strong>45 lớp</strong>, sĩ số <strong>≤ 45 học sinh / lớp</strong>.</li>
-          <li><strong>Chỉ tiêu chỗ học theo dân số:</strong> THCS: <strong>55 – 70 chỗ / 1.000 dân</strong>; THPT: <strong>45 – 60 chỗ / 1.000 dân</strong>.</li>
-          <li><strong>Chỉ tiêu diện tích đất tối thiểu:</strong> Đô thị, thị xã: <strong>≥ 6 m² / HS</strong>; Nông thôn, miền núi: <strong>≥ 10 m² / HS</strong>.</li>
-          <li><strong>Cơ cấu sử dụng đất:</strong> Diện tích xây dựng <strong>≤ 45%</strong>; Cây xanh sân vườn <strong>≥ 30%</strong>; Sân chơi, bãi tập, giao thông <strong>≥ 25%</strong>.</li>
-        </ul>
-
-        <h4>2. Chỉ tiêu diện tích và kích thước các phòng</h4>
-        <table class="specs-table">
-          <tr><th>Không gian chức năng</th><th>Tiêu chuẩn diện tích</th><th>Kích thước / Ghi chú</th></tr>
-          <tr><td>Phòng học lý thuyết</td><td><strong>1,25 – 1,50 m² / học sinh</strong></td><td>Chiều rộng lọt lòng <strong>≥ 7,20 m</strong></td></tr>
-          <tr><td>Phòng bộ môn (Lý, Hóa, Sinh, Tin...)</td><td><strong>1,50 – 2,00 m² / học sinh</strong></td><td>Tỷ lệ dài/rộng ≤ 2; kho chuẩn bị <strong>≥ 12 m²</strong></td></tr>
-          <tr><td>Nhà đa năng</td><td><strong>0,60 m² / học sinh</strong> (30–50% HS)</td><td>Sàn 12x24 m hoặc 18x30 m; cao <strong>&gt; 7,0 m</strong></td></tr>
-          <tr><td>Thư viện</td><td><strong>≥ 0,60 m² / học sinh</strong></td><td>Phòng đọc HS, phòng đọc GV và kho sách</td></tr>
-          <tr><td>Phòng làm việc Hiệu trưởng</td><td><strong>12 – 15 m²</strong></td><td>Chưa tính khu vực tiếp khách</td></tr>
-          <tr><td>Phòng Phó hiệu trưởng</td><td><strong>10 – 12 m²</strong></td><td>Chưa tính khu vực tiếp khách</td></tr>
-          <tr><td>Nhà ăn học sinh (nội trú)</td><td><strong>0,75 – 1,00 m² / chỗ</strong></td><td>Căng tin diện tích <strong>≥ 24 m²</strong></td></tr>
-        </table>
-
-        <h4>3. Chiều cao thông thủy các không gian</h4>
-        <ul>
-          <li>Phòng học lý thuyết, hiệu bộ, hành chính: <strong>3,30 m đến 3,60 m</strong>.</li>
-          <li>Phòng học bộ môn: Tối thiểu <strong>3,30 m</strong>; Nhà tập đa năng: Thông thủy <strong>&gt; 7,0 m</strong>.</li>
-          <li>Khu vệ sinh, nhà kho: Tối thiểu <strong>2,70 m</strong>; Hành lang, nhà cầu: Tối thiểu <strong>2,40 m</strong>.</li>
-        </ul>
-
-        <h4>4. Hành lang, cầu thang và lối thoát hiểm</h4>
-        <ul>
-          <li>Hành lang: Chiều rộng thông thủy <strong>≥ 2,10 m</strong>. Lan can hành lang cao <strong>≥ 1.100 mm</strong> cấu tạo khó trèo.</li>
-          <li>Cầu thang: Độ dốc thang <strong>22° đến 24°</strong>; Chiều cao bậc <strong>≤ 150 mm</strong>; Chiều rộng mặt bậc <strong>≥ 300 mm</strong> (không làm bậc hở). Vế thang chính <strong>≥ 1,80 m</strong> (đến 200 HS) và <strong>≥ 2,10 m</strong> (&gt; 200 HS); Vế phụ <strong>≥ 1,20 m</strong>. Lan can cao <strong>≥ 900 mm</strong>, khoảng cách chấn song đứng <strong>≤ 150 mm</strong>.</li>
-          <li>Đường dốc người khuyết tật: Rộng <strong>≥ 1.200 mm</strong>, mỗi đoạn 4 m đến 9 m có chiếu nghỉ.</li>
-        </ul>
-
-        <h4>5. Khu vệ sinh và bãi đỗ xe</h4>
-        <ul>
-          <li>Vệ sinh học sinh: <strong>≥ 0,06 m² / HS</strong> (có phòng đệm). Nam: 1 tiểu + 1 xí + 1 rửa / 30 HS; Nữ: 1 xí / 20 HS. Bệ xí: THCS: 420 – 550 mm; THPT: 450 – 600 mm. Chậu rửa: THCS: 750 mm; THPT: 800 mm. WC giáo viên: riêng biệt, <strong>≥ 6 m² / phòng</strong>.</li>
-          <li>Bãi để xe: Tính cho <strong>50% – 70%</strong> học sinh và <strong>60% – 90%</strong> giáo viên. Chỉ tiêu: Xe đạp 0,9 m²; Xe máy 2,5 m²; Ô tô 25 m².</li>
-        </ul>
+        <h4>1. Quy mô và đất đai</h4>
+        <p>Tối đa 45 lớp (≤ 45 HS/lớp). Đất: Đô thị ≥ 6 m²/HS; Nông thôn ≥ 10 m²/HS. Xây dựng ≤ 45%; Cây xanh ≥ 30%; Sân chơi, giao thông ≥ 25%.</p>
+        <h4>2. Diện tích phòng học & Kích thước</h4>
+        <p>Phòng học lý thuyết: <strong>1,25 – 1,50 m² / HS</strong> (rộng lọt lòng ≥ 7,20 m); Phòng bộ môn: <strong>1,50 – 2,00 m² / HS</strong> (kèm kho ≥ 12 m²); Nhà đa năng: <strong>0,60 m² / chỗ</strong> (cao &gt; 7,0 m); Thư viện: ≥ 0,60 m² / HS.</p>
+        <p>Hành lang rộng ≥ 2,10 m. Thang dốc 22° – 24°, bậc cao ≤ 150 mm, rộng ≥ 300 mm. Bệ xí: THCS: 420 – 550 mm; THPT: 450 – 600 mm. Chậu rửa: THCS: 750 mm; THPT: 800 mm.</p>
       `
     },
 
-    // --- 6. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
+    // --- 6. QCVN 07-4:2016/BXD ---
     {
       code: "QCVN 07-4:2016/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Công trình giao thông đô thị",
@@ -412,33 +265,16 @@
       summary: "Bề rộng làn xe (3,00 - 3,75 m), số làn xe tối thiểu, tĩnh không thông thủy (≥ 4,75 m), hè phố và dải đi bộ, dải phân cách, vệt đỗ xe, vịnh xe buýt và độ dốc dọc tối đa.",
       pdfUrl: "pdf/QCVN_07_4_2016.pdf",
       details: `
-        <h4>1. Quy chuẩn mặt cắt đường và làn xe</h4>
-        <ul>
-          <li>Làn xe: Cao tốc / Trục chính: <strong>3,75 m</strong> (min 3,50 m); Liên khu vực: <strong>3,50 m</strong>; Đường khu vực: <strong>3,25 – 3,50 m</strong>; Nội bộ: <strong>3,00 m</strong>. Dải an toàn: ≥ 0,50 m (cao tốc: 0,75 m).</li>
-          <li>Số làn tối thiểu: Trục chính: 4 – 6 làn; Liên khu vực: 4 làn; Khu vực: 2 – 4 làn; Nội bộ: 2 làn (mặt đường xe chạy ≥ 5,5 m hoặc 7,0 m).</li>
-        </ul>
-
-        <h4>2. Tĩnh không thông thủy tối thiểu</h4>
-        <table class="specs-table">
-          <tr><th>Loại tĩnh không</th><th>Giới hạn chiều cao thông thủy tối thiểu</th></tr>
-          <tr><td>Đường ô tô thông thường (đô thị)</td><td><strong>≥ 4,75 m</strong> (đến đáy kết cấu)</td></tr>
-          <tr><td>Đường gom, nội bộ, xe buýt</td><td><strong>≥ 4,50 m</strong></td></tr>
-          <tr><td>Hầm chui, cầu vượt xe cơ giới lớn</td><td><strong>≥ 4,75 m</strong></td></tr>
-          <tr><td>Cầu cạn / hầm chui xe con</td><td><strong>≥ 3,00 m</strong></td></tr>
-          <tr><td>Cầu đi bộ, hầm đi bộ qua đường</td><td><strong>≥ 2,50 m</strong> (hầm mép phụ ≥ 2,20 m)</td></tr>
-          <tr><td>Đường tàu điện trên cao qua đường</td><td><strong>≥ 4,75 m</strong> tính đến ray bảo vệ</td></tr>
-        </table>
-
+        <h4>1. Mặt cắt đường và làn xe</h4>
+        <p>Làn xe: Cao tốc / Trục chính: 3,75 m (min 3,50 m); Liên khu vực: 3,50 m; Khu vực: 3,25 – 3,50 m; Nội bộ: 3,00 m. Dải an toàn: ≥ 0,50 m (cao tốc: 0,75 m).</p>
+        <h4>2. Tĩnh không thông thủy</h4>
+        <p>Đường ô tô thông thường / hầm chui xe lớn: ≥ 4,75 m; Cầu cạn xe con: ≥ 3,00 m; Cầu đi bộ: ≥ 2,50 m; Đường gom, xe buýt: ≥ 4,50 m.</p>
         <h4>3. Hè phố, bến xe buýt và độ dốc</h4>
-        <ul>
-          <li>Lối đi bộ hè phố: Trục chính ≥ 4,5 – 6,0 m (dải độc lập ≥ 3,0 m); Khu vực ≥ 3,0 – 4,5 m (dải độc lập ≥ 1,5 m); Nội bộ ≥ 1,5 – 2,0 m. Luồng đi bộ chuẩn: 0,75 m; người khuyết tật ≥ 1,20 m. Độ dốc ngang hè: 1,0% đến 2,0%.</li>
-          <li>Dải phân cách giữa: Trục chính ≥ 2,0 m (nơi hẹp ≥ 1,0 m); Khu vực ≥ 1,5 m (hoặc 0,5 m dải bê tông). Dải đỗ song song ≥ 2,50 m; đỗ 45°–60° ≥ 5,0 – 5,5 m. Dừng khẩn cấp ≥ 2,50 – 3,00 m.</li>
-          <li>Khoảng cách 2 trạm xe buýt: nội đô 300 – 600 m; ngoại vi 800 – 1.000 m. Vịnh xe buýt: rộng ≥ 3,0 m, dài ≥ 15 m. Độ dốc dọc: Trục chính ≤ 4% – 6%; Nội bộ ≤ 7% – 9%; Hầm chui, dốc cầu vượt ≤ 4% – 6%.</li>
-        </ul>
+        <p>Dải đi bộ trục chính ≥ 4,5 – 6,0 m; Nội bộ ≥ 1,5 – 2,0 m; Luồng đi bộ chuẩn 0,75 m. Vịnh xe buýt rộng ≥ 3,0 m, dài ≥ 15 m. Độ dốc dọc trục chính: ≤ 4% – 6%.</p>
       `
     },
 
-    // --- 7. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
+    // --- 7. QCVN 01:2021/BXD ---
     {
       code: "QCVN 01:2021/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Quy hoạch xây dựng",
@@ -448,39 +284,15 @@
       pdfUrl: "pdf/QCVN_01_2021.pdf",
       details: `
         <h4>1. Mật độ xây dựng thuần tối đa nhà ở riêng lẻ (Bảng 2.8)</h4>
-        <table class="specs-table">
-          <tr><th>Diện tích lô đất (m²/căn)</th><th>≤ 90</th><th>100</th><th>200</th><th>300</th><th>500</th><th>≥ 1.000</th></tr>
-          <tr><td><strong>Mật độ tối đa (%)</strong></td><td><strong>100%</strong></td><td><strong>90%</strong></td><td><strong>70%</strong></td><td><strong>60%</strong></td><td><strong>50%</strong></td><td><strong>40%</strong></td></tr>
-        </table>
-
+        <p>≤ 90 m²: 100% | 100 m²: 90% | 200 m²: 70% | 300 m²: 60% | 500 m²: 50% | ≥ 1.000 m²: 40%.</p>
         <h4>2. Khoảng lùi công trình theo lộ giới và chiều cao (Bảng 2.7)</h4>
-        <table class="specs-table">
-          <tr><th>Lộ giới đường tiếp giáp</th><th>H ≤ 19 m</th><th>19 m &lt; H ≤ 22 m</th><th>22 m &lt; H &lt; 28 m</th><th>H ≥ 28 m</th></tr>
-          <tr><td><strong>&lt; 19 m</strong></td><td>0 m</td><td>3 m</td><td>4 m</td><td>6 m</td></tr>
-          <tr><td><strong>19 m ≤ Rộng &lt; 22 m</strong></td><td>0 m</td><td>0 m</td><td>3 m</td><td>6 m</td></tr>
-          <tr><td><strong>≥ 22 m</strong></td><td>0 m</td><td>0 m</td><td>0 m</td><td>6 m</td></tr>
-        </table>
-
-        <h4>3. Lô đất nhà liên kế & Mật độ công trình khác</h4>
-        <ul>
-          <li>Lô đất nhà liên kế: Lộ giới ≥ 19 m: diện tích <strong>≥ 45 m²</strong>, mặt tiền <strong>≥ 5,0 m</strong>; Lộ giới &lt; 19 m: diện tích <strong>≥ 36 m²</strong>, mặt tiền <strong>≥ 4,0 m</strong>. Dãy nhà liên kế dài tối đa <strong>60 m</strong>.</li>
-          <li>Chung cư: Cao ≤ 16 m: tối đa 75%; Cao 16 – 46 m: 40% – 60%; Cao &gt; 46 m: 35% – 40%. Công cộng dịch vụ: ≤ 16 m tối đa 60%; &gt; 46 m tối đa 40%. Nhà máy kho tàng: tối đa 70% (cây xanh trong khuôn viên ≥ 20%).</li>
-          <li>Đơn vị ở: Dân số 4.000 – 20.000 dân. Đất đơn vị ở: 28 – 45 m²/người. Đất cây xanh công cộng ≥ 2 m²/người (công viên đơn vị ở ≥ 5.000 m²; sân chơi nhóm nhà ở bán kính phục vụ ≤ 300 m).</li>
-        </ul>
-
-        <h4>4. Độ vươn ban công, ô-văng ra lộ giới</h4>
-        <table class="specs-table">
-          <tr><th>Chiều rộng lộ giới mặt đường</th><th>Độ vươn tối đa cho phép</th></tr>
-          <tr><td>Dưới 7 m</td><td><strong>0 m</strong> (không được nhô ra)</td></tr>
-          <tr><td>Từ 7 m đến dưới 12 m</td><td><strong>0,9 m</strong></td></tr>
-          <tr><td>Từ 12 m đến dưới 15 m</td><td><strong>1,2 m</strong></td></tr>
-          <tr><td>Từ 15 m trở lên</td><td><strong>1,4 m</strong></td></tr>
-        </table>
-        <p><em>(Chiều cao thông thủy từ vỉa hè đến đáy mép dưới cùng ban công ≥ 3,5 m).</em></p>
+        <p>Lộ giới &lt; 19 m: H ≤ 19 m lùi 0 m; 19 m &lt; H ≤ 22 m lùi 3 m; 22 m &lt; H &lt; 28 m lùi 4 m; H ≥ 28 m lùi 6 m.</p>
+        <h4>3. Lô đất nhà liên kế & Độ vươn ban công</h4>
+        <p>Lộ giới ≥ 19 m: diện tích ≥ 45 m², mặt tiền ≥ 5 m; Lộ giới &lt; 19 m: diện tích ≥ 36 m², mặt tiền ≥ 4 m. Độ vươn ban công: L &lt; 7 m: 0 m; 7 m ≤ L &lt; 12 m: 0,9 m; 12 m ≤ L &lt; 15 m: 1,2 m; L ≥ 15 m: 1,4 m.</p>
       `
     },
 
-    // --- 8. QCVN 06:2022/BXD (AN TOÀN CHÁY CHO NHÀ VÀ CÔNG TRÌNH) ---
+    // --- 8. QCVN 06:2022/BXD ---
     {
       code: "QCVN 06:2022/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về An toàn cháy cho nhà và công trình",
@@ -489,44 +301,12 @@
       summary: "Kích thước lối/cửa thoát nạn, vế thang & bậc thang, chiếu nghỉ, lan can an toàn, khoảng cách thoát nạn tối đa, bãi đỗ xe chữa cháy và khoảng cách an toàn PCCC giữa các công trình.",
       pdfUrl: "pdf/QCVN_06_2022.pdf",
       details: `
-        <h4>1. Kích thước lối thoát nạn và cửa đi</h4>
-        <ul>
-          <li>Chiều cao thông thủy: Lối thoát nạn, hành lang, cửa đi: <strong>≥ 1,9 m</strong>; Tầng hầm, nửa ngầm, kỹ thuật: <strong>≥ 1,8 m</strong>.</li>
-          <li>Chiều rộng thông thủy cửa thoát nạn: Cửa cho &gt; 50 người (hoặc nhóm F1.1 mầm non, bệnh viện): <strong>≥ 1,2 m</strong>; Cửa phòng học, làm việc ≤ 50 người: <strong>≥ 0,8 m</strong>; Cửa WC, phụ trợ: <strong>≥ 0,7 m</strong>.</li>
-          <li>Chiều rộng thông thủy hành lang: Cho &gt; 50 người: <strong>≥ 1,2 m</strong>; Cho &lt; 50 người: <strong>≥ 1,0 m</strong>; Lối đi giữa dãy bàn ghế hội trường: <strong>≥ 0,7 m</strong> (lối chính <strong>≥ 1,0 m</strong>).</li>
-        </ul>
-
-        <h4>2. Kích thước bản thang, bậc thang và chiếu nghỉ</h4>
-        <ul>
-          <li>Chiều rộng vế thang bộ: Nhóm F1.1 (&gt; 15 người/tầng): <strong>≥ 1,35 m</strong>; Tầng &gt; 200 người: <strong>≥ 1,20 m</strong>; Chỗ làm việc đơn lẻ (&lt; 5 người): <strong>≥ 0,70 m</strong>; Thông thường: <strong>≥ 1,05 m</strong> (không hẹp hơn cửa buồng thang).</li>
-          <li>Bậc thang: Mặt bậc <strong>≥ 250 mm</strong> (thông thường 280–300 mm); Chiều cao bậc <strong>≤ 220 mm</strong> (thoát nạn thông thường không quá 150–180 mm).</li>
-          <li>Chiếu nghỉ: Không nhỏ hơn vế thang; khi mở cửa không thu hẹp bề rộng thoát nạn. Lan can vế thang cao <strong>≥ 0,9 m</strong>; lan can ban công, lô gia cao <strong>≥ 1,1 m</strong> (mầm non, tiểu học <strong>≥ 1,2 m</strong>).</li>
-        </ul>
-
-        <h4>3. Khoảng cách thoát nạn giới hạn</h4>
-        <table class="specs-table">
-          <tr><th>Loại hình không gian / Vị trí</th><th>Khoảng cách tối đa</th></tr>
-          <tr><td>Bố trí giữa 2 lối ra thoát nạn (hành lang giữa)</td><td><strong>40 – 60 m</strong> (tùy bậc chịu lửa và Sprinkler)</td></tr>
-          <tr><td>Hành lang cụt (chỉ có 1 hướng thoát)</td><td><strong>20 – 25 m</strong> (không Sprinkler: 15 m)</td></tr>
-          <tr><td>Từ điểm xa nhất trong phòng có 1 lối ra</td><td><strong>15 – 25 m</strong> (tùy công năng)</td></tr>
-          <tr><td>Khoảng cách giữa 2 lối thoát nạn trên 1 tầng</td><td>Bằng hoặc lớn hơn <strong>1/2</strong> (hoặc <strong>1/3</strong> nếu có Sprinkler) đường chéo mặt bằng</td></tr>
-        </table>
-
-        <h4>4. Đường giao thông và bãi đỗ cho xe chữa cháy</h4>
-        <ul>
-          <li>Đường xe chữa cháy rộng <strong>≥ 3,5 m</strong>. Bãi đỗ xe chữa cháy (nhà cao &gt; 28 m hoặc nhóm F1.3 cao &gt; 15 m): rộng <strong>≥ 6,0 m</strong>, dài <strong>≥ 15 m</strong>.</li>
-          <li>Tĩnh không thông thủy: <strong>≥ 4,5 m</strong>. Bán kính cong mép trong chỗ rẽ <strong>≥ 10,0 m</strong> (hoặc bãi quay xe <strong>12 × 12 m</strong>).</li>
-          <li>Khoảng cách bãi đỗ xe chữa cháy đến tường công trình: Cao ≤ 28 m: từ <strong>5 m đến 10 m</strong>; Cao &gt; 28 m: từ <strong>2 m đến 8 m</strong>.</li>
-        </ul>
-
-        <h4>5. Khoảng cách an toàn PCCC giữa các công trình</h4>
-        <table class="specs-table">
-          <tr><th>Bậc chịu lửa giữa 2 công trình</th><th>Khoảng cách an toàn tối thiểu</th></tr>
-          <tr><td>Giữa 2 nhà bậc I, II</td><td><strong>Tối thiểu 6 m</strong> (có vách ngăn cháy loại 1 không quy định)</td></tr>
-          <tr><td>Giữa nhà bậc I, II với nhà bậc III</td><td><strong>Tối thiểu 8 m</strong></td></tr>
-          <tr><td>Giữa nhà bậc I, II với nhà bậc IV, V</td><td><strong>Tối thiểu 10 m</strong></td></tr>
-          <tr><td>Giữa nhà bậc IV, V với nhau</td><td><strong>Tối thiểu 12 m đến 15 m</strong></td></tr>
-        </table>
+        <h4>1. Kích thước hình học lối thoát nạn và cửa đi</h4>
+        <p>Chiều cao thông thủy: ≥ 1,9 m (tầng hầm ≥ 1,8 m). Cửa đi thoát nạn: cho &gt; 50 người (hoặc F1.1 mầm non, y tế): ≥ 1,2 m; phòng ≤ 50 người: ≥ 0,8 m; WC, kho: ≥ 0,7 m. Hành lang: cho &gt; 50 người: ≥ 1,2 m; cho &lt; 50 người: ≥ 1,0 m.</p>
+        <h4>2. Vế thang bộ và khoảng cách an toàn</h4>
+        <p>Vế thang: nhóm F1.1: ≥ 1,35 m; tầng &gt; 200 người: ≥ 1,20 m; thông thường: ≥ 1,05 m. Chiều rộng mặt bậc ≥ 250 mm; chiều cao bậc ≤ 220 mm. Lan can thang cao ≥ 0,9 m; lan can ban công, lô gia cao ≥ 1,1 m.</p>
+        <h4>3. Xe chữa cháy và khoảng cách an toàn PCCC</h4>
+        <p>Đường xe chữa cháy rộng ≥ 3,5 m; Bãi đỗ xe chữa cháy rộng ≥ 6,0 m, dài ≥ 15 m. Tĩnh không ≥ 4,5 m. Khoảng cách an toàn PCCC giữa 2 nhà bậc I, II tối thiểu 6 m.</p>
       `
     }
   ];
@@ -606,16 +386,18 @@
     renderData(e.target.value);
   });
 
+  // Render danh sách ban đầu
   renderData();
+
+  // Đăng ký Service Worker để kích hoạt chế độ Offline
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => console.log('Service Worker đã sẵn sàng!', reg))
+        .catch((err) => console.error('Lỗi Service Worker:', err));
+    });
+  }
 </script>
 
 </body>
 </html>
-// Đăng ký Service Worker để kích hoạt chế độ Offline
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then((reg) => console.log('Service Worker đã sẵn sàng!', reg))
-      .catch((err) => console.error('Lỗi Service Worker:', err));
-  });
-}
