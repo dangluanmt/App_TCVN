@@ -100,13 +100,19 @@
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: so sánh thông tư 23, 13/2020, nhà thể thao, sân bóng, chợ, mầm non, tiểu học, trung học, pccc, quy hoạch)..." autofocus>
+    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: nhà thể thao, 4529, sân bóng, cầu lông, bóng rổ, doping, thay đồ, khán đài, pccc)..." autofocus>
   </div>
 
   <div class="tag-container">
     <span style="font-size: 13px; align-self: center; font-weight: bold;">Lọc nhanh:</span>
+    <button class="tag" onclick="quickSearch('32/2021')">Trạm y tế (TT 32/2021)</button>
+    <button class="tag" onclick="quickSearch('23/2026')">Trạm y tế mới (TT 23/2026)</button>
+    <button class="tag" onclick="quickSearch('7022')">Trạm y tế (TCVN 7022)</button>
+    <button class="tag" onclick="quickSearch('4470')">Bệnh viện (TCVN 4470)</button>
+    <button class="tag" onclick="quickSearch('5065')">Khách sạn (TCVN 5065)</button>
     <button class="tag" onclick="quickSearch('23/2024')">So sánh TT 23 & TT 13</button>
     <button class="tag" onclick="quickSearch('13/2020')">CSVC Trường học (TT 13)</button>
+    <button class="tag" onclick="quickSearch('9365')">Nhà VHTT (TCVN 9365)</button>
     <button class="tag" onclick="quickSearch('4529')">Nhà thể thao (TCVN 4529)</button>
     <button class="tag" onclick="quickSearch('4205')">Sân thể thao (TCVN 4205)</button>
     <button class="tag" onclick="quickSearch('9211')">Thiết kế Chợ (TCVN 9211)</button>
@@ -145,6 +151,607 @@
 
 <script>
   const tcvnDatabase = [
+    // --- THÔNG TƯ 32/2021/TT-BYT (HƯỚNG DẪN KỸ THUẬT TRẠM Y TẾ XÃ PHƯỜNG) ---
+    {
+      code: "Thông tư 32/2021/TT-BYT",
+      title: "Hướng dẫn kỹ thuật thiết kế, cải tạo trạm y tế xã, phường, thị trấn",
+      category: "Y tế & Cơ sở",
+      keywords: "thong tu 32 32 2021 tt byt tram y te xa phuong thi tran tieu chuan dien tich vuon thuoc nam luong sach ban kiem soat nhiem khuan xu ly nuoc thai",
+      summary: "Đất 500-2000m², mật độ XD ≤ 40-50%, tầng cao 1-3 tầng, vườn thuốc nam ≥ 40-50m², bảng diện tích 12 phòng chức năng, phân luồng sạch - bẩn, ram dốc ≤ 1/12 và xử lý nước thải y tế tập trung.",
+      pdfUrl: "pdf/TT_32_2021_BYT.pdf",
+      details: `<h4>1. Yêu cầu khu đất và quy hoạch tổng thể</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Quy định / Chỉ tiêu kỹ thuật</th>
+          <th>Thông số & Yêu cầu cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Diện tích khu đất</strong></td>
+          <td>Quy mô diện tích lô đất trạm y tế</td>
+          <td>Tối thiểu từ <strong>500 m²</strong> (đô thị, đồng bằng quỹ đất hạn hẹp) đến <strong>1.000 – 2.000 m²</strong> (trung du, miền núi, hải đảo).</td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ xây dựng</strong></td>
+          <td>Tỷ lệ xây dựng công trình trên diện tích đất</td>
+          <td>Tối đa <strong>40%</strong> (khu vực rộng rãi) hoặc không quá <strong>50%</strong> (khu vực đô thị đặc thù).</td>
+        </tr>
+        <tr>
+          <td><strong>Tầng cao công trình</strong></td>
+          <td>Giới hạn số tầng khối nhà trạm</td>
+          <td>Ưu tiên <strong>1 – 2 tầng</strong>. Đất hạn chế được xây tối đa <strong>3 tầng</strong> nhưng bắt buộc bố trí cấp cứu, sơ sinh, người già, người khuyết tật ở tầng 1.</td>
+        </tr>
+        <tr>
+          <td><strong>Cây xanh & Vườn thuốc nam</strong></td>
+          <td>Tỷ lệ mảng xanh và diện tích vườn thuốc mẫu</td>
+          <td>Cây xanh, sân đường: <strong>≥ 30%</strong> diện tích khu đất. Vườn thuốc nam mẫu: tối thiểu <strong>40 – 50 m²</strong> (theo danh mục Bộ Y tế).</td>
+        </tr>
+      </table>
+
+      <h4>2. Chỉ tiêu diện tích các phòng chức năng chính</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Khối chức năng / Tên phòng</th>
+          <th>Diện tích tối thiểu (m²)</th>
+          <th>Yêu cầu kỹ thuật & bố trí</th>
+        </tr>
+        <tr>
+          <td>Sảnh đón tiếp, đăng ký & chờ khám</td>
+          <td><strong>12 – 15 m²</strong></td>
+          <td>Kết hợp phân luồng khám bệnh ban đầu, thoáng khí</td>
+        </tr>
+        <tr>
+          <td>Phòng khám chung & sơ cấp cứu</td>
+          <td><strong>12 – 15 m²</strong></td>
+          <td>Bố trí ngay tầng 1, thuận tiện tiếp cận từ sảnh chính</td>
+        </tr>
+        <tr>
+          <td>Phòng tiểu phẫu, thủ thuật</td>
+          <td><strong>12 – 14 m²</strong></td>
+          <td>Yêu cầu cách ly vô khuẩn, bề mặt tường/sàn dễ lau rửa</td>
+        </tr>
+        <tr>
+          <td>Phòng khám sản phụ khoa & KHHGĐ</td>
+          <td><strong>12 – 15 m²</strong></td>
+          <td>Kín đáo, có khu vực vệ sinh hoặc thay đồ riêng</td>
+        </tr>
+        <tr>
+          <td>Phòng đẻ & chăm sóc sau sinh</td>
+          <td><strong>15 – 18 m²</strong></td>
+          <td>Áp dụng cho trạm vùng xa; yêu cầu vô khuẩn cao</td>
+        </tr>
+        <tr>
+          <td>Phòng lưu bệnh nhân (3 – 5 giường)</td>
+          <td><strong>18 – 25 m²</strong></td>
+          <td>Tiêu chuẩn từ 5 – 6 m²/giường, thông gió tự nhiên tốt</td>
+        </tr>
+        <tr>
+          <td>Phòng tiêm chủng & theo dõi sau tiêm</td>
+          <td><strong>12 – 15 m²</strong></td>
+          <td>Thiết kế luồng di chuyển 1 chiều: đón tiếp → khám sàng lọc → tiêm → theo dõi 30 phút</td>
+        </tr>
+        <tr>
+          <td>Phòng khám YHCT & châm cứu</td>
+          <td><strong>12 – 15 m²</strong></td>
+          <td>Kết hợp bấm huyệt, phục hồi chức năng</td>
+        </tr>
+        <tr>
+          <td>Phòng dược & quầy cấp phát thuốc</td>
+          <td><strong>10 – 12 m²</strong></td>
+          <td>Khô ráo, tránh ánh nắng trực tiếp, kiểm soát nhiệt độ bảo quản</td>
+        </tr>
+        <tr>
+          <td>Phòng hành chính, giao ban & truyền thông</td>
+          <td><strong>15 – 20 m²</strong></td>
+          <td>Tích hợp họp giao ban, lưu trữ hồ sơ bệnh án và tài liệu</td>
+        </tr>
+        <tr>
+          <td>Phòng rửa, tiệt trùng dụng cụ</td>
+          <td><strong>6 – 8 m²</strong></td>
+          <td>Phân định rõ 2 khu vực dụng cụ bẩn và sạch</td>
+        </tr>
+        <tr>
+          <td>Khu lưu giữ chất thải y tế tạm thời</td>
+          <td><strong>4 – 6 m²</strong></td>
+          <td>Tách biệt khối nhà chính, có lối gom rác riêng biệt</td>
+        </tr>
+      </table>
+
+      <h4>3. Dây chuyền công năng và hạ tầng kỹ thuật</h4>
+      <ul>
+        <li><strong>Kiểm soát nhiễm khuẩn:</strong> Mặt bằng phân định rõ luồng sạch (nhân viên, cấp phát thuốc, sảnh chính) và luồng bẩn (xử lý dụng cụ, lưu rác thải, xử lý dịch tiết).</li>
+        <li><strong>Tiếp cận cho người khuyết tật:</strong> Lối vào chính bắt buộc bố trí ram dốc với độ dốc <strong>≤ 1/12</strong>; chiều rộng hành lang thông thủy tối thiểu <strong>1,8 m</strong> (hành lang giữa) hoặc <strong>1,5 m</strong> (hành lang bên); có buồng vệ sinh đạt chuẩn cho xe lăn.</li>
+        <li><strong>Xử lý môi trường:</strong> Nước thải y tế phải qua hệ thống xử lý nước thải tập trung đạt chuẩn trước khi xả vào hệ thống thoát nước chung; tuyệt đối không xả chung nước thải y tế vào hố tự hoại sinh hoạt thông thường.</li>
+      </ul>`
+    },
+    // --- THÔNG TƯ 23/2026/TT-BYT (HƯỚNG DẪN THIẾT KẾ TRẠM Y TẾ CẤP XÃ) ---
+    {
+      code: "Thông tư 23/2026/TT-BYT",
+      title: "Hướng dẫn thiết kế trạm y tế cấp xã (Mạng lưới y tế cơ sở mới)",
+      category: "Y tế & Cơ sở",
+      keywords: "thong tu 23 23 2026 tt byt tram y te cap xa phuong thi tran mo hinh 5 khoi sanh da nang vuon thuoc nam phong ngap lut methadone cap cuu mat bang",
+      summary: "Mạng lưới mới: 5 phân khu chức năng (sảnh đa năng, dân số/sản, phòng bệnh/tiêm chủng/methadone, khám chữa bệnh/cấp cứu, hậu cần), vườn thuốc nam cách tường ≥ 2m, giải pháp chống ngập lũ tầng 1 thông chân và 5 mô hình mặt bằng điển hình.",
+      pdfUrl: "pdf/TT_23_2026_BYT.pdf",
+      details: `<h4>1. Bảng chỉ tiêu quy hoạch, khu đất & kỹ thuật cốt lõi</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Quy định / Chỉ tiêu kỹ thuật</th>
+          <th>Thông số & Yêu cầu cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Mô hình tổ chức</strong></td>
+          <td>Quy mô trạm cơ sở theo mạng lưới mới</td>
+          <td>Cơ sở tập trung hoặc mô hình gồm trạm chính và một/nhiều điểm y tế trực thuộc.</td>
+        </tr>
+        <tr>
+          <td><strong>Vườn cây thuốc nam</strong></td>
+          <td>Khoảng cách an toàn và hình thức tổ chức</td>
+          <td>Cách mép tường ngoài công trình tối thiểu <strong>≥ 2 m</strong>; có thể tổ chức vườn thuốc nam mẫu hoặc vườn thuốc nam số tùy quỹ đất.</td>
+        </tr>
+        <tr>
+          <td><strong>Vùng ngập lụt / thiên tai</strong></td>
+          <td>Giải pháp ứng phó thiên tai, lũ lụt</td>
+          <td>Cốt sàn xây dựng cao hơn đỉnh lũ lịch sử; khuyến khích làm nhà từ 2 tầng trở lên, tầng 1 thông chân (tránh ngập), đưa khu vệ sinh và phòng chuyên môn lên tầng trên.</td>
+        </tr>
+        <tr>
+          <td><strong>Giường lưu bệnh truyền nhiễm</strong></td>
+          <td>Khống chế tại trạm y tế cơ sở</td>
+          <td>Trạm có quy mô <strong>&lt; 5 giường</strong> phải bố trí tối thiểu <strong>01 giường lưu bệnh nhân lây</strong> (được phép tích hợp nhưng phải bảo đảm chuyển đổi cách ly nhanh khi có dịch).</td>
+        </tr>
+        <tr>
+          <td><strong>Quy mô giường bệnh lưu</strong></td>
+          <td>Số giường tạm lưu tối thiểu trong 1 phòng</td>
+          <td>Tối thiểu <strong>02 giường bệnh / phòng</strong>, có tủ đầu giường, thùng rác y tế và WC riêng/bồn rửa.</td>
+        </tr>
+        <tr>
+          <td><strong>Kiểm soát phân luồng</strong></td>
+          <td>Dây chuyền sạch - bẩn & giao cắt</td>
+          <td>Phân luồng rõ ràng giữa luồng người bệnh, nhân viên y tế, vật tư/thuốc và chất thải y tế; mở lối đi/cổng riêng cho cấp cứu, rác bẩn và Methadone.</td>
+        </tr>
+      </table>
+
+      <h4>2. Cơ cấu 5 phân khu chức năng theo Thông tư 23/2026/TT-BYT</h4>
+      <ul>
+        <li><strong>Khối 1: Hành chính, tài chính, nhân sự & Sảnh đa năng:</strong>
+          <ul>
+            <li>Sảnh tiếp đón đa năng: Bố trí tại tầng 1 gần lối vào chính, liên kết trực tiếp với khu khám, quầy thủ tục và cấp phát thuốc. Tích hợp các chức năng: tiếp đón, đăng ký, chờ khám, tư vấn, tập huấn, truyền thông GDSK và sinh hoạt cộng đồng.</li>
+            <li>Khối quản trị: Phòng lãnh đạo trạm, hành chính - tổ chức, kế hoạch tổng hợp, tài chính - kế toán, trực tiếp công dân và kho lưu trữ hồ sơ sức khỏe điện tử.</li>
+          </ul>
+        </li>
+        <li><strong>Khối 2: Dân số, bà mẹ và trẻ em, bảo trợ xã hội:</strong>
+          <ul>
+            <li>Bộ phận chuyên môn: Phòng quản lý dân số, phòng chăm sóc bà mẹ & trẻ em, phòng công tác xã hội.</li>
+            <li>Dây chuyền khám, tư vấn, KHHGĐ và khu đẻ liên hoàn (nếu có): Vệ sinh trước đẻ → Rửa tay thay áo → Phòng đẻ → Tắm rửa trẻ sơ sinh → Lưu sau đẻ (ưu tiên đặt tại tầng trệt).</li>
+            <li>Khu vực người cao tuổi: Kết hợp tập phục hồi chức năng, vận động trị liệu ban ngày.</li>
+          </ul>
+        </li>
+        <li><strong>Khối 3: Phòng bệnh, an toàn thực phẩm:</strong>
+          <ul>
+            <li>Bộ phận quản lý: Giám sát dịch bệnh truyền nhiễm, HIV/AIDS; phòng bệnh không lây nhiễm; quản lý an toàn thực phẩm học đường/cộng đồng.</li>
+            <li>Dây chuyền tiêm chủng 1 chiều: Đón tiếp → Khám sàng lọc → Tiêm chủng → Theo dõi sau tiêm.</li>
+            <li>Khu điều trị nghiện chất (Methadone - nếu có): Bắt buộc bố trí lối đi riêng hoặc khu biệt lập gồm phòng tiếp đón, phòng khám cấp phát và nơi lấy mẫu xét nghiệm.</li>
+          </ul>
+        </li>
+        <li><strong>Khối 4: Khám bệnh, chữa bệnh (Khối chuyên môn trung tâm):</strong>
+          <ul>
+            <li>Cấp cứu ban đầu: Đặt tại tầng 1 sát cổng, có lối tiếp cận xe cấp cứu riêng biệt, mở cửa trực tiếp ra ngoài không giao cắt luồng khám thông thường.</li>
+            <li>Các phòng khám: Bố trí từ 01 – 02 phòng khám đa khoa liên thông đa năng (khám nội, ngoại, y học gia đình, mạn tính) kết hợp phòng y học cổ truyền.</li>
+            <li>Cụm cận lâm sàng & Tiệt khuẩn: Phòng lấy mẫu xét nghiệm, phòng siêu âm/thăm dò chức năng, phòng X-quang (nếu có); khu xử lý tiệt khuẩn dụng cụ bẩn → sạch riêng biệt.</li>
+          </ul>
+        </li>
+        <li><strong>Khối 5: Hậu cần kỹ thuật, phụ trợ:</strong>
+          <ul>
+            <li>Bố trí tách biệt ở cuối hướng gió chính hoặc khối nhà 1 tầng phía sau; có cổng hậu cần và sân kỹ thuật riêng để giao nhận vật tư, hóa chất, nhiên liệu và xe rác thu gom.</li>
+            <li>Gồm: Trạm biến áp/máy phát điện dự phòng, bể cấp - thoát nước, khu xử lý nước thải y tế, nhà lưu giữ và phân loại chất thải nguy hại.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Các mô hình tổ hợp mặt bằng điển hình (Theo Phụ lục văn bản)</h4>
+      <ul>
+        <li><strong>Mặt bằng hình chữ nhật (Khối ngang 1 tầng):</strong> Sảnh đa năng nằm ở trung tâm (khối 1), tỏa ra hai cánh gồm Dân số - ATTP bên trái (khối 2, 3), Khám chữa bệnh bên phải (khối 4) và Hậu cần đặt ở góc ngoài cùng tiếp giáp cổng kỹ thuật (khối 5).</li>
+        <li><strong>Mặt bằng hình chữ L:</strong> Khối nhà chính hình chữ L ôm lấy sân đón trước, khối hậu cần kỹ thuật tách rời thành nhà 1 tầng phía sau.</li>
+        <li><strong>Mặt bằng hợp khối cao tầng (Dạng nén cho đô thị):</strong> Tầng 1 làm Sảnh tiếp đón đa năng và Cấp cứu; Tầng 2 làm Khám chữa bệnh chuyên môn; Tầng 3 bố trí Dân số, ATTP và Hành chính.</li>
+        <li><strong>Mặt bằng phân tán (Nhiều khối nhà):</strong> Khối 1 (Sảnh + Khám bệnh); Khối 2 (Dân số + Phòng dịch ATTP); Khối 3 (Kỹ thuật hậu cần).</li>
+        <li><strong>Mặt bằng khu vực nguy cơ ngập lụt:</strong> Nhà hình chữ U, toàn bộ tầng 1 làm khung cột thông chân thoát lũ (chỉ để xe hoặc sinh hoạt ngoài trời khi không ngập); toàn bộ khu khám, lưu bệnh, cấp cứu và kho thuốc đưa lên tầng 2.</li>
+      </ul>`
+    },
+    // --- TCVN 7022:2002 (TRẠM Y TẾ CƠ SỞ) ---
+    {
+      code: "TCVN 7022:2002",
+      title: "Trạm y tế cơ sở – Tiêu chuẩn thiết kế",
+      category: "Y tế & Cơ sở",
+      keywords: "tram y te co so xa phuong thi tran giuong luu benh cap cuu phong de sinh de tiem chung vuon thuoc nam tcvn 7022 7022 2002 tcvn 4454",
+      summary: "Quy mô 5.000-10.000 dân, 3-5 giường lưu, đất 500-2.000m², mật độ XD ≤ 30-40%, vườn thuốc nam ≥ 30-50m², 3 khối phòng (khám ban đầu, sản/KHHGĐ, dự phòng/dược), cửa rộng ≥ 1,2m và xử lý rác y tế.",
+      pdfUrl: "pdf/TCVN_7022_2002.pdf",
+      details: `<h4>1. Bảng chỉ tiêu diện tích, khu đất và thông số thiết kế cốt lõi</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Chỉ tiêu / Quy định kỹ thuật</th>
+          <th>Thông số kỹ thuật cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Quy mô dân số phục vụ</strong></td>
+          <td>Định mức phục vụ thông thường của 1 trạm</td>
+          <td>Dao động từ <strong>5.000 đến 10.000 dân</strong> (đô thị/đồng bằng có thể lên tới 15.000 dân)</td>
+        </tr>
+        <tr>
+          <td><strong>Quy mô giường lưu bệnh</strong></td>
+          <td>Số giường lưu bệnh nhân theo dõi ngắn hạn</td>
+          <td>Từ <strong>3 đến 5 giường lưu</strong> (tối đa không quá 10 giường)</td>
+        </tr>
+        <tr>
+          <td><strong>Diện tích khu đất xây dựng</strong></td>
+          <td>Tiêu chuẩn diện tích lô đất xây trạm theo khu vực</td>
+          <td>
+            • Đô thị / nội thành: <strong>≥ 500 m²</strong><br>
+            • Nông thôn, đồng bằng: <strong>≥ 1.000 m² – 1.500 m²</strong><br>
+            • Miền núi, vùng sâu: <strong>≥ 1.500 m² – 2.000 m²</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ xây dựng</strong></td>
+          <td>Tỷ lệ xây dựng công trình trên diện tích đất</td>
+          <td>Khống chế <strong>≤ 30% – 40%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Tầng cao công trình</strong></td>
+          <td>Giới hạn số tầng khối nhà chính</td>
+          <td>Từ <strong>1 đến 2 tầng</strong> (ưu tiên 1 tầng ở nông thôn; nhà 2 tầng bắt buộc phòng cấp cứu, phòng đẻ ở tầng 1)</td>
+        </tr>
+        <tr>
+          <td><strong>Vườn cây thuốc nam</strong></td>
+          <td>Diện tích vườn thuốc mẫu theo danh mục chuẩn</td>
+          <td>Tối thiểu <strong>30 m² – 50 m²</strong> (gồm tối thiểu 30 – 40 loại cây thuốc phân theo các nhóm điều trị)</td>
+        </tr>
+        <tr>
+          <td><strong>Khoảng cách ly bãi rác / lò đốt</strong></td>
+          <td>Khoảng cách xử lý rác thải y tế đến khối nhà khám</td>
+          <td>Tối thiểu <strong>15 m</strong>, bố trí ở cuối hướng gió chủ đạo</td>
+        </tr>
+      </table>
+
+      <h4>2. Chỉ tiêu diện tích khối phòng chuyên môn & Dây chuyền chức năng (3 khối chính)</h4>
+      <ul>
+        <li><strong>Khối Đón tiếp & Khám chữa bệnh ban đầu:</strong>
+          <ul>
+            <li>Sảnh đón tiếp & Khu vực ngồi chờ: <strong>12 m² – 16 m²</strong>.</li>
+            <li>Phòng khám bệnh chung (khám đa khoa): <strong>12 m² – 15 m²</strong>.</li>
+            <li>Phòng sơ cứu, cấp cứu ban đầu: <strong>12 m² – 15 m²</strong> (đặt sát lối ra vào, tiếp cận trực tiếp trục đường chính).</li>
+            <li>Phòng tiêm, thay băng và tiểu phẫu: <strong>10 m² – 12 m²</strong>.</li>
+            <li>Phòng khám y học cổ truyền (châm cứu, bốc thuốc): <strong>12 m² – 15 m²</strong>.</li>
+            <li>Phòng lưu bệnh nhân (tạm trú): Định mức <strong>4,5 m² – 6,0 m² / giường</strong> (tổng 15 m² – 24 m² cho 3 – 5 giường).</li>
+          </ul>
+        </li>
+        <li><strong>Khối Chăm sóc sức khỏe sinh sản & KHHGĐ:</strong>
+          <ul>
+            <li>Phòng khám phụ khoa & KHHGĐ: <strong>12 m² – 14 m²</strong>.</li>
+            <li>Phòng đẻ (sanh thường): <strong>12 m² – 16 m²</strong> (chậu rửa tay vô trùng, bàn đỡ đẻ, thông thoáng kín gió lùa).</li>
+            <li>Phòng lưu sản phụ sau đẻ: <strong>12 m² – 15 m²</strong> (bố trí 2 – 3 giường lưu sản phụ và trẻ sơ sinh).</li>
+            <li>Phòng tắm, vệ sinh trước đẻ và tắm trẻ sơ sinh: <strong>6 m² – 8 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Khối Dự phòng, Dược & Quản trị hành chính:</strong>
+          <ul>
+            <li>Phòng Y tế dự phòng & Tiêm chủng: <strong>12 m² – 15 m²</strong> (có tủ bảo quản vắc xin, dây chuyền 1 chiều: đón tiếp → tiêm → theo dõi).</li>
+            <li>Quầy thuốc & Kho thuốc thiết yếu: <strong>10 m² – 12 m²</strong>.</li>
+            <li>Phòng Trưởng trạm / Hành chính - Giao ban: <strong>15 m² – 18 m²</strong>.</li>
+            <li>Phòng rửa, tiệt trùng dụng cụ y tế: <strong>6 m² – 8 m²</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Yêu cầu kỹ thuật kiến trúc & Hạ tầng phụ trợ</h4>
+      <ul>
+        <li><strong>Chiều cao & Cửa đi:</strong> Chiều cao thông thủy tầng trệt: <strong>3,30 m – 3,60 m</strong>. Chiều rộng thông thủy cửa phòng cấp cứu, phòng đẻ, phòng lưu bệnh: <strong>≥ 1,20 m</strong> (loại 2 cánh hoặc 1 cánh lớn 1 cánh nhỏ) để lọt cáng cứu thương và xe lăn. Hành lang giữa rộng <strong>≥ 1,80 m</strong>; hành lang bên rộng <strong>≥ 1,50 m</strong>.</li>
+        <li><strong>Hoàn thiện bề mặt:</strong> Sàn nhà lát gạch chống trơn trượt, chịu hóa chất tẩy rửa. Tường phòng thủ thuật, phòng đẻ, tiêm, cấp cứu ốp gạch men kính màu sáng cao tối thiểu <strong>1,80 m – 2,0 m</strong> hoặc ốp kịch trần.</li>
+        <li><strong>Cấp thoát nước & Xử lý rác y tế:</strong> Bồn rửa tay có vòi khóa gạt tay hoặc cần đạp chân trong phòng khám, phòng đẻ, thủ thuật. Nước thải y tế phải qua bể tự hoại và hố khử trùng bằng Cloramin B trước khi xả ra mương rãnh công cộng. Bố trí hố tiêu hủy bệnh phẩm hoặc lò đốt rác chuyên dụng ở góc khu đất.</li>
+      </ul>`
+    },
+    // --- TCVN 4470:2012 (BỆNH VIỆN ĐA KHOA) ---
+    {
+      code: "TCVN 4470:2012",
+      title: "Bệnh viện đa khoa – Tiêu chuẩn thiết kế",
+      category: "Y tế & Bệnh viện",
+      keywords: "benh vien da khoa tieu chuan thiet ke tcvn 4470 4470 2012 giuong benh cap cuu phong mo xquang ct scanner mri noi tru ngoai tru cssd hanh lang ram doc",
+      summary: "Đất 50-120m²/giường, mật độ XD ≤ 30-35%, diện tích phòng khám, cấp cứu, phòng mổ (36-60m²), buồng bệnh nội trú, CSSD 1 chiều, hành lang cáng ≥ 2,4-3,0m và ram dốc ≤ 1/12.",
+      pdfUrl: "pdf/TCVN_4470_2012.pdf",
+      details: `<h4>1. Bảng chỉ tiêu diện tích khu đất và thông số quy hoạch tổng thể</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Quy định / Chỉ tiêu kỹ thuật</th>
+          <th>Thông số kỹ thuật cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Quy mô giường bệnh</strong></td>
+          <td>Các cấp quy mô tính toán thiết kế</td>
+          <td>Dưới 100 giường, từ 100 – 250 giường, 300 – 500 giường, và trên 500 giường</td>
+        </tr>
+        <tr>
+          <td><strong>Chỉ tiêu diện tích khu đất</strong></td>
+          <td>Diện tích đất tính trên 1 giường bệnh</td>
+          <td>
+            • Nội thành / đô thị nén: <strong>50 m² – 60 m² / giường</strong><br>
+            • Ngoại thành / đô thị mở rộng: <strong>80 m² – 100 m² / giường</strong><br>
+            • Miền núi, nông thôn: <strong>100 m² – 120 m² / giường</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ xây dựng</strong></td>
+          <td>Mật độ xây dựng thuần trên toàn khu đất</td>
+          <td>Không vượt quá <strong>30% – 35%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ cây xanh, mặt nước</strong></td>
+          <td>Tỷ lệ diện tích cây xanh, công viên tĩnh dưỡng</td>
+          <td>Tối thiểu <strong>30% – 40%</strong> diện tích khu đất</td>
+        </tr>
+        <tr>
+          <td><strong>Hệ số sử dụng đất</strong></td>
+          <td>Tỷ lệ tổng diện tích sàn trên diện tích khu đất</td>
+          <td>Không vượt quá <strong>2,5 lần</strong> (đối với bệnh viện hợp khối cao tầng)</td>
+        </tr>
+        <tr>
+          <td><strong>Chỉ tiêu diện tích sàn xây dựng</strong></td>
+          <td>Tổng diện tích sàn sử dụng tính trên 1 giường</td>
+          <td>Trung bình từ <strong>60 m² – 90 m²</strong> sàn / giường bệnh</td>
+        </tr>
+      </table>
+
+      <h4>2. Chỉ tiêu diện tích các khối chức năng chính</h4>
+      <ul>
+        <li><strong>Khối Khám bệnh và Điều trị ngoại trú (10% – 15% tổng sàn):</strong>
+          <ul>
+            <li>Sảnh đón tiếp, đăng ký, chờ khám: <strong>1,2 m² – 1,5 m² / người</strong>.</li>
+            <li>Phòng khám chuyên khoa (Nội, Ngoại, Sản, Nhi...): <strong>14 m² – 18 m² / phòng</strong>.</li>
+            <li>Khoa Cấp cứu ban đầu: <strong>12 m² – 15 m² / giường cấp cứu</strong> (bố trí tại tầng 1, có ram dốc và mái đón xe cứu thương).</li>
+            <li>Phòng tiểu phẫu, thủ thuật ngoại trú: <strong>18 m² – 24 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Khối Kỹ thuật nghiệp vụ (Cận lâm sàng & Phẫu thuật):</strong>
+          <ul>
+            <li>Khoa Phẫu thuật – Gây mê hồi sức: Phòng mổ đa khoa chuẩn: <strong>36 m² – 42 m²</strong> (chiều cao tĩnh <em>H</em> ≥ 3,2 m); Phòng mổ đặc biệt (ghép tạng, tim mạch, chấn thương lớn): <strong>48 m² – 60 m²</strong>; Phòng hồi tỉnh / theo dõi sau mổ: <strong>10 m² – 12 m² / giường</strong>.</li>
+            <li>Khoa Chẩn đoán hình ảnh: Phòng X-quang: <strong>24 m² – 28 m²</strong> (bọc chì bảo vệ chống bức xạ); Phòng CT-Scanner / MRI: <strong>36 m² – 48 m²</strong> (kèm phòng điều khiển ≥ 12 m² và phòng kỹ thuật ≥ 10 m²); Phòng Siêu âm, Nội soi: <strong>15 m² – 18 m²</strong>.</li>
+            <li>Khoa Xét nghiệm: <strong>24 m² – 36 m² / phân môn</strong> (Huyết học, Sinh hóa, Vi sinh) đáp ứng an toàn sinh học.</li>
+            <li>Khoa Tiệt khuẩn trung tâm (CSSD): Bố trí dây chuyền một chiều vô khuẩn tuyệt đối: Nhận dụng cụ bẩn → Làm sạch/khử khuẩn → Đóng gói → Tiệt khuẩn → Kho vô trùng.</li>
+          </ul>
+        </li>
+        <li><strong>Khối Điều trị nội trú (Khoa phòng bệnh, 40% – 50% tổng sàn):</strong>
+          <ul>
+            <li>Buồng 1 giường (cách ly / đặc biệt): <strong>14 m² – 18 m²</strong>.</li>
+            <li>Buồng 2 – 4 giường: <strong>7,0 m² – 9,0 m² / giường</strong> (đã gồm WC khép kín).</li>
+            <li>Buồng nhiều giường (tối đa 6 giường): Tối thiểu <strong>6,0 m² – 6,5 m² / giường</strong>.</li>
+            <li>Buồng Hồi sức tích cực (ICU): <strong>12 m² – 15 m² / giường</strong> (khí y tế trung tâm, monitor theo dõi). Phòng trực bác sĩ, điều dưỡng: <strong>15 m² – 18 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Khối Hành chính quản trị & Hậu cần kỹ thuật (15% – 20% tổng sàn):</strong>
+          <ul>
+            <li>Khoa Dược (GSP): <strong>120 m² – 250 m²</strong>. Khu Giặt là, Hấp sấy: một chiều đồ bẩn → đồ sạch định mức <strong>0,4 m² – 0,6 m² / giường</strong>. Khoa Dinh dưỡng: bếp một chiều <strong>0,5 m² – 0,8 m² / suất ăn</strong>.</li>
+            <li>Nhà tang lễ & Giải phẫu bệnh: Đặt ở góc khuất, cuối hướng gió chủ đạo, có lối tiếp cận riêng biệt tách rời luồng khám chữa bệnh; diện tích từ <strong>100 m² – 250 m²</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Thông số kích thước giao thông & Kỹ thuật kiến trúc</h4>
+      <ul>
+        <li><strong>Hành lang:</strong> Hành lang giữa (vận chuyển cáng thương, xe đẩy): Rộng thông thủy <strong>≥ 2,40 m – 3,00 m</strong>; Hành lang bên / phụ: Rộng thông thủy <strong>≥ 1,80 m – 2,10 m</strong>.</li>
+        <li><strong>Cửa đi:</strong> Cửa phòng mổ, cấp cứu, phòng bệnh (cho xe cáng qua lại): Chiều rộng thông thủy <strong>≥ 1,20 m – 1,50 m</strong> (loại 2 cánh lệch/đều, có ô kính quan sát).</li>
+        <li><strong>Chiều cao thông thủy:</strong> Tầng khám bệnh, buồng điều trị nội trú: <strong>3,30 m – 3,60 m</strong>; Tầng kỹ thuật, phẫu thuật, cận lâm sàng: Chiều cao tầng từ <strong>3,90 m – 4,50 m</strong> (thông thủy sàn - trần hoàn thiện <strong>≥ 3,0 m – 3,2 m</strong>).</li>
+        <li><strong>Độ dốc ram dốc:</strong> Cho xe lăn và đẩy cáng thương không quá <strong>1/12</strong> (trong nhà) và <strong>1/10</strong> (ngoài sảnh đón).</li>
+      </ul>`
+    },
+    // --- TCVN 5065:2020 (KHÁCH SẠN) ---
+    {
+      code: "TCVN 5065:2020",
+      title: "Khách sạn – Tiêu chuẩn thiết kế",
+      category: "Thương mại & Lưu trú",
+      keywords: "khach san resort tieu chuan thiet ke 1 sao 2 sao 3 sao 4 sao 5 sao buong ngu suite phong don phong doi nha hang bep mot chieu sanh thang may hanh lang tcvn 5065 5065 2020",
+      summary: "Phân hạng 1-5 sao (10-100 buồng), định mức đất 15-150m²/buồng, mật độ XD, diện tích buồng đơn/đôi/suite, sảnh chính, nhà hàng, bếp 1 chiều, hành lang giữa ≥ 1,8m và thang máy dịch vụ riêng.",
+      pdfUrl: "pdf/TCVN_5065_2020.pdf",
+      details: `<h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Quy định / Chỉ tiêu kỹ thuật</th>
+          <th>Thông số kỹ thuật cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Phân hạng khách sạn</strong></td>
+          <td>Phân loại cấp sao theo chất lượng phục vụ</td>
+          <td><strong>5 hạng</strong> (từ 1 sao, 2 sao, 3 sao, 4 sao đến 5 sao)</td>
+        </tr>
+        <tr>
+          <td><strong>Quy mô buồng ngủ</strong></td>
+          <td>Số lượng buồng ngủ tối thiểu theo phân hạng</td>
+          <td>
+            • 1 sao: <strong>≥ 10 buồng</strong><br>
+            • 2 sao: <strong>≥ 20 buồng</strong><br>
+            • 3 sao: <strong>≥ 50 buồng</strong><br>
+            • 4 sao: <strong>≥ 80 buồng</strong><br>
+            • 5 sao: <strong>≥ 100 buồng</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Diện tích khu đất</strong></td>
+          <td>Định mức đất tính bình quân trên 1 buồng ngủ</td>
+          <td>Khách sạn nội đô: <strong>15 m² – 25 m² / buồng</strong>; Khách sạn nghỉ dưỡng (Resort): <strong>100 m² – 150 m² / buồng</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ xây dựng</strong></td>
+          <td>Tỷ lệ xây dựng thuần trên diện tích lô đất</td>
+          <td>Khách sạn trong đô thị: <strong>≤ 50% – 60%</strong>; Khách sạn nghỉ dưỡng: <strong>≤ 25% – 30%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Chiều cao thông thủy</strong></td>
+          <td>Chiều cao tĩnh từ sàn đến trần hoàn thiện</td>
+          <td>Buồng ngủ: <strong>≥ 2,6 m – 2,8 m</strong>; Sảnh chính, nhà hàng: <strong>≥ 3,6 m – 4,5 m</strong>; Hành lang: <strong>≥ 2,3 m</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Bãi đỗ xe</strong></td>
+          <td>Tiêu chuẩn diện tích và quy mô chỗ đỗ</td>
+          <td>
+            • 1 – 2 sao: Tối thiểu cho xe nhân viên & khách vãng lai<br>
+            • 3 sao: Tối thiểu <strong>1 chỗ đỗ ô tô / 5 – 8 buồng</strong><br>
+            • 4 – 5 sao: Tối thiểu <strong>1 chỗ đỗ ô tô / 3 – 5 buồng</strong>
+          </td>
+        </tr>
+      </table>
+
+      <h4>2. Chỉ tiêu diện tích buồng ngủ (Đã bao gồm WC khép kín)</h4>
+      <ul>
+        <li><strong>Buồng đơn (1 giường đơn):</strong>
+          <ul>
+            <li>Khách sạn 1 – 2 sao: Tối thiểu <strong>12 m²</strong>.</li>
+            <li>Khách sạn 3 sao: Tối thiểu <strong>15 m² – 18 m²</strong>.</li>
+            <li>Khách sạn 4 sao: Tối thiểu <strong>18 m² – 21 m²</strong>.</li>
+            <li>Khách sạn 5 sao: Tối thiểu <strong>24 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Buồng đôi (1 giường đôi hoặc 2 giường đơn):</strong>
+          <ul>
+            <li>Khách sạn 1 – 2 sao: Tối thiểu <strong>14 m² – 16 m²</strong>.</li>
+            <li>Khách sạn 3 sao: Tối thiểu <strong>18 m² – 22 m²</strong>.</li>
+            <li>Khách sạn 4 sao: Tối thiểu <strong>25 m² – 32 m²</strong>.</li>
+            <li>Khách sạn 5 sao: Tối thiểu <strong>32 m² – 40 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Buồng đặc biệt (Phòng Suite / VIP):</strong> Bố trí phòng khách và phòng ngủ riêng biệt; diện tích thông thường từ <strong>45 m² đến trên 70 m²</strong> (đối với khách sạn 4 – 5 sao).</li>
+      </ul>
+
+      <h4>3. Chỉ tiêu diện tích các khối chức năng công cộng & Dịch vụ</h4>
+      <ul>
+        <li><strong>Khối Sảnh chính & Đón tiếp:</strong> 1 – 2 sao: <strong>10 m² – 20 m²</strong>; 3 sao: <strong>35 m² – 50 m²</strong>; 4 sao: <strong>60 m² – 100 m²</strong>; 5 sao: <strong>≥ 100 m²</strong> (gồm sảnh tiếp tân, khu lounge chờ, quầy đổi tiền, quầy tour).</li>
+        <li><strong>Khối Nhà hàng, Bar & Ăn uống:</strong>
+          <ul>
+            <li>Định mức diện tích: <strong>1,2 m² – 1,5 m² / chỗ</strong> (phòng ăn thường); <strong>1,8 m² – 2,2 m² / chỗ</strong> (phòng ăn tiệc cao cấp).</li>
+            <li>Quy mô chỗ ngồi: Bằng tối thiểu <strong>60% – 80%</strong> tổng số giường ngủ toàn khách sạn. Khách sạn 4 – 5 sao bắt buộc có từ <strong>2 nhà hàng trở lên</strong> (Âu, Á) và quầy Bar riêng biệt.</li>
+            <li>Bếp ăn: Bố trí theo nguyên tắc bếp một chiều, diện tích khu bếp tính bằng <strong>40% – 60%</strong> diện tích phòng ăn phục vụ.</li>
+          </ul>
+        </li>
+        <li><strong>Khối Hội nghị, Hội thảo (4 – 5 sao):</strong> Phòng đại tiệc/hội trường lớn: <strong>1,0 m² – 1,2 m² / chỗ</strong> (kiểu rạp hát) hoặc <strong>1,5 m² – 2,0 m² / chỗ</strong> (kiểu bàn lớp học/bàn tròn). Phòng họp nhỏ: <strong>20 m² – 50 m² / phòng</strong>.</li>
+      </ul>
+
+      <h4>4. Thông số kỹ thuật giao thông & Thoát hiểm</h4>
+      <ul>
+        <li><strong>Hành lang tầng buồng ngủ:</strong>
+          <ul>
+            <li>Hành lang giữa (buồng ngủ 2 bên): Rộng thông thủy tối thiểu <strong>1,8 m</strong> (1 – 2 sao: ≥ 1,5 m; 4 – 5 sao: khuyến khích <strong>≥ 2,1 m</strong> phục vụ xe đẩy chuyên dụng).</li>
+            <li>Hành lang bên (buồng ngủ 1 bên): Rộng thông thủy tối thiểu <strong>1,4 m – 1,5 m</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Thang máy:</strong> Khách sạn từ <strong>3 tầng trở lên</strong> bắt buộc phải có thang máy cho khách. Bắt buộc tách biệt độc lập giữa thang máy phục vụ khách và thang máy dịch vụ / chở hàng / nhân viên (đặc biệt từ hạng 3 sao trở lên).</li>
+      </ul>`
+    },
+    // --- TCVN 9365:2012 (NHÀ VĂN HÓA THỂ THAO) ---
+    {
+      code: "TCVN 9365:2012",
+      title: "Nhà văn hóa thể thao – Nguyên tắc cơ bản để thiết kế",
+      category: "Văn hóa & Thể thao",
+      keywords: "nha van hoa the thao khan phong hoi truong san khau san tap da nang cau lac bo phong mua thu vien thoat nguoi ghe ngoi tcvn 9365 9365 2012",
+      summary: "Quy mô 150-1000 chỗ, đất 0,3-3ha, mật độ XD ≤ 30-35%, cây xanh ≥ 40-50%, 4 khối chức năng (khán phòng, CLB/học tập, TDTT H ≥ 7m, hành chính), khoảng cách ghế, quy chuẩn thoát nạn 3-5 phút.",
+      pdfUrl: "pdf/TCVN_9365_2012.pdf",
+      details: `<h4>1. Bảng chỉ tiêu diện tích khu đất và thông số quy hoạch tổng thể</h4>
+      <table class="specs-table">
+        <tr>
+          <th>Hạng mục</th>
+          <th>Chỉ tiêu / Quy định kỹ thuật</th>
+          <th>Thông số kỹ thuật cụ thể</th>
+        </tr>
+        <tr>
+          <td><strong>Phân cấp quy mô</strong></td>
+          <td>Phân loại theo đơn vị hành chính và sức chứa khán phòng</td>
+          <td>
+            • Cấp tỉnh / TP: Quy mô lớn (<strong>≥ 800 – 1.000 chỗ</strong> khán phòng)<br>
+            • Cấp quận / huyện: Quy mô vừa (<strong>400 – 600 chỗ</strong>)<br>
+            • Cấp xã / phường / cơ sở: Quy mô nhỏ (<strong>150 – 300 chỗ</strong>)
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Diện tích khu đất xây dựng</strong></td>
+          <td>Định mức diện tích khu đất theo cấp quản lý</td>
+          <td>
+            • Cấp xã, phường: <strong>≥ 0,3 ha – 0,5 ha</strong><br>
+            • Cấp quận, huyện: <strong>≥ 0,8 ha – 1,5 ha</strong><br>
+            • Cấp tỉnh, thành phố: <strong>≥ 1,5 ha – 3,0 ha</strong> (hoặc tích hợp trong quần thể công viên - thể thao)
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Mật độ xây dựng</strong></td>
+          <td>Tỷ lệ diện tích xây dựng thuần trên khu đất</td>
+          <td>Thường khống chế <strong>≤ 30% – 35%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Cây xanh, sân bãi TDTT</strong></td>
+          <td>Tỷ lệ sân vườn, công viên cảnh quan, bãi tập</td>
+          <td>Tối thiểu <strong>≥ 40% – 50%</strong> diện tích khu đất</td>
+        </tr>
+        <tr>
+          <td><strong>Quảng trường tập kết</strong></td>
+          <td>Diện tích sân trước sảnh chính đón tiếp, phân tán người</td>
+          <td>Tối thiểu <strong>0,5 m² / chỗ ngồi</strong> khán phòng</td>
+        </tr>
+        <tr>
+          <td><strong>Bãi đỗ xe</strong></td>
+          <td>Tiêu chuẩn diện tích tính toán cho phương tiện</td>
+          <td>Ô tô: <strong>25 m² / chỗ</strong>; Xe máy: <strong>2,5 – 3,0 m² / chỗ</strong>; Xe đạp: <strong>0,9 m² / chỗ</strong></td>
+        </tr>
+      </table>
+
+      <h4>2. Chỉ tiêu diện tích các khối chức năng chính (Tổ hợp 4 khối không gian)</h4>
+      <ul>
+        <li><strong>1. Khối Khán phòng văn nghệ & Hội trường đa năng:</strong>
+          <ul>
+            <li>Sảnh chính & Nơi gửi mũ áo, tiếp đón: <strong>0,25 m² – 0,35 m² / khán giả</strong>.</li>
+            <li>Không gian khán phòng: Ghế có đệm tựa gập: <strong>0,65 m² – 0,75 m² / chỗ</strong>; Ghế thông thường / hàng ghế dài: <strong>0,55 m² – 0,60 m² / chỗ</strong>. Thể tích không gian thính phòng tối ưu: <strong>4,0 m³ – 5,5 m³ / chỗ</strong>.</li>
+            <li>Sân khấu biểu diễn: Chiều sâu sàn diễn tối thiểu bằng <strong>1/2 chiều rộng miệng sân khấu</strong>. Diện tích sàn diễn: Nhà văn hóa nhỏ từ <strong>40 m² – 60 m²</strong>; cấp huyện từ <strong>80 m² – 120 m²</strong>; cấp tỉnh từ <strong>150 m² – 250 m²</strong>.</li>
+            <li>Phòng hóa trang, chuẩn bị diễn viên (nam/nữ riêng): <strong>12 m² – 18 m² / phòng</strong>; kèm kho đạo cụ <strong>≥ 15 m² – 24 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>2. Khối Hoạt động câu lạc bộ, học tập & Triển lãm:</strong>
+          <ul>
+            <li>Phòng sinh hoạt nhóm / Câu lạc bộ (thơ, cờ tướng, nhiếp ảnh...): <strong>1,5 m² – 2,0 m² / người</strong> (phòng trung bình 24 m² – 48 m²).</li>
+            <li>Phòng tập Múa, Âm nhạc: Tối thiểu <strong>2,5 m² – 3,0 m² / người</strong> (phòng múa <strong>≥ 54 m² – 72 m²</strong>, có gương tường và gióng tập; chiều cao thông thủy <strong>≥ 3,6 m</strong>).</li>
+            <li>Phòng Mỹ thuật, Thủ công mỹ nghệ: <strong>2,0 m² – 2,5 m² / người</strong> (phòng <strong>≥ 48 m² – 54 m²</strong>, có bồn rửa dụng cụ).</li>
+            <li>Thư viện / Phòng đọc sách báo: Định mức <strong>2,0 m² – 2,4 m² / chỗ đọc</strong>; diện tích toàn khu thư viện từ <strong>48 m² – 100 m²</strong>.</li>
+            <li>Phòng truyền thống / Triển lãm văn hóa: <strong>48 m² – 150 m²</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>3. Khối Tập luyện và thi đấu thể dục thể thao:</strong>
+          <ul>
+            <li>Phòng tập thể thao đa năng trong nhà: Sân tổng hợp <strong>18 m × 30 m</strong> (≈ 540 m²) hoặc <strong>24 m × 42 m</strong> (≈ 1.008 m²); chiều cao tĩnh <strong><em>H</em> ≥ 7,0 m</strong> (bóng chuyền, cầu lông).</li>
+            <li>Phòng tập Thể hình (Gym), Aerobic: <strong>2,5 m² – 4,0 m² / người</strong> (phòng <strong>≥ 60 m² – 90 m²</strong>).</li>
+            <li>Kho dụng cụ TDTT mở trực tiếp ra sàn: bằng <strong>10% – 15%</strong> diện tích sàn tập. Khu thay đồ, tắm, vệ sinh VĐV: <strong>1,2 m² – 1,5 m² / người</strong>; 1 vòi sen / 4 – 6 người.</li>
+          </ul>
+        </li>
+        <li><strong>4. Khối Hành chính quản trị & Kỹ thuật phụ trợ:</strong>
+          <ul>
+            <li>Phòng Giám đốc: <strong>14 m² – 18 m²</strong>; Phó Giám đốc: <strong>10 m² – 12 m²</strong>; Văn phòng chuyên môn: <strong>4,5 m² – 6,0 m² / người</strong>.</li>
+            <li>Phòng điều khiển âm thanh, ánh sáng: <strong>8 m² – 15 m²</strong> (bố trí sau hoặc lửng đối diện sân khấu, có cửa kính quan sát). Trạm biến áp, máy phát, kho kỹ thuật phụ trợ bố trí tầng hầm hoặc nhà phụ trợ.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Thông số kỹ thuật giao thông, an toàn & Thoát người</h4>
+      <ul>
+        <li><strong>Quy cách chỗ ngồi khán phòng:</strong>
+          <ul>
+            <li>Khoảng cách giữa các lưng ghế: <strong>≥ 0,85 m – 0,90 m</strong> (cho phép <strong>≥ 0,80 m</strong> nếu ghế lật tự động).</li>
+            <li>Chiều rộng chỗ ngồi: <strong>≥ 0,50 m</strong> (đo giữa hai tâm tay vịn).</li>
+            <li>Số ghế tối đa trong 1 hàng: Tối đa <strong>26 ghế</strong> (lối đi ở cả 2 đầu hàng) hoặc <strong>12 ghế</strong> (hàng cụt chỉ có lối vào 1 đầu).</li>
+          </ul>
+        </li>
+        <li><strong>Lối đi và cửa thoát hiểm:</strong>
+          <ul>
+            <li>Chiều rộng thông thủy lối đi giữa các khối ghế: <strong>≥ 1,20 m</strong>.</li>
+            <li>Cửa thoát nạn: Chiều rộng thông thủy <strong>≥ 1,20 m</strong>; mở quay theo hướng thoát ra ngoài; tuyệt đối không làm bậc cấp hoặc chướng ngại vật sát cửa thoát nạn.</li>
+            <li>Thời gian thoát hiểm sự cố: Đảm bảo giải tỏa toàn bộ người trong phòng ra khu vực an toàn trong thời gian <strong>không quá 3 – 5 phút</strong> (định mức tối thiểu <strong>1,0 m chiều rộng cửa/lối đi cho 100 – 150 người</strong>).</li>
+          </ul>
+        </li>
+      </ul>`
+    },
     // --- 0. BẢNG SO SÁNH THÔNG TƯ 23/2024/TT-BGDĐT VÀ THÔNG TƯ 13/2020/TT-BGDĐT ---
     {
       code: "So sánh TT 23/2024 & TT 13/2020",
@@ -213,7 +820,6 @@
         </li>
       </ul>`
     },
-
     // --- 1. THÔNG TƯ 13/2020/TT-BGDĐT (TIÊU CHUẨN CƠ SỞ VẬT CHẤT TRƯỜNG HỌC) ---
     {
       code: "Thông tư 13/2020/TT-BGDĐT",
@@ -354,8 +960,7 @@
         </li>
       </ul>`
     },
-
-    // --- 2. TCVN 4529:2012 (NHÀ THỂ THAO - BẢN CẬP NHẬT TOÀN DIỆN) ---
+    // --- 1. TCVN 4529:2012 (NHÀ THỂ THAO - BẢN CẬP NHẬT TOÀN DIỆN) ---
     {
       code: "TCVN 4529:2012",
       title: "Công trình thể thao – Nhà thể thao – Tiêu chuẩn thiết kế",
@@ -450,7 +1055,7 @@
       `
     },
 
-    // --- 3. TCVN 4205:2012 (SÂN THỂ THAO) ---
+    // --- 2. TCVN 4205:2012 (SÂN THỂ THAO) ---
     {
       code: "TCVN 4205:2012",
       title: "Công trình thể thao – Sân thể thao – Tiêu chuẩn thiết kế",
@@ -460,35 +1065,18 @@
       pdfUrl: "pdf/TCVN_4205_2012.pdf",
       details: `
         <h4>1. Bảng chỉ tiêu và quy hoạch mặt bằng</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Phân cấp công trình</strong></td><td>Phân cấp sân theo chất lượng sử dụng và độ bền vững</td><td><strong>4 cấp</strong> (Cấp I, II, III, IV)</td></tr>
-          <tr><td><strong>Hướng sân</strong></td><td>Trục dọc chính của sân</td><td><strong>Hướng Bắc – Nam</strong> (độ lệch cho phép không quá 15° đến 20°)</td></tr>
-          <tr><td><strong>Mật độ cây xanh</strong></td><td>Tỷ lệ diện tích cây xanh, thảm cỏ chắn gió bụi trên tổng khu đất</td><td><strong>Tối thiểu 30%</strong> diện tích khu đất</td></tr>
-          <tr><td><strong>Dải cây xanh cách ly</strong></td><td>Chiều rộng dải cây ngăn gió, bụi / cách ly hai sân gần nhau</td><td>Giáp đường thường: <strong>≥ 5 m</strong>; Giáp đường lớn: <strong>≥ 10 m</strong>; Giữa 2 sân gần nhau: <strong>≥ 3 m</strong></td></tr>
-          <tr><td><strong>Quảng trường lối vào</strong></td><td>Diện tích quảng trường trước lối vào chính tập kết khán giả</td><td><strong>Tối thiểu 0,5 m² / người</strong></td></tr>
-          <tr><td><strong>Cổng và lối thoát người</strong></td><td>Chiều rộng thoát hiểm; lùi ranh giới lô đất</td><td>Thoát người sự cố: <strong>1 m cho 500 người</strong>; Hàng rào/cổng lùi sâu <strong>≥ 4 m</strong></td></tr>
-          <tr><td><strong>Bãi đỗ xe</strong></td><td>Tiêu chuẩn diện tích tính toán cho các loại phương tiện</td><td>Ô tô: <strong>25 m²/xe</strong>; Mô tô/xe máy: <strong>3,0 m²/xe</strong>; Xe đạp: <strong>0,9 m²/xe</strong></td></tr>
-          <tr><td><strong>Dự trữ cỏ tự nhiên</strong></td><td>Diện tích ươm trồng cỏ dự phòng mặt sân</td><td>Bằng <strong>15%</strong> diện tích phủ cỏ (nhiều sân lấy <strong>10%</strong>)</td></tr>
-        </table>
-        <h4>2. Kích thước sân thể thao ngoài trời tiêu chuẩn</h4>
+        <p>Hướng sân: trục dọc Bắc – Nam (lệch ≤ 15°–20°). Mật độ cây xanh: ≥ 30%. Dải cây cách ly: giáp đường lớn ≥ 10 m, đường thường ≥ 5 m, giữa 2 sân ≥ 3 m. Quảng trường tập kết ≥ 0,5 m²/người. Dự trữ cỏ: 15% diện tích phủ cỏ (nhiều sân lấy 10%). Cổng/hàng rào lùi sâu ≥ 4 m.</p>
+        <h4>2. Kích thước sân ngoài trời tiêu chuẩn</h4>
         <ul>
-          <li>Điền kinh: Đường chạy vòng tiêu chuẩn <strong>400 m</strong> (6–8 làn, mỗi làn rộng 1,22 m ± 0,01 m); đường chạy thẳng 100–110 m (dài 130–140 m, gồm 6–10 làn). Đường chạy đà nhảy xa/3 bước dài 40–45 m, rộng 1,22 m; hố cát rộng 2,75–3,0 m, dài ≥ 7 m.</li>
-          <li>Bóng đá 11 người: Chuẩn quốc tế <strong>105 m × 68 m</strong> (dao động dài 90–120 m, rộng 45–90 m; khu an toàn biên dọc ≥ 2 m, biên ngang ≥ 3 m).</li>
-          <li>Bóng rổ: <strong>28 m × 15 m</strong> (kích thước xây dựng gồm biên an toàn: 32 m × 19 m).</li>
-          <li>Bóng chuyền: <strong>18 m × 9 m</strong> (vùng tự do quanh sân tối thiểu rộng ≥ 3 m; thi đấu cấp cao từ 5–8 m).</li>
-          <li>Tennis: Đơn 23,77 × 8,23 m; đôi 23,77 × 10,97 m (khu đất hoàn chỉnh có lùi biên là 36 × 18 m hoặc 35 × 19 m).</li>
-        </ul>
-        <h4>3. Khán đài, độ dốc mặt sân & Chiếu sáng</h4>
-        <ul>
-          <li>Khán đài dốc không quá <strong>1 : 1,5</strong>; sâu bậc ngồi 0,75–0,80 m; rộng chỗ ngồi ≥ 0,45 m. Bậc thấp nhất cách mép sân ≥ 5 m, cao hơn mặt sân 0,9–1,15 m.</li>
-          <li>Độ dốc thoát nước mặt sân cỏ/điền kinh: <strong>0,4% – 0,8%</strong> (dốc mu rùa từ tâm ra biên) kết hợp mương ngầm thẩm thấu.</li>
-          <li>Độ rọi chiếu sáng: Luyện tập thông thường 100 – 150 Lux; Thi đấu quốc gia / truyền hình 500 – 1000+ Lux.</li>
+          <li>Điền kinh: Vòng chạy 400 m (6–8 làn, mỗi làn rộng 1,22 m ± 0,01 m); cự ly thẳng 100–110 m (dài 130–140 m). Đà nhảy xa dài 40–45 m, hố cát rộng 2,75–3,0 m, dài ≥ 7 m.</li>
+          <li>Bóng đá 11 người: Chuẩn quốc tế 105 m × 68 m (biên dọc an toàn ≥ 2 m, biên ngang ≥ 3 m).</li>
+          <li>Bóng rổ: 28 × 15 m (xây dựng 32 × 19 m); Bóng chuyền: 18 × 9 m (vùng tự do ≥ 3 m); Tennis: đơn 23,77 × 8,23 m, đôi 23,77 × 10,97 m (khu đất 36 × 18 m).</li>
+          <li>Độ dốc mặt sân cỏ/điền kinh: 0,4% – 0,8% (dốc mu rùa từ tâm ra biên). Khán đài dốc không quá 1 : 1,5; bậc thấp nhất cách sân ≥ 5 m, cao hơn sân 0,9–1,15 m.</li>
         </ul>
       `
     },
 
-    // --- 4. TCVN 9211:2012 (CHỢ) ---
+    // --- 3. TCVN 9211:2012 (CHỢ) ---
     {
       code: "TCVN 9211:2012",
       title: "Chợ – Tiêu chuẩn thiết kế",
@@ -497,41 +1085,16 @@
       summary: "Điểm kinh doanh chuẩn ≥ 3,0 m², phân hạng chợ 1-2-3, nhà chợ 1-2 tầng, diện tích khách 2,4-2,8 m², lối đi chính ≥ 2,4-3,0 m, bệ sạp thực phẩm cao 0,7-0,8 m, bãi rác cách ≥ 15-20 m và cấp thoát nước.",
       pdfUrl: "pdf/TCVN_9211_2012.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Tiêu chí / Quy định phân loại</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Điểm kinh doanh chuẩn (ĐKD)</strong></td><td>Diện tích đơn vị quy chuẩn tối thiểu cho 1 sạp/lô/quầy</td><td><strong>Tối thiểu 3,0 m² / điểm kinh doanh</strong></td></tr>
-          <tr><td><strong>Phân hạng Chợ hạng 1</strong></td><td>Cấp tỉnh/TP quản lý; số điểm kinh doanh</td><td><strong>Trên 400 ĐKD</strong>; bán kính phục vụ <strong>≤ 3,0 km</strong></td></tr>
-          <tr><td><strong>Phân hạng Chợ hạng 2</strong></td><td>Cấp quận/huyện quản lý; số điểm kinh doanh</td><td><strong>Từ 200 đến 400 ĐKD</strong>; bán kính phục vụ <strong>≤ 1,5 km</strong></td></tr>
-          <tr><td><strong>Phân hạng Chợ hạng 3</strong></td><td>Cấp xã/phường quản lý; số điểm kinh doanh</td><td><strong>Dưới 200 ĐKD</strong>; bán kính phục vụ <strong>≤ 0,5 – 1,0 km</strong></td></tr>
-          <tr><td><strong>Số tầng công trình</strong></td><td>Khuyến nghị số tầng của nhà chợ chính</td><td>Chỉ nên thiết kế từ <strong>1 đến 2 tầng</strong> (hạn chế nhà cao tầng)</td></tr>
-          <tr><td><strong>Diện tích tính toán khách</strong></td><td>Định mức diện tích kinh doanh trên lượng khách cùng lúc</td><td>Từ <strong>2,4 m² đến 2,8 m² / khách hàng</strong></td></tr>
-          <tr><td><strong>Bãi đỗ xe chợ</strong></td><td>Định mức bãi đỗ xe cho các phương tiện</td><td>Ô tô: <strong>25 m²/chỗ</strong>; Xe máy: <strong>2,5 – 3,0 m²/chỗ</strong>; Xe đạp: <strong>0,9 m²/chỗ</strong></td></tr>
-        </table>
-
-        <h4>2. Cơ cấu phân khu chức năng & Quy hoạch mặt bằng</h4>
-        <ul>
-          <li><strong>Khu kinh doanh trong nhà (Nhà chợ chính):</strong> Bách hóa, thực phẩm khô, vải vóc, quần áo, dịch vụ tổng hợp.</li>
-          <li><strong>Khu kinh doanh thực phẩm tươi sống:</strong> Bố trí tách biệt, nền nhà đánh dốc <strong>≥ 1,5% – 2,0%</strong> về các rãnh thoát thu gom cục bộ, thuận tiện cấp nước sạch liên tục và tẩy rửa khử trùng hằng ngày.</li>
-          <li><strong>Khu kinh doanh ngoài trời:</strong> Dành cho nông sản mùa vụ, hàng tươi sống bán nhanh, chợ phiên tự do.</li>
-          <li><strong>Khu tập kết & Bốc xếp hàng hóa:</strong> Bố trí sân bãi tiếp cận riêng cho xe tải giao nhận hàng ở phía sau hoặc bên hông chợ, không cắt ngang luồng khách đi bộ.</li>
-          <li><strong>Khu thu gom chất thải rắn:</strong> Bố trí ở cuối hướng gió chủ đạo, cách xa khối nhà chợ chính và khu kinh doanh ăn uống tối thiểu <strong>15 m – 20 m</strong>, có tường bao che kín và lối thu gom rác chuyên dụng ra ngoài đường gom.</li>
-        </ul>
-
-        <h4>3. Thông số kích thước giao thông nội bộ & Quầy sạp</h4>
-        <ul>
-          <li>Lối đi chính (nối giữa các cửa ra vào chính): Chiều rộng thông thủy <strong>≥ 2,4 m – 3,0 m</strong>; Lối đi phụ giữa các dãy sạp hàng: <strong>≥ 1,2 m – 1,5 m</strong>; Đường đối nội bao quanh nhà chợ: <strong>≥ 3,5 m</strong>.</li>
-          <li>Chiều rộng mặt tiền mỗi sạp hàng: Tối thiểu <strong>1,5 m</strong>; Chiều cao bệ bày bán hàng thực phẩm: Cao cách sàn hoàn thiện <strong>0,70 m – 0,80 m</strong>.</li>
-        </ul>
-
-        <h4>4. Hạ tầng kỹ thuật, PCCC & Vệ sinh môi trường</h4>
-        <ul>
-          <li>Khoảng cách thoát nạn <strong>≤ 25 m</strong> (gian phòng mở); Cửa thoát hiểm chính rộng <strong>≥ 1,2 m</strong> mở quay theo chiều thoát. Cấp nước: 15 – 20 lít/ĐKD/ngày (hàng khô) và 40 – 60 lít/ĐKD/ngày (thịt, cá). Mương thoát nước thải có nắp đan tháo lắp, hố ga lắng cặn và bẫy ngăn mùi. Chiều cao thông thủy tầng 1 đạt <strong>4,2 m – 4,8 m</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu cốt lõi</h4>
+        <p>Điểm kinh doanh chuẩn (ĐKD) ≥ 3,0 m². Phân hạng: Hạng 1 (> 400 ĐKD, bán kính ≤ 3 km); Hạng 2 (200 – 400 ĐKD, bán kính ≤ 1,5 km); Hạng 3 (< 200 ĐKD, bán kính ≤ 0,5 – 1,0 km). Nhà chợ chính: 1 đến 2 tầng. Diện tích khách: 2,4 – 2,8 m²/khách. Bãi xe: ô tô 25 m²; xe máy 2,5 – 3,0 m²; xe đạp 0,9 m².</p>
+        <h4>2. Phân khu & Giao thông nội bộ</h4>
+        <p>Tách biệt nhà chợ chính (bách hóa, đồ khô) và khu thực phẩm tươi sống (sàn dốc ≥ 1,5% – 2,0%). Khu bốc xếp hàng riêng cho xe tải không giao cắt luồng khách. Khu rác đặt cuối hướng gió, cách nhà chợ ≥ 15 – 20 m. Lối đi chính rộng ≥ 2,4 – 3,0 m; lối đi phụ ≥ 1,2 – 1,5 m; đường ngoài quanh chợ ≥ 3,5 m. Mặt tiền sạp ≥ 1,5 m; bệ sạp cao 0,70 – 0,80 m.</p>
+        <h4>3. PCCC, Cấp thoát nước & Thông gió</h4>
+        <p>Khoảng cách thoát nạn ≤ 25 m; cửa thoát hiểm rộng ≥ 1,2 m mở ra ngoài. Cấp nước: hàng khô 15 – 20 lít/ĐKD/ngày; đồ tươi sống 40 – 60 lít/ĐKD/ngày. Mương thoát nước có nắp đan tháo lắp, hố ga lắng cặn và bẫy ngăn mùi. Chiều cao tầng 1 nhà chợ chính: 4,2 – 4,8 m.</p>
       `
     },
 
-    // --- 5. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
+    // --- 4. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
     {
       code: "TCVN 11856:2017",
       title: "Chợ kinh doanh thực phẩm – Yêu cầu kỹ thuật và phương pháp đánh giá",
@@ -540,33 +1103,14 @@
       summary: "Điểm kinh doanh ≥ 3m², cách ly ô nhiễm ≥ 500m, đường nội bộ ≥ 1,5m, cách ly gia cầm sống ≥ 2,4m, 1 WC/25 hộ, chống nhiễm chéo, bệ sạp cao ≥ 0,7-0,8m và thoát nước mương rãnh ≥ 1%.",
       pdfUrl: "pdf/TCVN_11856_2017.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Quy định kỹ thuật / Tiêu chí</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Quy mô điểm kinh doanh (ĐKD)</strong></td><td>Diện tích tối thiểu cho mỗi quầy sạp/điểm bán thực phẩm</td><td><strong>Tối thiểu 3,0 m² / điểm kinh doanh</strong></td></tr>
-          <tr><td><strong>Khoảng cách ly môi trường</strong></td><td>Khoảng cách đến nguồn ô nhiễm lớn (bãi rác, khu chăn nuôi, KCN...)</td><td><strong>Tối thiểu 500 m</strong></td></tr>
-          <tr><td><strong>Đường giao thông nội bộ</strong></td><td>Chiều rộng thông thủy lối đi chính giữa các dãy sạp</td><td><strong>Tối thiểu 1,5 m</strong></td></tr>
-          <tr><td><strong>Khu bán gia cầm sống</strong></td><td>Khoảng cách ly giữa điểm bán gia cầm sống với các khu thực phẩm khác</td><td><strong>Tối thiểu 2,4 m</strong></td></tr>
-          <tr><td><strong>Công trình vệ sinh</strong></td><td>Tỷ lệ phòng vệ sinh phục vụ các hộ kinh doanh</td><td><strong>Tối thiểu 1 nhà vệ sinh / 25 hộ kinh doanh</strong></td></tr>
-          <tr><td><strong>Niên hạn sử dụng</strong></td><td>Niên hạn khai thác công trình chợ</td><td><strong>Tối thiểu 5 năm</strong></td></tr>
-          <tr><td><strong>Bậc chịu lửa (PCCC)</strong></td><td>Bậc chịu lửa công trình theo TCVN 6161</td><td><strong>Bậc I, II</strong> (chợ kiên cố); <strong>bậc III</strong> (bán kiên cố)</td></tr>
-        </table>
-
-        <h4>2. Phân khu chức năng & Dây chuyền mặt bằng</h4>
-        <ul>
-          <li>Phân chia ranh giới rõ ràng khu bách hóa và thực phẩm. Tách biệt thực phẩm tươi sống khỏi khu thực phẩm chín và đóng gói sẵn để ngăn ngừa nhiễm chéo.</li>
-          <li>Khu bán gia cầm sống cách ly tối thiểu <strong>2,4 m</strong> có lối vận chuyển riêng. Khu chứa rác đặt cuối hướng gió, có gờ bao quanh, rãnh rỉ rác riêng và thu dọn <strong>≥ 1 lần/ngày</strong>.</li>
-        </ul>
-
-        <h4>3. Thông số kỹ thuật quầy sạp & Hạ tầng kỹ thuật</h4>
-        <ul>
-          <li>Nền chợ lát vật liệu phẳng chống trượt, dốc <strong>1,5% – 2,0%</strong> về rãnh thu nước. Bàn sạp thịt cá cao cách sàn <strong>0,7 m – 0,8 m</strong> làm bằng inox/đá nhẵn. Quầy đồ chín có tủ kính che chắn kín cao <strong>≥ 0,5 m</strong>.</li>
-          <li>Cấp nước sạch liên tục đến từng sạp thịt cá. Mương thoát dốc <strong>≥ 1%</strong> có nắp đan tháo lắp và bẫy ngăn mùi. Chiếu sáng đạt <strong>100 – 150 Lux</strong> (cấm dùng đèn màu sai lệch màu sắc thực phẩm).</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu cốt lõi</h4>
+        <p>Điểm kinh doanh ≥ 3,0 m²/điểm. Cách ly ô nhiễm ≥ 500 m. Lối đi chính ≥ 1,5 m. Cách ly gia cầm sống ≥ 2,4 m (lối vận chuyển độc lập). 1 WC / 25 hộ kinh doanh. Niên hạn công trình ≥ 5 năm. Bậc chịu lửa I, II (kiên cố) và bậc III (bán kiên cố).</p>
+        <h4>2. Phân khu & Vệ sinh an toàn</h4>
+        <p>Tách biệt khu thực phẩm và phi thực phẩm. Không nhiễm chéo: khu tươi sống tách rời khu thực phẩm chín và đồ gói sẵn. Bãi rác đặt cuối hướng gió, có gờ chắn và thu gom ≥ 1 lần/ngày. Nền chợ dốc 1,5% – 2,0%. Bệ sạp thịt cá cao cách sàn 0,7 – 0,8 m làm bằng vật liệu nhẵn, chống gỉ (inox/đá). Quầy đồ chín có tủ kính che kín cao ≥ 0,5 m. Mương thoát nước dốc ≥ 1% có bẫy ngăn mùi. Độ rọi chiếu sáng 100 – 150 Lux không dùng đèn màu.</p>
       `
     },
 
-    // --- 6. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC CƠ SỞ) ---
+    // --- 5. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC CƠ SỞ) ---
     {
       code: "TCVN 8794:2011",
       title: "Trường trung học cơ sở – Yêu cầu thiết kế",
@@ -575,32 +1119,16 @@
       summary: "Quy mô ≤ 45 lớp (≤ 45 HS/lớp), đất ≥ 6-10 m²/HS, phòng học lý thuyết (≥ 1,25 m²/HS, rộng ≤ 7,2m), phòng bộ môn Hóa-Sinh/Lý, thư viện (≥ 0,6 m²/HS), nhà đa năng ≥ 288m², thang bộ h ≤ 150mm và lan can cao ≥ 1,1m.",
       pdfUrl: "pdf/TCVN_8794_2011.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Quy mô trường</strong></td><td>Số lớp học tối đa toàn trường; số học sinh/lớp</td><td><strong>Tối đa 45 lớp</strong>; <strong>Tối đa 45 học sinh / lớp</strong></td></tr>
-          <tr><td><strong>Bán kính phục vụ</strong></td><td>Khoảng cách từ nhà học sinh đến trường</td><td>Đô thị, đồng bằng: <strong>≤ 1,5 km – 2,0 km</strong>; Miền núi, nông thôn: <strong>≤ 3,0 km – 5,0 km</strong></td></tr>
-          <tr><td><strong>Tiêu chuẩn khu đất</strong></td><td>Diện tích đất tối thiểu tính trên 1 học sinh</td><td>Đô thị, vùng đồng bằng: <strong>≥ 6 m² / HS</strong>; Nông thôn, miền núi: <strong>≥ 10 m² / HS</strong></td></tr>
-          <tr><td><strong>Cơ cấu mặt bằng</strong></td><td>Tỷ lệ cơ cấu phân chia diện tích khu đất</td><td>Đất xây dựng: <strong>≤ 40%</strong>; Cây xanh, sân chơi, bãi tập: <strong>≥ 40%</strong>; Giao thông nội bộ: <strong>≥ 20%</strong></td></tr>
-          <tr><td><strong>Tầng cao công trình</strong></td><td>Giới hạn chiều cao khối phòng học lý thuyết</td><td><strong>Tối đa 4 tầng</strong> (học sinh lớp 6, 7 ưu tiên học ở các tầng thấp)</td></tr>
-          <tr><td><strong>Chiều cao thông thủy</strong></td><td>Chiều cao tĩnh từ sàn đến trần phòng học</td><td>Phòng học lý thuyết: <strong>3,30 m – 3,60 m</strong>; Chiều cao tầng: <strong>3,60 m – 3,90 m</strong></td></tr>
-        </table>
-
-        <h4>2. Chỉ tiêu diện tích khối phòng học và hỗ trợ học tập</h4>
-        <ul>
-          <li>Lý thuyết: <strong>≥ 1,25 m² / HS</strong> (54 m² – 60 m² cho lớp 40 – 45 HS, chiều rộng lấy sáng ≤ 7,2 m). Vật lý – Công nghệ: <strong>≥ 1,85 – 2,0 m²/HS</strong> (kho ≥ 16 m²). Hóa học – Sinh học: <strong>≥ 2,0 – 2,2 m²/HS</strong> (bồn rửa, tủ hút, kho ≥ 16 m²). Tin học, Ngoại ngữ, Âm nhạc: ≥ 1,50 m²/HS.</li>
-          <li>Thư viện: <strong>≥ 0,60 m² / HS</strong> (tổng ≥ 96 m², đọc học sinh 45 – 60 chỗ, giáo viên 20 – 25 chỗ). Nhà tập đa năng: <strong>≥ 1,80 – 2,0 m² / HS</strong> (mặt bằng ≥ 288 m², chiều cao tĩnh <em>H</em> ≥ 7,0 m).</li>
-        </ul>
-
-        <h4>3. Hành chính, vệ sinh & Kỹ thuật an toàn</h4>
-        <ul>
-          <li>Phòng Hiệu trưởng: 14 – 16 m²; Phó Hiệu trưởng: 10 – 12 m²/người; Văn phòng trường: 1,20 – 1,40 m²/GV (tổng ≥ 36 – 48 m²); Phòng Y tế: ≥ 16 m² (tầng 1); Phòng Đoàn – Đội: ≥ 24 – 36 m².</li>
-          <li>Khu vệ sinh: Tối thiểu <strong>0,06 m² / HS</strong>. Nữ: 1 bệ xí / 20–30 HS; Nam: 1 xí + 1 tiểu / 25–35 HS. Mép chậu rửa cao 0,65 – 0,75 m; bệ xí cao 0,38 – 0,42 m. Hành lang chính rộng <strong>≥ 2,10 m</strong>. Cầu thang chính rộng <strong>≥ 1,80 m</strong>, bậc cao <em>h</em> ≤ 150 mm, rộng <em>b</em> ≥ 300 mm. Lan can cao <strong>≥ 1,10 m</strong> chấn song đứng hở <strong>≤ 0,10 m</strong>. Độ rọi bàn học <strong>≥ 300 Lux</strong>, bảng lớp <strong>≥ 500 Lux</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu cốt lõi</h4>
+        <p>Quy mô ≤ 45 lớp (≤ 45 HS/lớp). Bán kính phục vụ: đồng bằng ≤ 1,5 – 2,0 km; miền núi ≤ 3,0 – 5,0 km. Đất: Đô thị ≥ 6 m²/HS; Nông thôn ≥ 10 m²/HS. Xây dựng ≤ 40%; Cây xanh sân chơi ≥ 40%; Giao thông ≥ 20%. Tầng cao ≤ 4 tầng (lớp 6, 7 ưu tiên tầng thấp). Chiều cao phòng học: 3,30 – 3,60 m.</p>
+        <h4>2. Khối phòng học & Bộ môn</h4>
+        <p>Lý thuyết: ≥ 1,25 m²/HS (54 – 60 m², rộng ≤ 7,2 m). Vật lý: 1,85 – 2,0 m²/HS (kho ≥ 16 m²). Hóa - Sinh: 2,0 – 2,2 m²/HS (bồn rửa, tủ hút, kho ≥ 16 m²). Tin học, Ngoại ngữ: ≥ 1,50 m²/HS (≥ 54 m²). Thư viện: ≥ 0,60 m²/HS (tổng ≥ 96 m²). Nhà đa năng: ≥ 1,80 – 2,0 m²/HS (mặt bằng ≥ 288 m², H ≥ 7,0 m).</p>
+        <h4>3. Hành chính, vệ sinh & Kỹ thuật</h4>
+        <p>Y tế: ≥ 16 m² (tầng 1). WC: ≥ 0,06 m²/HS. Nữ: 1 xí / 20–30 HS; Nam: 1 xí + 1 tiểu / 25–35 HS. Mép chậu rửa cao 0,65 – 0,75 m; bệ xí cao 0,38 – 0,42 m. Hành lang chính ≥ 2,10 m; Thang rộng ≥ 1,80 m, bậc cao h ≤ 150 mm, rộng b ≥ 300 mm. Lan can cao ≥ 1,10 m nan đứng hở ≤ 100 mm. Cửa phòng học rộng ≥ 0,90 m mở ra ngoài (lớp ≥ 40 HS làm 2 cửa). Bàn học ≥ 300 Lux, bảng lớp ≥ 500 Lux.</p>
       `
     },
 
-    // --- 7. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
+    // --- 6. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
     {
       code: "TCVN 8793:2011",
       title: "Trường tiểu học – Yêu cầu thiết kế",
@@ -609,65 +1137,34 @@
       summary: "Quy mô ≤ 30 lớp (≤ 35 HS/lớp), đất ≥ 6-10 m²/HS, phòng học lý thuyết (≥ 1,25 m²/HS, rộng ≤ 7,2m), thư viện (≥ 0,6 m²/HS), nhà đa năng (≥ 1,8 m²/HS), thang bộ h ≤ 150mm và lan can cao ≥ 1,1m.",
       pdfUrl: "pdf/TCVN_8793_2011.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Quy mô trường</strong></td><td>Số lớp học tối đa toàn trường; số học sinh/lớp</td><td><strong>Tối đa 30 lớp</strong>; <strong>Tối đa 35 học sinh / lớp</strong></td></tr>
-          <tr><td><strong>Bán kính phục vụ</strong></td><td>Khoảng cách từ nhà học sinh đến trường</td><td>Đô thị, đồng bằng: <strong>≤ 0,5 km – 1,0 km</strong>; Nông thôn, miền núi: <strong>≤ 2,0 km – 3,0 km</strong></td></tr>
-          <tr><td><strong>Tiêu chuẩn khu đất</strong></td><td>Diện tích đất tối thiểu tính trên 1 học sinh</td><td>Đô thị, vùng đồng bằng: <strong>≥ 6 m² / HS</strong>; Nông thôn, miền núi: <strong>≥ 10 m² / HS</strong></td></tr>
-          <tr><td><strong>Mặt bằng tổng thể</strong></td><td>Tỷ lệ cơ cấu phân chia diện tích khu đất</td><td>Đất xây dựng: <strong>≤ 40%</strong>; Cây xanh, sân chơi, TDTT: <strong>≥ 40%</strong>; Giao thông nội bộ: <strong>≥ 20%</strong></td></tr>
-          <tr><td><strong>Tầng cao công trình</strong></td><td>Giới hạn chiều cao khối phòng học lý thuyết</td><td><strong>Tối đa 3 tầng</strong> (ở vùng đồng bào thiểu số, miền núi chỉ nên làm 1 – 2 tầng)</td></tr>
-          <tr><td><strong>Chiều cao phòng học</strong></td><td>Chiều cao thông thủy từ sàn đến trần phòng</td><td>Lớp học thông thường: <strong>3,30 m – 3,60 m</strong>; Chiều cao tầng: <strong>3,60 m – 3,90 m</strong></td></tr>
-        </table>
-
-        <h4>2. Chỉ tiêu diện tích khối phòng học và hỗ trợ học tập</h4>
-        <ul>
-          <li>Lý thuyết: <strong>≥ 1,25 m² / HS</strong> (48 m² – 54 m² cho lớp 30 – 35 HS, chiều rộng ≤ 7,2 m). Tin học, Ngoại ngữ, Âm nhạc, Mỹ thuật: ≥ 1,50 m²/HS (≥ 54 m²). Thư viện: <strong>≥ 0,60 m² / HS</strong> (tổng ≥ 72 m²). Nhà tập đa năng: <strong>≥ 1,80 m² / HS</strong> (tổng ≥ 144 m², chiều cao tĩnh <em>H</em> ≥ 6,0 m).</li>
-        </ul>
-
-        <h4>3. Hành chính, vệ sinh & Kỹ thuật an toàn</h4>
-        <ul>
-          <li>Hiệu trưởng: 12 – 15 m²; Phó Hiệu trưởng: 10 – 12 m²; Văn phòng: 1,20 – 1,50 m²/GV (≥ 24 m²); Y tế học đường: 12 – 16 m² (tầng 1); Phòng Đội: 24 – 36 m².</li>
-          <li>Khu vệ sinh: Tối thiểu <strong>0,06 m² / HS</strong>. Nữ: 1 hố xí / 20–30 HS nữ; Nam: 1 hố xí + 1 bệ tiểu / 25–35 HS nam. Mép chậu rửa cao 0,55 – 0,65 m; bệ xí cao 0,30 – 0,35 m. Hành lang chính rộng <strong>≥ 2,10 m</strong>. Cầu thang chính rộng <strong>≥ 1,80 m</strong>, bậc cao <em>h</em> ≤ 150 mm, rộng <em>b</em> ≥ 300 mm. Lan can cao <strong>≥ 1,10 m</strong> chấn song đứng hở <strong>≤ 0,10 m</strong>. Độ rọi bàn học <strong>≥ 300 Lux</strong>, bảng lớp <strong>≥ 500 Lux</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu diện tích và quy hoạch</h4>
+        <p>Quy mô ≤ 30 lớp (≤ 35 HS/lớp). Bán kính phục vụ: đồng bằng ≤ 0,5 – 1,0 km; miền núi ≤ 2,0 – 3,0 km. Đất: Đô thị ≥ 6 m²/HS; Nông thôn ≥ 10 m²/HS. Xây dựng ≤ 40%; Cây xanh sân chơi ≥ 40%; Giao thông ≥ 20%. Tầng cao ≤ 3 tầng (cấm lớp 1 ở tầng trên cùng). Chiều cao phòng học: 3,30 – 3,60 m.</p>
+        <h4>2. Khối phòng học & Bộ môn</h4>
+        <p>Lý thuyết: ≥ 1,25 m²/HS (rộng ≤ 7,2 m). Ngoại ngữ, Tin học, Âm nhạc, Mỹ thuật: ≥ 1,50 m²/HS (≥ 54 m²). Thư viện: ≥ 0,60 m²/HS (tổng ≥ 72 m²). Nhà đa năng: ≥ 1,80 m²/HS (tổng ≥ 144 m², H ≥ 6,0 m).</p>
+        <h4>3. Hành chính, vệ sinh & Kỹ thuật</h4>
+        <p>Y tế: 12 – 16 m² (tầng 1). WC: ≥ 0,06 m²/HS (có phòng đệm). Nữ: 1 xí / 20–30 HS; Nam: 1 xí + 1 tiểu / 25–35 HS. Chậu rửa cao 0,55 – 0,65 m; bệ xí cao 0,30 – 0,35 m. Hành lang chính ≥ 2,10 m; Thang rộng ≥ 1,80 m, bậc cao h ≤ 150 mm, rộng b ≥ 300 mm. Lan can cao ≥ 1,10 m nan đứng hở ≤ 100 mm. Độ rọi bàn học ≥ 300 Lux, bảng lớp ≥ 500 Lux.</p>
       `
     },
 
-    // --- 8. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
+    // --- 7. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
     {
       code: "TCVN 3907:2011",
       title: "Trường mầm non – Yêu cầu thiết kế",
       category: "Giáo dục mầm non",
-      keywords: "mam non mau giao nha tre quy hoach ban kinh phuc vu sinh hoat chung phong ngu phong ve sinh hien choi bep mot chieu cau thang lan can tay vin chieu sang do roi 3907 3907 2011",
+      keywords: "mam non mau giao nha tre quy hoach ban kinh phuc vu sinh hoat chung phong ngu phong ve sinh hien choi bep mot chieu cau thang lan can tay vin 3907 2011",
       summary: "Quy mô ≤ 20 lớp (300-500 trẻ), đất ≥ 8-12 m²/trẻ, sinh hoạt chung (≥ 1,5-1,8 m²), phòng ngủ (≥ 1,2-1,5 m²), bếp 1 chiều, hiên chơi ≥ 2,1m, thang bậc h ≤ 120mm và lan can nan đứng.",
       pdfUrl: "pdf/TCVN_3907_2011.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số thiết kế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật cụ thể</th></tr>
-          <tr><td><strong>Quy mô trường</strong></td><td>Số nhóm trẻ / lớp mẫu giáo tối đa toàn trường</td><td><strong>Không vượt quá 20 nhóm/lớp</strong> (tương đương 300 – 500 trẻ)</td></tr>
-          <tr><td><strong>Bán kính phục vụ</strong></td><td>Khoảng cách đi lại từ nhà đến trường</td><td>Đồng bằng, thành phố: <strong>≤ 0,5 km – 1,0 km</strong>; Miền núi, nông thôn: <strong>≤ 1,5 km – 2,0 km</strong></td></tr>
-          <tr><td><strong>Tiêu chuẩn khu đất</strong></td><td>Diện tích đất tối thiểu tính trên 1 trẻ</td><td>Thành phố, thị xã: <strong>≥ 8 m² / trẻ</strong>; Nông thôn, miền núi: <strong>≥ 12 m² / trẻ</strong></td></tr>
-          <tr><td><strong>Cơ cấu mặt bằng</strong></td><td>Tỷ lệ phân chia khu đất (XD, sân chơi, cây xanh)</td><td>Xây dựng: <strong>≤ 40%</strong>; Cây xanh, sân chơi: <strong>≥ 40%</strong>; Giao thông nội bộ: <strong>≥ 20%</strong></td></tr>
-          <tr><td><strong>Tầng cao công trình</strong></td><td>Giới hạn chiều cao khối phòng nuôi dưỡng, chăm sóc</td><td><strong>Tối đa 3 tầng</strong> (nhóm nhà trẻ ưu tiên bố trí ở tầng 1)</td></tr>
-          <tr><td><strong>Chiều cao thông thủy</strong></td><td>Chiều cao tĩnh từ sàn đến trần phòng học</td><td>Phòng sinh hoạt chung, phòng ngủ: <strong>3,30 m – 3,60 m</strong>; Hành lang: <strong>≥ 2,40 m</strong></td></tr>
-        </table>
-
-        <h4>2. Chỉ tiêu diện tích khối phòng nhóm trẻ và lớp mẫu giáo</h4>
-        <ul>
-          <li>Sinh hoạt chung: Nhà trẻ: <strong>≥ 1,50 m² – 1,80 m² / trẻ</strong> (≥ 24 m²); Mẫu giáo: <strong>≥ 1,50 m² – 1,80 m² / trẻ</strong> (≥ 36 m²). Phòng ngủ: <strong>≥ 1,20 m² – 1,50 m² / trẻ</strong> (nhóm trẻ ≥ 20 m²; mẫu giáo ≥ 30 m²). Nếu kết hợp chung thì ≥ 2,20 m²/trẻ.</li>
-          <li>Phòng vệ sinh: <strong>≥ 0,40 m² – 0,60 m² / trẻ</strong> (≥ 12 m²). Định mức: 1 bệ xí / 10 – 15 trẻ; 1 chậu rửa tay / 8 – 10 trẻ; 1 bệ tiểu / 15 – 20 trẻ nam. Chậu rửa tay cao 0,40 – 0,45 m; bệ xí cao 0,20 – 0,28 m. Vách ngăn lửng cao 0,70 – 0,80 m (không làm cửa kín). Hiên chơi rộng thông thủy <strong>≥ 2,10 m</strong>.</li>
-        </ul>
-
-        <h4>3. Khối phục vụ học tập, hành chính & Bếp một chiều</h4>
-        <ul>
-          <li>Phòng giáo dục thể chất / nghệ thuật: Tối thiểu <strong>≥ 2,0 m² / trẻ</strong> (≥ 60 m²). Bếp ăn 1 chiều: <strong>≥ 0,30 – 0,35 m² / trẻ</strong> (Giao nhận → Sơ chế → Nấu nướng → Chia ăn → Rửa khử trùng).</li>
-          <li>Cầu thang: Chiều cao bậc <em>h</em> ≤ <strong>120 mm</strong>, mặt bậc <em>b</em> ≥ <strong>250 mm</strong>; vế thang rộng <strong>≥ 1,20 m</strong>. Tay vịn người lớn 0,90 – 1,10 m; trẻ em <strong>0,50 – 0,60 m</strong>. Lan can nan đứng hở thông thủy <strong>≤ 0,10 m</strong> (cấm hoa sắt ngang). Độ rọi phòng học <strong>≥ 300 Lux</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu cốt lõi</h4>
+        <p>Quy mô ≤ 20 nhóm/lớp (300–500 trẻ). Bán kính phục vụ: đồng bằng ≤ 0,5 – 1,0 km; miền núi ≤ 1,5 – 2,0 km. Đất: thành phố ≥ 8 m²/trẻ; nông thôn ≥ 12 m²/trẻ. Cơ cấu: Xây dựng ≤ 40%; Cây xanh sân chơi ≥ 40%; Giao thông ≥ 20%. Tầng cao: tối đa 3 tầng (nhà trẻ ưu tiên tầng 1). Chiều cao phòng sinh hoạt, ngủ: 3,30 – 3,60 m; hành lang ≥ 2,40 m.</p>
+        <h4>2. Chỉ tiêu diện tích các phòng</h4>
+        <p>Sinh hoạt chung: nhà trẻ ≥ 1,50 – 1,80 m²/trẻ (≥ 24 m²); mẫu giáo ≥ 1,50 – 1,80 m²/trẻ (≥ 36 m²). Phòng ngủ: ≥ 1,20 – 1,50 m²/trẻ (nhóm trẻ ≥ 20 m²; mẫu giáo ≥ 30 m²). Vệ sinh: ≥ 0,40 – 0,60 m²/trẻ (≥ 12 m²). 1 xí/10–15 trẻ; 1 rửa/8–10 trẻ. Chậu rửa cao 0,40 – 0,45 m; bệ xí cao 0,20 – 0,28 m. Vách ngăn lửng cao 0,70 – 0,80 m. Hiên chơi rộng thông thủy ≥ 2,10 m.</p>
+        <h4>3. Bếp một chiều & Cầu thang an toàn</h4>
+        <p>Bếp ăn 1 chiều: ≥ 0,30 – 0,35 m²/trẻ (Giao nhận → Sơ chế → Chế biến → Chia ăn → Rửa khử trùng). Thể chất/nghệ thuật ≥ 2,0 m²/trẻ (≥ 60 m²). Cầu thang: bậc cao h ≤ 120 mm, rộng b ≥ 250 mm; vế thang ≥ 1,20 m. Tay vịn người lớn 0,90 – 1,10 m; trẻ em 0,50 – 0,60 m. Lan can nan đứng hở thông thủy ≤ 100 mm (cấm hoa sắt ngang). Cửa sổ bậu cao ≥ 0,80 m.</p>
       `
     },
 
-    // --- 9. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
+    // --- 8. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
     {
       code: "QCVN 01:2021/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Quy hoạch xây dựng",
@@ -676,42 +1173,18 @@
       summary: "Đất đơn vị ở (≥ 45-50 m²/người), cây xanh (≥ 2 m²), mật độ XD thuần (nhà riêng lẻ 40-100%, chung cư, công nghiệp), khoảng lùi theo lộ giới L và H, khoảng cách ly các khối nhà và bãi đỗ xe.",
       pdfUrl: "pdf/QCVN_01_2021.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích và thông số khống chế cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định khống chế</th><th>Thông số kỹ thuật bắt buộc</th></tr>
-          <tr><td><strong>Đất đơn vị ở bình quân</strong></td><td>Chỉ tiêu đất đơn vị ở tính trên đầu người theo loại đô thị</td><td>Loại đặc biệt/I: <strong>≥ 45 m² / người</strong>; Loại II, III, IV, V: <strong>≥ 50 m² / người</strong></td></tr>
-          <tr><td><strong>Cây xanh sử dụng công cộng</strong></td><td>Đất cây xanh trong đơn vị ở</td><td>Tối thiểu <strong>2,0 m² / người</strong> (toàn đô thị từ 4 – 7 m²/người tùy loại đô thị)</td></tr>
-          <tr><td><strong>Bán kính phục vụ trường học</strong></td><td>Khoảng cách tiếp cận tối đa từ nhà đến trường</td><td>Mầm non, tiểu học: <strong>≤ 500 m</strong> (miền núi/nông thôn ≤ 1,0 km); THCS: <strong>≤ 1.000 m</strong></td></tr>
-          <tr><td><strong>Chỉ tiêu đất trường mầm non</strong></td><td>Diện tích đất trường mầm non tính trên 1 học sinh</td><td>Tối thiểu <strong>12 m² / học sinh</strong> (vùng đô thị nén tối thiểu <strong>8 m² / học sinh</strong>)</td></tr>
-          <tr><td><strong>Chỉ tiêu đất trường tiểu học</strong></td><td>Diện tích đất trường tiểu học tính trên 1 học sinh</td><td>Tối thiểu <strong>10 m² / học sinh</strong> (vùng đô thị nén tối thiểu <strong>6 m² / học sinh</strong>)</td></tr>
-          <tr><td><strong>Chỉ tiêu đất trường THCS</strong></td><td>Diện tích đất trường THCS tính trên 1 học sinh</td><td>Tối thiểu <strong>10 m² / học sinh</strong> (vùng đô thị nén tối thiểu <strong>6 m² / học sinh</strong>)</td></tr>
-          <tr><td><strong>Quy mô dân số 1 đơn vị ở</strong></td><td>Ngưỡng dân số quy chuẩn của 1 đơn vị ở</td><td>Từ <strong>4.000 đến 20.000 người</strong> (đô thị đặc biệt/I có thể điều chỉnh linh hoạt)</td></tr>
-        </table>
-
-        <h4>2. Mật độ xây dựng thuần tối đa (%) theo diện tích và tầng cao</h4>
-        <ul>
-          <li><strong>Nhà ở riêng lẻ:</strong> Lô đất ≤ 90 m²: <strong>100%</strong> | 100 m²: <strong>80%</strong> | 200 m²: <strong>70%</strong> | 300 m²: <strong>60%</strong> | 500 m²: <strong>50%</strong> | ≥ 1.000 m²: <strong>40%</strong>.</li>
-          <li><strong>Nhà chung cư:</strong> Cao ≤ 16 m: Mật độ <strong>60% – 75%</strong>; Cao 16 m – 46 m: Mật độ <strong>40% – 60%</strong>; Cao > 46 m (trên 15 tầng): khối tháp tối đa <strong>35% – 40%</strong> (khối đế tối đa 50% – 60%).</li>
-          <li><strong>Công trình công cộng & Nhà xưởng:</strong> Giáo dục, y tế, văn hóa: tối đa <strong>40%</strong>; Chợ, thương mại: <strong>40% – 60%</strong>; Nhà máy, kho tàng: <strong>60% – 70%</strong> (cao ≥ 5 tầng ≤ 60%).</li>
-        </ul>
-
-        <h4>3. Quy định về khoảng lùi xây dựng công trình (Setback)</h4>
-        <table class="specs-table">
-          <tr><th>Chiều rộng lộ giới đường tiếp giáp (L)</th><th>H ≤ 19 m</th><th>H = 22 m</th><th>H = 25 m</th><th>H ≥ 28 m</th></tr>
-          <tr><td><strong>L &lt; 19 m</strong></td><td>0 m</td><td>3 m</td><td>4 m</td><td>6 m</td></tr>
-          <tr><td><strong>19 m ≤ L &lt; 22 m</strong></td><td>0 m</td><td>0 m</td><td>3 m</td><td>6 m</td></tr>
-          <tr><td><strong>L ≥ 22 m</strong></td><td>0 m</td><td>0 m</td><td>0 m</td><td>6 m</td></tr>
-        </table>
-
-        <h4>4. Khoảng cách ly giữa các khối nhà & Bãi đỗ xe</h4>
-        <ul>
-          <li>Hai đầu hồi nhà cách nhau <strong>≥ 4,0 m</strong> (có cửa sổ ≥ 6,0 m). Hai mặt dài nhà ≤ 46 m cách nhau <strong>≥ 0,5 H</strong> (≥ 12 m); nhà > 46 m cách nhau <strong>≥ 25 m</strong>.</li>
-          <li>Chung cư: 1 chỗ đỗ ô tô / 4–6 căn hộ; 1 xe máy / 1 căn hộ. Thương mại, dịch vụ: 1 ô tô / 100 m² sàn. Chỗ đỗ: Ô tô con <strong>25 m²</strong>; Xe máy <strong>2,5 – 3,0 m²</strong>; Xe đạp <strong>0,9 m²</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu diện tích và thông số khống chế</h4>
+        <p>Đất đơn vị ở: Loại đặc biệt/I: ≥ 45 m²/người; Loại II, III, IV, V: ≥ 50 m²/người. Cây xanh đơn vị ở: ≥ 2,0 m²/người (toàn đô thị 4–7 m²). Bán kính trường học: mầm non, tiểu học ≤ 500 m; THCS ≤ 1.000 m. Đất mầm non ≥ 12 m²/HS (đô thị nén ≥ 8 m²); tiểu học ≥ 10 m²/HS (nén ≥ 6 m²); THCS ≥ 10 m²/HS (nén ≥ 6 m²). Dân số 1 đơn vị ở: 4.000 – 20.000 người.</p>
+        <h4>2. Mật độ xây dựng thuần tối đa (%)</h4>
+        <p>Nhà ở riêng lẻ: ≤ 90 m²: 100% | 100 m²: 80% | 200 m²: 70% | 300 m²: 60% | 500 m²: 50% | ≥ 1.000 m²: 40%. Chung cư cao ≤ 16 m: 60%–75%; cao 16–46 m: 40%–60%; cao > 46 m: tháp ≤ 35%–40% (đế 50%–60%). Công cộng giáo dục, y tế: tối đa 40%. Nhà máy, kho tàng: tối đa 60%–70% (cao ≥ 5 tầng ≤ 60%).</p>
+        <h4>3. Khoảng lùi công trình (Setback) & Khoảng cách ly</h4>
+        <p>Lộ giới L < 19 m: H ≤ 19 m lùi 0 m; H = 22 m lùi 3 m; H = 25 m lùi 4 m; H ≥ 28 m lùi 6 m. Lộ giới 19 ≤ L < 22 m: H ≤ 22 m lùi 0 m; H = 25 m lùi 3 m; H ≥ 28 m lùi 6 m. Lộ giới L ≥ 22 m: H ≤ 25 m lùi 0 m; H ≥ 28 m lùi 6 m. Hai đầu hồi nhà: cách nhau ≥ 4,0 m (có cửa sổ ≥ 6,0 m). Hai mặt dài: nhà ≤ 46 m cách nhau ≥ 0,5H (≥ 12 m); nhà > 46 m cách nhau ≥ 25 m.</p>
+        <h4>4. Bãi đỗ xe</h4>
+        <p>Chung cư: tối thiểu 1 ô tô / 4–6 căn hộ; 1 xe máy / 1 căn hộ. Thương mại, dịch vụ: 1 ô tô / 100 m² sàn. Kích thước chỗ đỗ: ô tô 25 m²; xe máy 2,5–3,0 m²; xe đạp 0,9 m².</p>
       `
     },
 
-    // --- 10. QCVN 06:2022/BXD (AN TOÀN CHÁY CHO NHÀ VÀ CÔNG TRÌNH) ---
+    // --- 9. QCVN 06:2022/BXD (AN TOÀN CHÁY CHO NHÀ VÀ CÔNG TRÌNH) ---
     {
       code: "QCVN 06:2022/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về An toàn cháy cho nhà và công trình (Kèm Sửa đổi 1:2023)",
@@ -720,35 +1193,16 @@
       summary: "Thông thủy thoát nạn (cửa ≥ 0,8-1,2m, hành lang ≥ 1,0-1,4m), vế thang bộ, khoảng cách 2 lối ra (1/3 hoặc 1/2 đường chéo), khoang cháy, thang bộ N1/N2/N3, thang máy chữa cháy và bãi đỗ xe thang.",
       pdfUrl: "pdf/QCVN_06_2022.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích, khoảng cách và thông số kích thước cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật bắt buộc</th></tr>
-          <tr><td><strong>Chiều cao thông thủy thoát nạn</strong></td><td>Chiều cao tĩnh của cửa đi, hành lang, lối đi thoát nạn</td><td>Chiều cao thông thủy: <strong>≥ 2,0 m</strong> (cửa vào tầng hầm/tầng kỹ thuật cho phép <strong>≥ 1,9 m</strong>)</td></tr>
-          <tr><td><strong>Chiều rộng thông thủy cửa</strong></td><td>Cửa thoát nạn ra hành lang, buồng thang</td><td>Chiều rộng: <strong>≥ 0,8 m</strong> (khi số người ≤ 15 người); <strong>≥ 1,2 m</strong> (trường hợp trên 50 người, nhóm F1.1)</td></tr>
-          <tr><td><strong>Chiều rộng thông thủy hành lang</strong></td><td>Lối đi chung, hành lang thoát nạn</td><td>Chiều rộng: <strong>≥ 1,0 m</strong> (cho phòng ≤ 50 người); <strong>≥ 1,2 m</strong> (hành lang chung chính); <strong>≥ 1,4 m</strong> (cho ≥ 50 người)</td></tr>
-          <tr><td><strong>Chiều rộng vế thang bộ</strong></td><td>Chiều rộng vế thang bộ dùng để thoát hiểm</td><td>Nhà cao tầng/công cộng: <strong>≥ 1,2 m</strong>; Bệnh viện, nơi chăm sóc người già (F1.1): <strong>≥ 1,35 m</strong>; Nhà ≤ 200 người: <strong>≥ 1,05 m</strong>; Nhà ở gia đình/quy mô nhỏ: <strong>≥ 0,7 m – 0,9 m</strong></td></tr>
-          <tr><td><strong>Khoảng cách 2 lối thoát nạn</strong></td><td>Khoảng cách hình học giữa 2 cửa thoát hiểm</td><td>Tối thiểu bằng <strong>1/3 đường chéo</strong> mặt bằng (nhà có Sprinkler) hoặc <strong>1/2 đường chéo</strong> (nhà không có Sprinkler)</td></tr>
-          <tr><td><strong>Bãi đỗ / Bãi quay xe chữa cháy</strong></td><td>Kích thước khu vực quay đầu xe chữa cháy cụt</td><td>Bãi quay xe dạng vuông: <strong>≥ 12 m × 12 m</strong>; hoặc tam giác đều cạnh <strong>≥ 12 m</strong>, hoặc bến quay chữ T/chữ Y</td></tr>
-          <tr><td><strong>Đường cho xe chữa cháy</strong></td><td>Chiều rộng và chiều cao thông thủy của đường</td><td>Chiều rộng mặt đường: <strong>≥ 3,5 m</strong>; Chiều cao thông thủy: <strong>≥ 4,5 m</strong>; Bán kính quay xe tối thiểu <strong>≥ 10,0 m</strong></td></tr>
-        </table>
-
-        <h4>2. Khoảng cách di chuyển thoát nạn tối đa</h4>
-        <ul>
-          <li>Hành lang thông giữa hai lối thoát nạn: Công cộng / chung cư tối đa <strong>40 m</strong> (không Sprinkler) hoặc <strong>60 m</strong> (có Sprinkler); Nhóm F1.1 (mầm non, bệnh viện): <strong>25 m – 30 m</strong>.</li>
-          <li>Hành lang cụt: Công cộng / chung cư tối đa <strong>15 m</strong> (không Sprinkler) hoặc <strong>20 m – 25 m</strong> (có Sprinkler); Nhóm F1.1: <strong>10 m – 12 m</strong>.</li>
-          <li>Từ vị trí xa nhất trong phòng đến cửa: Phòng giữa 2 lối ra: <strong>25 m – 30 m</strong>; Phòng trong ngõ cụt: <strong>12 m – 15 m</strong>.</li>
-        </ul>
-
-        <h4>3. Khoang cháy, Thang bộ N1/N2/N3 & Thang máy chữa cháy</h4>
-        <ul>
-          <li>Tầng hầm tối đa <strong>3.000 m²</strong> (không Sprinkler) hoặc <strong>6.200 m²</strong> (có Sprinkler); Nhà ở dưới 50 m: <strong>2.500 – 4.000 m²</strong>; Nhà trên 50 m: <strong>2.000 – 2.500 m²</strong>.</li>
-          <li>Thang bộ N1, N2, N3 có cửa tự đóng ngăn cháy <strong>EI 30 / EI 60</strong>. Thang máy chữa cháy bắt buộc cho nhà > 28 m (nhà ở), > 24 m (công cộng) hoặc ≥ 2 tầng hầm; tải trọng <strong>≥ 630 kg – 1.000 kg</strong>, chạy từ tầng 1 lên đỉnh ≤ 60 s; sảnh đệm <strong>≥ 4 m²</strong> (hầm <strong>≥ 6 m²</strong>).</li>
-          <li>Bãi đỗ xe thang chữa cháy rộng <strong>≥ 6,0 m</strong>, dài <strong>≥ 15,0 m</strong>; cách chân tường 2–10 m (nhà ≤ 28 m) hoặc 2–8 m (nhà > 28 m); tải trọng trục xe <strong>≥ 16 tấn/trục</strong> (tổng tải trọng xe <strong>≥ 30 tấn</strong>).</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu kích thước cốt lõi</h4>
+        <p>Thông thủy thoát nạn cao ≥ 2,0 m (hầm/kỹ thuật ≥ 1,9 m). Cửa thoát nạn: rộng ≥ 0,8 m (≤ 15 người) hoặc ≥ 1,2 m (> 50 người, F1.1). Hành lang: rộng ≥ 1,0 m (≤ 50 người) hoặc ≥ 1,2 – 1,4 m (> 50 người). Thang bộ: F1.1 ≥ 1,35 m; nhà cao tầng ≥ 1,2 m; thông thường ≥ 1,05 m. Khoảng cách 2 lối ra: ≥ 1/3 đường chéo (có Sprinkler) hoặc ≥ 1/2 đường chéo (không Sprinkler). Bãi quay xe chữa cháy: 12 × 12 m. Đường chữa cháy rộng ≥ 3,5 m, tĩnh không ≥ 4,5 m.</p>
+        <h4>2. Khoảng cách di chuyển thoát nạn & Khoang cháy</h4>
+        <p>Khoảng cách từ cửa phòng đến thang bộ: hành lang 2 lối ra tối đa 40 m (không Sprinkler) hoặc 60 m (có Sprinkler); hành lang cụt tối đa 15 m (không Sprinkler) hoặc 20–25 m (có Sprinkler). Diện tích sàn khoang cháy tầng hầm: tối đa 3.000 m² (không Sprinkler) hoặc 6.200 m² (có Sprinkler); nhà ở dưới 50 m: 2.500 – 4.000 m².</p>
+        <h4>3. Thang bộ N1/N2/N3, Thang máy chữa cháy và Bãi xe thang</h4>
+        <p>Nhà > 28 m (chung cư) hoặc > 50 m (công cộng) bắt buộc dùng buồng thang không nhiễm khói N1, N2, N3 có cửa tự đóng EI 30 / EI 60. Thang máy chữa cháy: bắt buộc cho nhà > 28 m (nhà ở), > 24 m (công cộng) hoặc ≥ 2 tầng hầm; tải trọng ≥ 630 – 1.000 kg; chạy từ tầng 1 lên đỉnh ≤ 60 s; sảnh đệm ≥ 4 m² (hầm ≥ 6 m²). Bãi đỗ xe thang rộng ≥ 6,0 m, dài ≥ 15,0 m; cách tường 2–10 m (nhà ≤ 28 m) hoặc 2–8 m (nhà > 28 m); tải trọng trục xe ≥ 16 tấn.</p>
       `
     },
 
-    // --- 11. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
+    // --- 10. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
     {
       code: "QCVN 07-4:2016/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Công trình giao thông đô thị",
@@ -757,30 +1211,18 @@
       summary: "Tỷ lệ đất giao thông (16-26%), đất bãi xe (3-4%), bề rộng làn xe (3,0-3,75m), tĩnh không (≥ 4,75m), dốc hầm (thẳng ≤ 15%, cong ≤ 13%), khoang đỗ ô tô và tam giác tầm nhìn.",
       pdfUrl: "pdf/QCVN_07_4_2016.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu diện tích, kích thước hình học và thông số cốt lõi</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Quy định / Chỉ tiêu kỹ thuật</th><th>Thông số kỹ thuật bắt buộc</th></tr>
-          <tr><td><strong>Chỉ tiêu đất giao thông đô thị</strong></td><td>Tỷ lệ đất dành cho giao thông trên diện tích đất xây dựng đô thị</td><td>Đặc biệt/I: <strong>21% – 26%</strong>; Loại II, III: <strong>18% – 23%</strong>; Loại IV, V: <strong>16% – 20%</strong></td></tr>
-          <tr><td><strong>Tỷ lệ đất bến, bãi đỗ xe</strong></td><td>Đất dành cho giao thông tĩnh (bãi đỗ xe, điểm trung chuyển...)</td><td>Tối thiểu <strong>3,0% – 4,0%</strong> diện tích đất xây dựng đô thị</td></tr>
-          <tr><td><strong>Mật độ mạng lưới đường</strong></td><td>Chiều dài mạng lưới đường chính trên diện tích đô thị</td><td>Đạt từ <strong>4,0 km/km² – 6,5 km/km²</strong> (tính đến đường phân khu vực)</td></tr>
-          <tr><td><strong>Bán kính phục vụ bến xe buýt</strong></td><td>Khoảng cách đi bộ từ nhà/công sở đến điểm dừng xe buýt</td><td>Tối đa <strong>300 m – 500 m</strong> (khu vực ngoại vi tối đa <strong>800 m</strong>)</td></tr>
-          <tr><td><strong>Chiều cao thông thủy tĩnh không</strong></td><td>Chiều cao tĩnh trên lòng đường xe cơ giới chạy qua</td><td>Tuyến đường chính, đại lộ: <strong>≥ 4,75 m</strong>; Đường gom, đường nhánh: <strong>≥ 4,50 m</strong></td></tr>
-          <tr><td><strong>Tĩnh không đường đi bộ / xe đạp</strong></td><td>Chiều cao tĩnh của vỉa hè, hầm đi bộ, cầu vượt bộ hành</td><td>Tối thiểu <strong>2,50 m</strong> (cho phép <strong>2,20 m</strong> ở vị trí cá biệt)</td></tr>
-        </table>
-
-        <h4>2. Kích thước mặt cắt ngang làn xe & Vỉa hè</h4>
-        <ul>
-          <li>Làn xe cao tốc / trục chính: <strong>3,75 m</strong> (v ≥ 80 km/h) hoặc <strong>3,50 m</strong> (v = 60 km/h); Liên khu vực: <strong>3,25 – 3,50 m</strong>; Đường nội bộ: <strong>3,00 m</strong>. Dải phân cách giữa: <strong>≥ 2,0 m</strong> (cứng ≥ 0,5 m). Dải đi bộ đường chính <strong>≥ 3,0 m</strong>; liên khu vực <strong>≥ 2,25 m</strong>; nội bộ <strong>≥ 1,0 m</strong>. Dốc ngang mặt đường 1,5% – 2,0%; dốc ngang hè 1,0% – 2,0%. Dốc dọc đường chính ≤ 4% – 5%; nội bộ ≤ 8% – 10%.</li>
-        </ul>
-
-        <h4>3. Bãi đỗ xe và công trình đỗ xe ngầm</h4>
-        <ul>
-          <li>Bãi đỗ: Ô tô con: 25 m²; Xe khách/tải: 40 m²; Xe buýt: 50 m²; Xe máy: 2,5 – 3,0 m²; Xe đạp: 0,9 m². Khoang ô tô 90°: dài 5,0 – 5,5 m, rộng ≥ 2,5 m (kề cột/tường ≥ 2,75 m; lối lùi xe ≥ 6,0 m). Đường dốc hầm: thẳng <strong>≤ 15%</strong>; cong <strong>≤ 13%</strong>. Rộng ram dốc 1 chiều <strong>≥ 3,0 m</strong>; 2 chiều <strong>≥ 6,0 m</strong>. Chiều cao tĩnh không tầng hầm <strong>≥ 2,20 m</strong>. Tam giác tầm nhìn an toàn cấm vật cản cao quá <strong>0,8 m</strong>.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu cốt lõi</h4>
+        <p>Đất giao thông đô thị: Loại I/Đặc biệt: 21% – 26%; Loại II, III: 18% – 23%; Loại IV, V: 16% – 20%. Đất bãi đỗ xe: 3% – 4% đất xây dựng đô thị. Mật độ mạng lưới đường: 4,0 – 6,5 km/km². Đi bộ đến trạm xe buýt: ≤ 300 – 500 m. Tĩnh không: đường chính ≥ 4,75 m; đường gom ≥ 4,50 m; hầm/cầu đi bộ ≥ 2,50 m.</p>
+        <h4>2. Mặt cắt ngang làn xe & Vỉa hè</h4>
+        <p>Làn xe cao tốc / trục chính: 3,75 m (v ≥ 80 km/h) hoặc 3,50 m (v = 60 km/h); liên khu vực 3,25 – 3,50 m; đường nội bộ 3,00 m. Dải phân cách giữa ≥ 2,0 m (cứng ≥ 0,5 m). Dải đi bộ đường chính ≥ 3,0 m; liên khu vực ≥ 2,25 m; nội bộ ≥ 1,0 m (chuẩn 1 luồng: 0,75 m). Dốc ngang mặt đường 1,5% – 2,0%; dốc ngang hè 1,0% – 2,0%.</p>
+        <h4>3. Bãi đỗ xe và ram dốc hầm</h4>
+        <p>Khoang ô tô vuông góc 90°: dài 5,0 – 5,5 m; rộng ≥ 2,5 m (kề tường/cột ≥ 2,75 m; lối lùi xe ≥ 6,0 m). Đỗ song song: 6,0 – 6,5 m × 2,0 – 2,5 m. Độ dốc dốc hầm: thẳng ≤ 15%; cong ≤ 13%. Chiều rộng ram dốc 1 chiều ≥ 3,0 m; 2 chiều ≥ 6,0 m. Tĩnh không tầng hầm ≥ 2,20 m.</p>
+        <h4>4. Nút giao & Bán kính bó vỉa</h4>
+        <p>Tam giác tầm nhìn an toàn: cấm vật cản cao quá 0,8 m. Bán kính bó vỉa: đường trục chính R ≥ 12 – 15 m; đường chính với nhánh R ≥ 8 – 10 m; 2 đường nội bộ R ≥ 5 – 6 m.</p>
       `
     },
 
-    // --- 12. QCVN 10:2024/BXD (NGƯỜI KHUYẾT TẬT TIẾP CẬN) ---
+    // --- 11. QCVN 10:2024/BXD (NGƯỜI KHUYẾT TẬT TIẾP CẬN) ---
     {
       code: "QCVN 10:2024/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Xây dựng công trình đảm bảo người khuyết tật tiếp cận sử dụng",
@@ -789,35 +1231,17 @@
       summary: "Đường dốc xe lăn (rộng ≥ 1,2m, dốc ≤ 1/12, phân đoạn ≤ 9m), chiếu nghỉ, tay vịn 2 cao độ (0,9m & 0,65m), cửa ≥ 0,9m, buồng thang máy, WC tiếp cận (≥ 1,5x1,9m) và ô đỗ xe ≥ 3,5m.",
       pdfUrl: "pdf/QCVN_10_2024.pdf",
       details: `
-        <h4>1. Bảng chỉ tiêu và thông số kỹ thuật bắt buộc</h4>
-        <table class="specs-table">
-          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật bắt buộc</th></tr>
-          <tr><td><strong>Đường dốc cho xe lăn</strong></td><td>Chiều rộng thông thủy, độ dốc tối đa và chiều dài phân đoạn</td><td>Chiều rộng: <strong>≥ 1,2 m</strong>; Độ dốc: <strong>≤ 1/12 (8,33%)</strong>; Chiều dài mỗi đoạn dốc: <strong>≤ 9,0 m</strong></td></tr>
-          <tr><td><strong>Chiếu nghỉ đường dốc</strong></td><td>Kích thước chiếu nghỉ giữa các đoạn dốc hoặc tại điểm đổi hướng</td><td>Chiều dài: <strong>≥ 1,5 m</strong>; Điểm quay xe 180°: <strong>≥ 1,5 m × 1,5 m</strong></td></tr>
-          <tr><td><strong>Tay vịn</strong></td><td>Chiều cao lắp đặt tay vịn tại đường dốc, bậc cấp</td><td><strong>2 cao độ:</strong> 0,9 m (người lớn) và 0,65 m (trẻ em/xe lăn); vươn dài thêm <strong>≥ 0,3 m</strong> ở hai đầu</td></tr>
-          <tr><td><strong>Lối vào & Cửa đi</strong></td><td>Chiều rộng thông thủy của cửa đi chính; gờ cửa</td><td>Chiều rộng thông thủy: <strong>≥ 0,9 m</strong>; Ngưỡng cửa: <strong>≤ 20 mm</strong> (phải vát nghiêng)</td></tr>
-          <tr><td><strong>Bậc cấp lối đi bộ</strong></td><td>Kích thước mặt bậc và cổ bậc bên ngoài công trình</td><td>Chiều cao bậc (h): <strong>≤ 150 mm</strong>; Chiều rộng mặt bậc (b): <strong>≥ 300 mm</strong>; Không làm mũi bậc nhô ra</td></tr>
-          <tr><td><strong>Thang máy tiếp cận</strong></td><td>Kích thước thông thủy cửa và buồng thang máy</td><td>Cửa mở thông thủy: <strong>≥ 0,9 m</strong>; Buồng thang: <strong>≥ 1,1 m × 1,4 m</strong>; Bàn phím nút bấm cao từ <strong>0,9 m – 1,2 m</strong></td></tr>
-          <tr><td><strong>Khu vệ sinh tiếp cận</strong></td><td>Không gian sử dụng cho 1 phòng vệ sinh riêng biệt</td><td>Kích thước phòng: <strong>≥ 1,5 m × 1,9 m</strong> (hoặc diện tích quay xe đường kính <strong>≥ 1,5 m</strong>)</td></tr>
-          <tr><td><strong>Vị trí đỗ xe</strong></td><td>Kích thước khoang đỗ dành riêng cho người khuyết tật</td><td>Chiều rộng: <strong>≥ 3,5 m</strong> (gồm khoang xe 2,5 m + dải tiếp cận an toàn 1,0 m)</td></tr>
-        </table>
-
-        <h4>2. Lối đi bộ & Cảnh báo xúc giác / thị giác</h4>
-        <ul>
-          <li>Lối đi phẳng, chống trượt; gờ chuyển tiếp cao độ không quá <strong>5 mm</strong>. Bố trí gạch dẫn hướng sọc và gạch dừng chấm bi tròn tại các điểm chuyển hướng, mép bậc cấp và thang máy. Chiều cao tĩnh không đi bộ ngoài trời và hành lang <strong>≥ 2,2 m</strong>.</li>
-        </ul>
-
-        <h4>3. Thiết bị vệ sinh chuyên dụng & Khán phòng</h4>
-        <ul>
-          <li>Bệ xí ngồi cao 400 – 450 mm; tâm xí cách tường gắn tay vịn 450 – 500 mm. Chậu rửa cao 750 – 800 mm, hổng chân cao ≥ 650 mm, sâu ≥ 200 mm. Thanh tay vịn chịu tải trọng uốn <strong>≥ 1,0 kN</strong> theo mọi hướng. Chỗ ngồi xe lăn hội trường chiếm <strong>1% – 2%</strong> tổng số chỗ ngồi (kích thước ô ngồi tối thiểu 0,9 m × 1,4 m). Biểu tượng quốc tế ISA và chữ nổi Braille trên nút bấm, biển phòng.</li>
-        </ul>
+        <h4>1. Bảng chỉ tiêu bắt buộc</h4>
+        <p>Đường dốc: rộng ≥ 1,2 m; dốc ≤ 1/12 (8,33%); chiều dài mỗi đoạn ≤ 9,0 m. Chiếu nghỉ dốc dài ≥ 1,5 m (quay xe 180°: 1,5 × 1,5 m). Tay vịn: 2 cao độ 0,9 m và 0,65 m, nhô dài thêm ≥ 0,3 m. Cửa mở thông thủy ≥ 0,9 m; ngưỡng cửa vát ≤ 20 mm. Bậc cấp ngoài nhà: bậc cao h ≤ 150 mm, rộng b ≥ 300 mm không mũi bậc nhô ra.</p>
+        <h4>2. Thang máy, vệ sinh và bãi xe</h4>
+        <p>Thang máy: cửa rộng ≥ 0,9 m; buồng thang ≥ 1,1 × 1,4 m; nút bấm cao 0,9 – 1,2 m. Phòng vệ sinh tiếp cận: ≥ 1,5 × 1,9 m (quay xe D ≥ 1,5 m); bệ xí cao 400 – 450 mm; tâm xí cách tường gắn tay vịn 450 – 500 mm; chậu rửa cao 750 – 800 mm, hổng chân cao ≥ 650 mm, sâu ≥ 200 mm; tay vịn chịu lực ≥ 1,0 kN. Khoang đỗ xe khuyết tật rộng ≥ 3,5 m. Chỗ ngồi xe lăn hội trường: ≥ 0,9 × 1,4 m (chiếm 1% – 2% chỗ ngồi).</p>
       `
     }
   ];
 
   function removeVietnameseTones(str) {
     return str.normalize('NFD')
-              .replace(/[\u0300-\u036f]/g, '')
+              .replace(/[̀-ͯ]/g, '')
               .replace(/đ/g, 'd').replace(/Đ/g, 'D')
               .toLowerCase().trim();
   }
