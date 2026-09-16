@@ -100,11 +100,12 @@
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: nhà thi đấu, 4529, sân bóng, 4205, chợ, mầm non, tiểu học, trung học, pccc)..." autofocus>
+    <input type="text" id="searchInput" placeholder="Gõ từ khóa (ví dụ: người khuyết tật, xe lăn, dốc, nhà thi đấu, sân bóng, chợ, mầm non, tiểu học, pccc)..." autofocus>
   </div>
 
   <div class="tag-container">
     <span style="font-size: 13px; align-self: center; font-weight: bold;">Lọc nhanh:</span>
+    <button class="tag" onclick="quickSearch('10:2024')">Khuyết tật tiếp cận (QCVN 10)</button>
     <button class="tag" onclick="quickSearch('4529')">Nhà thể thao (4529)</button>
     <button class="tag" onclick="quickSearch('4205')">Sân thể thao (4205)</button>
     <button class="tag" onclick="quickSearch('11856')">Chợ thực phẩm (11856)</button>
@@ -142,7 +143,52 @@
 
 <script>
   const tcvnDatabase = [
-    // --- 1. TCVN 4529:2012 (NHÀ THỂ THAO) ---
+    // --- 1. QCVN 10:2024/BXD (NGƯỜI KHUYẾT TẬT TIẾP CẬN) ---
+    {
+      code: "QCVN 10:2024/BXD",
+      title: "Quy chuẩn kỹ thuật quốc gia về Xây dựng công trình đảm bảo người khuyết tật tiếp cận sử dụng",
+      category: "Tiếp cận & Công cộng",
+      keywords: "nguoi khuyet tat xe lan tiep can duong doc chieu nghi tay vin thang may cua di nha ve sinh khuyet tat khoang do xe qcvn 10 10 2024",
+      summary: "Đường dốc xe lăn (rộng ≥ 1,2m, dốc ≤ 1/12, phân đoạn ≤ 9m), chiếu nghỉ, tay vịn 2 cao độ (0,9m & 0,65m), cửa ≥ 0,9m, buồng thang máy, WC tiếp cận (≥ 1,5x1,9m) và ô đỗ xe ≥ 3,5m.",
+      pdfUrl: "pdf/QCVN_10_2024.pdf",
+      details: `
+        <h4>1. Bảng chỉ tiêu và thông số kỹ thuật bắt buộc</h4>
+        <table class="specs-table">
+          <tr><th>Hạng mục</th><th>Chỉ tiêu / Quy định kỹ thuật</th><th>Thông số kỹ thuật bắt buộc</th></tr>
+          <tr><td><strong>Đường dốc cho xe lăn</strong></td><td>Chiều rộng thông thủy, độ dốc tối đa và chiều dài phân đoạn</td><td>Chiều rộng: <strong>≥ 1,2 m</strong>; Độ dốc: <strong>≤ 1/12 (8,33%)</strong>; Chiều dài mỗi đoạn dốc: <strong>≤ 9,0 m</strong></td></tr>
+          <tr><td><strong>Chiếu nghỉ đường dốc</strong></td><td>Kích thước chiếu nghỉ giữa các đoạn dốc hoặc tại điểm đổi hướng</td><td>Chiều dài: <strong>≥ 1,5 m</strong>; Điểm quay xe 180°: <strong>≥ 1,5 m × 1,5 m</strong></td></tr>
+          <tr><td><strong>Tay vịn</strong></td><td>Chiều cao lắp đặt tay vịn tại đường dốc, bậc cấp</td><td><strong>2 cao độ:</strong> 0,9 m (người lớn) và 0,65 m (trẻ em/xe lăn); vươn dài thêm <strong>≥ 0,3 m</strong> ở hai đầu</td></tr>
+          <tr><td><strong>Lối vào & Cửa đi</strong></td><td>Chiều rộng thông thủy của cửa đi chính; gờ cửa</td><td>Chiều rộng thông thủy: <strong>≥ 0,9 m</strong>; Ngưỡng cửa: <strong>≤ 20 mm</strong> (phải vát nghiêng)</td></tr>
+          <tr><td><strong>Bậc cấp lối đi bộ</strong></td><td>Kích thước mặt bậc và cổ bậc bên ngoài công trình</td><td>Chiều cao bậc (h): <strong>≤ 150 mm</strong>; Chiều rộng mặt bậc (b): <strong>≥ 300 mm</strong>; Không làm mũi bậc nhô ra</td></tr>
+          <tr><td><strong>Thang máy tiếp cận</strong></td><td>Kích thước thông thủy cửa và buồng thang máy</td><td>Cửa mở thông thủy: <strong>≥ 0,9 m</strong>; Buồng thang: <strong>≥ 1,1 m × 1,4 m</strong>; Bàn phím nút bấm cao từ <strong>0,9 m – 1,2 m</strong></td></tr>
+          <tr><td><strong>Khu vệ sinh tiếp cận</strong></td><td>Không gian sử dụng cho 1 phòng vệ sinh riêng biệt</td><td>Kích thước phòng: <strong>≥ 1,5 m × 1,9 m</strong> (hoặc diện tích quay xe đường kính <strong>≥ 1,5 m</strong>)</td></tr>
+          <tr><td><strong>Vị trí đỗ xe</strong></td><td>Kích thước khoang đỗ dành riêng cho người khuyết tật</td><td>Chiều rộng: <strong>≥ 3,5 m</strong> (gồm khoang xe 2,5 m + dải tiếp cận an toàn 1,0 m)</td></tr>
+        </table>
+
+        <h4>2. Lối đi bộ & Cảnh báo xúc giác / thị giác</h4>
+        <ul>
+          <li>Bề mặt lối đi phải phẳng, chống trơn trượt, không đọng nước; gờ chuyển tiếp cao độ không vượt quá <strong>5 mm</strong>.</li>
+          <li>Bố trí tấm lát dẫn hướng (khối gạch sọc) và tấm lát dừng cảnh báo (khối gạch chấm bi tròn) tại các điểm giao cắt, đầu mối đường dốc, mép bậc cấp thang bộ hoặc trước cửa thang máy.</li>
+          <li>Chiều cao thông thủy của toàn bộ tuyến đường đi bộ ngoài trời và hành lang bên trong không thấp hơn <strong>2,2 m</strong> nhằm tránh va chạm cho người khiếm thị.</li>
+        </ul>
+
+        <h4>3. Thiết bị vệ sinh chuyên dụng</h4>
+        <ul>
+          <li><strong>Bệ xí:</strong> Chiều cao mặt ngồi từ <strong>400 mm – 450 mm</strong> tính từ mặt sàn; khoảng cách từ tâm bệ xí đến bức tường gắn tay vịn bên cạnh từ <strong>450 mm – 500 mm</strong>.</li>
+          <li><strong>Chậu rửa:</strong> Chiều cao mép trên từ <strong>750 mm – 800 mm</strong>; khoảng trống dưới gầm chậu sâu <strong>≥ 200 mm</strong> và cao <strong>≥ 650 mm</strong> để chân người đi xe lăn có thể lọt vào.</li>
+          <li><strong>Thanh tay vịn an toàn:</strong> Bắt buộc bố trí ở cả bệ xí và chậu rửa; tay vịn phải chịu được tải trọng uốn tối thiểu <strong>1,0 kN</strong> theo mọi hướng.</li>
+        </ul>
+
+        <h4>4. Khu vực công cộng, Khán phòng & Báo hiệu</h4>
+        <ul>
+          <li>Bố trí tối thiểu từ <strong>1% đến 2%</strong> tổng số chỗ ngồi (tối thiểu 1 vị trí) dành riêng cho người đi xe lăn trong rạp hát, hội trường, nhà thi đấu, sân vận động. Mặt sàn phẳng, kích thước 1 vị trí ngồi xe lăn tối thiểu <strong>0,9 m × 1,4 m</strong>.</li>
+          <li>Quầy giao dịch, quầy tiếp tân công cộng phải có đoạn hạ thấp cao độ mặt bàn từ <strong>700 mm – 800 mm</strong> cùng khoảng trống gầm bàn để tiếp cận.</li>
+          <li>Sử dụng biểu tượng quốc tế ISA tại các vị trí tiếp cận; bảng tên phòng và nút bấm thang máy phải tích hợp chữ nổi Braille; hệ thống báo cháy/thoát nạn phải kết hợp đồng thời âm thanh và đèn chớp sáng cảnh báo.</li>
+        </ul>
+      `
+    },
+
+    // --- 2. TCVN 4529:2012 (NHÀ THỂ THAO) ---
     {
       code: "TCVN 4529:2012",
       title: "Công trình thể thao – Nhà thể thao – Tiêu chuẩn thiết kế",
@@ -161,70 +207,23 @@
           <tr><td><strong>Thoát nạn sự cố</strong></td><td>Chiều rộng lối đi/cửa thoát hiểm tính theo số lượng người</td><td><strong>1,0 m cho 500 người</strong>; Chiều rộng thông thủy cửa tối thiểu <strong>1,2 m</strong></td></tr>
           <tr><td><strong>Kho thiết bị thể thao</strong></td><td>Diện tích kho chứa dụng cụ trực tiếp thông với sàn tập/thi đấu</td><td><strong>Tối thiểu 10% đến 15%</strong> diện tích mặt sàn thi đấu</td></tr>
         </table>
-
-        <h4>2. Thông số kích thước phòng tập và sân thi đấu trong nhà</h4>
-        <p>Kích thước mặt bằng và chiều cao thông thủy tĩnh (<em>H</em>) tính từ mặt sàn đến điểm thấp nhất của kết cấu mái hoặc thiết bị treo:</p>
+        <h4>2. Kích thước phòng tập và sân thi đấu trong nhà</h4>
         <ul>
-          <li><strong>Nhà tập tổng hợp / Sân đa năng:</strong>
-            <ul>
-              <li>Kích thước chuẩn: <strong>30 m × 18 m</strong> (<em>H</em> ≥ 7,0 m) hoặc <strong>36 m × 18 m</strong>.</li>
-              <li>Cấp quốc tế / thi đấu đỉnh cao: <strong>48 m × 24 m</strong> (<em>H</em> ≥ 12,5 m).</li>
-            </ul>
-          </li>
-          <li><strong>Sân bóng rổ trong nhà:</strong>
-            <ul>
-              <li>Sân thi đấu: <strong>28 m × 15 m</strong>; Kích thước xây dựng (gồm biên an toàn): <strong>32 m × 19 m</strong>.</li>
-              <li>Chiều cao thông thủy: Luyện tập <em>H</em> ≥ <strong>7,0 m</strong>; Thi đấu <em>H</em> ≥ <strong>9,0 m</strong> (quốc tế ≥ <strong>12,5 m</strong>).</li>
-            </ul>
-          </li>
-          <li><strong>Sân bóng chuyền trong nhà:</strong>
-            <ul>
-              <li>Sân thi đấu: <strong>18 m × 9 m</strong>; Kích thước xây dựng (gồm vùng tự do): <strong>24 m × 15 m</strong> đến <strong>34 m × 19 m</strong>.</li>
-              <li>Chiều cao thông thủy: Luyện tập <em>H</em> ≥ <strong>7,0 m</strong>; Thi đấu cấp cao <em>H</em> ≥ <strong>12,5 m</strong>.</li>
-            </ul>
-          </li>
-          <li><strong>Sân cầu lông trong nhà:</strong>
-            <ul>
-              <li>Mặt bằng sân đôi: <strong>13,4 m × 6,1 m</strong>; Kích thước xây dựng trọn ô: <strong>15,4 m × 7,1 m</strong>.</li>
-              <li>Chiều cao thông thủy: Tối thiểu <em>H</em> ≥ <strong>7,5 m</strong> (cấp cao / quốc tế <em>H</em> ≥ <strong>9,0 m đến 12,0 m</strong>).</li>
-            </ul>
-          </li>
-          <li><strong>Sân bóng bàn trong nhà:</strong>
-            <ul>
-              <li>Kích thước bàn chuẩn: <strong>2,74 m × 1,525 m × 0,76 m</strong>.</li>
-              <li>Không gian đặt 1 bàn thi đấu: Tối thiểu <strong>14 m × 7 m</strong>; Chiều cao thông thủy <em>H</em> ≥ <strong>4,0 m</strong> (thi đấu ≥ <strong>5,0 m</strong>).</li>
-            </ul>
-          </li>
+          <li>Nhà tập tổng hợp / Sân đa năng: <strong>30 m × 18 m</strong> (H ≥ 7,0 m) hoặc 36 m × 18 m; quốc tế: <strong>48 m × 24 m</strong> (H ≥ 12,5 m).</li>
+          <li>Sân bóng rổ: <strong>28 m × 15 m</strong> (xây dựng: 32 m × 19 m; tập luyện H ≥ 7,0 m; thi đấu H ≥ 9,0 m; quốc tế H ≥ 12,5 m).</li>
+          <li>Sân bóng chuyền: <strong>18 m × 9 m</strong> (vùng tự do: 24 × 15 m đến 34 × 19 m; tập luyện H ≥ 7,0 m; thi đấu cấp cao H ≥ 12,5 m).</li>
+          <li>Sân cầu lông: Sân đôi <strong>13,4 m × 6,1 m</strong> (xây dựng: 15,4 m × 7,1 m; chiều cao H ≥ 7,5 m; quốc tế H ≥ 9,0 – 12,0 m).</li>
+          <li>Sân bóng bàn: Bàn 2,74 × 1,525 × 0,76 m; không gian 1 bàn: ≥ 14 m × 7 m; thông thủy H ≥ 4,0 m (thi đấu ≥ 5,0 m).</li>
         </ul>
-
-        <h4>3. Thông số kỹ thuật khán đài và môi trường tiện nghi</h4>
+        <h4>3. Khán đài, chiếu sáng và âm học</h4>
         <ul>
-          <li><strong>Khán đài trong nhà:</strong>
-            <ul>
-              <li>Chiều rộng chỗ ngồi: <strong>≥ 0,45 m / ghế</strong> (ghế có tay vịn lấy <strong>≥ 0,50 m</strong>).</li>
-              <li>Chiều sâu bậc khán đài: Bậc gắn ghế có lưng tựa: <strong>0,80 m – 0,90 m</strong>; Bậc ngồi không lưng tựa: <strong>0,75 m</strong>.</li>
-              <li>Khoảng cách giữa 2 lối đi phân cách dọc: Tối đa <strong>26 ghế</strong> (lối vào 2 phía) hoặc <strong>12 ghế</strong> (lối vào cụt 1 phía).</li>
-            </ul>
-          </li>
-          <li><strong>Chiếu sáng nhân tạo (Độ rọi mặt sàn thi đấu):</strong>
-            <ul>
-              <li>Luyện tập thông thường: <strong>150 – 300 Lux</strong>.</li>
-              <li>Thi đấu phong trào / quốc gia: <strong>500 – 750 Lux</strong>.</li>
-              <li>Thi đấu quốc tế truyền hình trực tiếp: <strong>1000 – 1500+ Lux</strong> (hệ số chói lóa <em>GR</em> ≤ 30).</li>
-            </ul>
-          </li>
-          <li><strong>Vi khí hậu & Âm học:</strong>
-            <ul>
-              <li>Nhiệt độ phòng tập mùa hè không quá <strong>28 °C</strong>, mùa đông không dưới <strong>16 °C</strong>.</li>
-              <li>Vận tốc gió khu vực thi đấu cầu lông/bóng bàn: <strong>≤ 0,2 m/s</strong>.</li>
-              <li>Thời gian âm vang tối ưu cho nhà thi đấu có khán giả: <strong>1,2 s – 1,8 s</strong> (tùy theo thể tích không gian).</li>
-            </ul>
-          </li>
+          <li>Khán đài: Rộng chỗ ngồi ≥ 0,45 m; sâu bậc 0,80 – 0,90 m (có tựa) hoặc 0,75 m (không tựa). Dọc tối đa 26 ghế (lối 2 phía) hoặc 12 ghế (lối cụt).</li>
+          <li>Chiếu sáng: Luyện tập 150 – 300 Lux; Thi đấu 500 – 750 Lux; Truyền hình trực tiếp: 1000 – 1500+ Lux (GR ≤ 30). Vận tốc gió cầu lông/bóng bàn ≤ 0,2 m/s.</li>
         </ul>
       `
     },
 
-    // --- 2. TCVN 4205:2012 (SÂN THỂ THAO) ---
+    // --- 3. TCVN 4205:2012 (SÂN THỂ THAO) ---
     {
       code: "TCVN 4205:2012",
       title: "Công trình thể thao – Sân thể thao – Tiêu chuẩn thiết kế",
@@ -259,7 +258,7 @@
       `
     },
 
-    // --- 3. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
+    // --- 4. TCVN 11856:2017 (CHỢ THỰC PHẨM) ---
     {
       code: "TCVN 11856:2017",
       title: "Chợ kinh doanh thực phẩm – Yêu cầu kỹ thuật và phương pháp đánh giá",
@@ -287,7 +286,7 @@
       `
     },
 
-    // --- 4. TCVN 9211:2012 (CHỢ) ---
+    // --- 5. TCVN 9211:2012 (CHỢ) ---
     {
       code: "TCVN 9211:2012",
       title: "Chợ – Tiêu chuẩn thiết kế",
@@ -313,7 +312,7 @@
       `
     },
 
-    // --- 5. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
+    // --- 6. TCVN 3907:2011 (TRƯỜNG MẦM NON) ---
     {
       code: "TCVN 3907:2011",
       title: "Trường mầm non – Yêu cầu thiết kế",
@@ -334,7 +333,7 @@
       `
     },
 
-    // --- 6. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
+    // --- 7. TCVN 8793:2011 (TRƯỜNG TIỂU HỌC) ---
     {
       code: "TCVN 8793:2011",
       title: "Trường tiểu học – Yêu cầu thiết kế",
@@ -353,7 +352,7 @@
       `
     },
 
-    // --- 7. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC) ---
+    // --- 8. TCVN 8794:2011 (TRƯỜNG TRUNG HỌC) ---
     {
       code: "TCVN 8794:2011",
       title: "Trường trung học (THCS & THPT) – Yêu cầu thiết kế",
@@ -370,7 +369,7 @@
       `
     },
 
-    // --- 8. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
+    // --- 9. QCVN 07-4:2016/BXD (GIAO THÔNG ĐÔ THỊ) ---
     {
       code: "QCVN 07-4:2016/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Công trình giao thông đô thị",
@@ -388,7 +387,7 @@
       `
     },
 
-    // --- 9. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
+    // --- 10. QCVN 01:2021/BXD (QUY HOẠCH XÂY DỰNG) ---
     {
       code: "QCVN 01:2021/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về Quy hoạch xây dựng",
@@ -406,7 +405,7 @@
       `
     },
 
-    // --- 10. QCVN 06:2022/BXD (PCCC & AN TOÀN CHÁY) ---
+    // --- 11. QCVN 06:2022/BXD (PCCC & AN TOÀN CHÁY) ---
     {
       code: "QCVN 06:2022/BXD",
       title: "Quy chuẩn kỹ thuật quốc gia về An toàn cháy cho nhà và công trình",
